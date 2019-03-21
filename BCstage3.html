@@ -1,95 +1,112 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Logic - Free Multipurpose Business Template</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta charset="UTF-8">
+    <title><!doctype html>
+        <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+        <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+        <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+        <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <title>Logic - Free Multipurpose Business Template</title>
+            <meta name="description" content="">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 
-    <link rel="stylesheet" href="assets/css/iconfont.css">
-    <link rel="stylesheet" href="assets/fonts/stylesheet.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+            <link rel="stylesheet" href="assets/css/iconfont.css">
+            <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+            <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+            <link rel="stylesheet" href="assets/css/jquery.fancybox.css">
+            <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="assets/css/magnific-popup.css">
+            <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
 
 
-    <!--For Plugins external css-->
-    <link rel="stylesheet" href="assets/css/plugins.css" />
+            <!--For Plugins external css-->
+            <link rel="stylesheet" href="assets/css/plugins.css" />
 
-    <!--Theme custom css -->
-    <link rel="stylesheet" href="assets/css/style.css">
+            <!--Theme custom css -->
+            <link rel="stylesheet" href="assets/css/style.css">
 
-    <!--Theme Responsive css-->
-    <link rel="stylesheet" href="assets/css/responsive.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+            <!--Theme Responsive css-->
+            <link rel="stylesheet" href="assets/css/responsive.css" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            var price_range_slider = document.getElementById("price_range");
-            var ratio_range_slider = document.getElementById("ratio_range");
-            var amount_range_slider = document.getElementById("amount_range");
-            var mortgage_year_range_slider = document.getElementById("mortgage_year_range");
-            var mortgage_interest_range_slider = document.getElementById("mortgage_interest_range");
-            var price_output = document.getElementById('price');
-            var ratio_output = document.getElementById('ratio');
-            var amount_output = document.getElementById('amount');
-            var mortgage_year_output = document.getElementById('mortgage_year');
-            var mortgage_interest_output = document.getElementById('mortgage_interest');
+            <script type="text/javascript">
+                $(document).ready(function(){
 
-            // Display the default slider value
-            price_output.setAttribute('value', price_range_slider.value);
-            ratio_output.setAttribute('value', ratio_range_slider.value);
-            amount_output.setAttribute('value', amount_range_slider.value);
-            mortgage_year_output.setAttribute('value', mortgage_year_range_slider.value);
-            mortgage_interest_output.setAttribute('value', mortgage_interest_range_slider.value);
+                    var mortgage_year_range_slider = document.getElementById("mortgage_year_range");
 
-            var price, ratio, amount;
-
-            // Update the current slider value (each time you drag the slider handle)
-            price_range_slider.oninput = function() {
-                price_output.setAttribute('value', this.value);
-                price = parseInt(price_output.getAttribute('value'));
-                ratio = parseInt(ratio_output.getAttribute('value'));
-                amount = price * (ratio/100);
-                amount_output.setAttribute('value', parseInt(amount));
-                amount_range.value=parseInt(amount);
-            }
-            ratio_range_slider.oninput = function() {
-                ratio_output.setAttribute('value', this.value);
-                price = parseInt(price_output.getAttribute('value'));
-                ratio = parseInt(ratio_output.getAttribute('value'));
-                amount = price * (ratio/100);
-                amount_output.setAttribute('value', parseInt(amount));
-                amount_range.value=parseInt(amount);
-            }
-
-            mortgage_year_range_slider.oninput = function() {
-                mortgage_year_output.setAttribute('value', this.value);
-            }
-            mortgage_interest_range_slider.oninput = function() {
-                mortgage_interest_output.setAttribute('value', this.value);
-            }
+                    var mortgage_year_output = document.getElementById('mortgage_year');
 
 
-        });
+                    // Display the default slider value
 
-        function cal(){
+                    mortgage_year_output.setAttribute('value', mortgage_year_range_slider.value);
 
 
+                    var price, ratio, amount;
 
-        }
+                    // Update the current slider value (each time you drag the slider handle)
 
-    </script>
-</head>
+                    mortgage_year_range_slider.oninput = function() {
+                        mortgage_year_output.setAttribute('value', this.value);
+                    }
+
+
+                });
+
+            </script>
+
+
+            <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+            <script Language="JavaScript">
+                function setDisabled(){
+                    $('#repayment_amount').attr("disabled","true");
+                    $('#decrease_whole').attr("disabled","true");
+                    $('#decrease_per_month').attr("disabled","true");
+                }
+                function setEnabled(){
+                    $('#repayment_amount').removeAttr("disabled");
+                    $('#decrease_whole').removeAttr("disabled");
+                    $('#decrease_per_month').removeAttr("disabled");
+                }
+                function cal(){
+
+                    var income = parseInt($('#income').val());
+                    var interest = parseFloat($('#interest').val())/100;
+                    var period = parseInt($('#period').val());
+                    var start_year = parseInt($('#start_year').val());
+                    var start_month = parseInt($('#start_month').val());
+                    var target_year = parseInt($('#target_year').val());
+                    var target_month = parseInt($('#target_month').val());
+                    var repayment_amount = parseInt($('#repayment_amount').val());
+                    //	alert(amount+" "+interest+" "+period+" "+start_year+" "+start_month+" "+repayment_amount);
+                    //  var monthly_repayment = (amount*(interest/12)*Math.pow((1+interest/12),period))/(Math.pow((1+interest/12),period)-1);
+                    if(start_month-1==0){
+                        start_year -= 1;
+                        start_month = 13;
+                    }
+                    var last_repayment_date = (start_year + period/12) + "/" + (start_month-1);
+                    var repayed_amount = 0;
+                    start_year = parseInt($('#start_year').val());
+                    start_month = parseInt($('#start_month').val());
+                    if(target_month<start_month){
+                        repayed_amount = monthly_repayment*((target_year-start_year-1)*12+(12-start_month)+target_month);
+                    }
+                    else{
+                        repayed_amount = monthly_repayment*((target_year-start_year)*12+(target_month-start_month));
+                    }
+                    $('#monthly_repayment').html(Math.round(monthly_repayment));
+                    $('#last_repayment_date').html(last_repayment_date);
+                    $('#repayed_amount').html(Math.round(repayed_amount));
+                }
+            </script>
+        </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -160,14 +177,15 @@
 
 
 
-
-
-    <section id="housingCal" class="container">
+    <section id="repayment" class="container">
+        Stage 3 - Confirm Risk Plan
         <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+
+            <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">60%</div>
         </div>
 
-        <div class="calHead">Housing Mortgage Calculator
+
+        <div class="calHead">Budget Plan - Stage 3
             <div class="separator"></div>
         </div>
 
@@ -176,157 +194,126 @@
 
 
             <tr>
-                <th rowspan="2">Property Price(10K):</th>
-                <td colspan="2">
-                    <input type="text" class="form-control" id="price" placeholder="(10K)" disabled>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2"><input type="range" min="10" max="2000" value="200" class="slider" id="price_range"></td>
-            </tr>
-
-            <tr>
-                <th rowspan="2">Loan Ratio(%):</th>
-                <td>
-                    <input style="margin-top:1.2rem;" type="text" class="form-control" id="ratio" placeholder="%" disabled>
-                </td>
-                <td>
-                    Loan Amount(10K): <input type="text" class="form-control" id="amount" placeholder="%" disabled>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="range" min="1" max="95" value="60" class="slider" id="ratio_range">
-                </td>
-                <td>
-                    <input type="range" min="0" max="1900" value="120" class="slider" id="amount_range" disabled>
+                <th rowspan="2">Housing Owned?</th>
+                <td colspan="4">
+                    <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
+                        <input type="radio" id="housingY" name="housing" onclick="setDisabled()" class="custom-control-input">
+                        <label class="custom-control-label" for="housingY" style="font-weight:normal;">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
+                        <input type="radio" id="housingN" name="housing" onclick="setEnabled()" class="custom-control-input">
+                        <label class="custom-control-label" for="housingN" style="font-weight:normal;">No</label>
+                    </div>
                 </td>
             </tr>
 
             <tr>
-                <th rowspan="2">Mortgage Years:</th>
-                <td colspan="2">
-                    <input type="text" class="form-control" id="mortgage_year" disabled>
-                </td>
             </tr>
+
             <tr>
-                <td colspan="2">
-                    <input type="range" min="3" max="35" value="25" class="slider" id="mortgage_year_range">
+                <th rowspan="2">Any Existing Housing Mortgage?</th>
+                <td colspan="4">
+                    <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
+                        <input type="radio" id="existmortgageY" name="existmortgage" onclick="setDisabled()" class="custom-control-input">
+                        <label class="custom-control-label" for="existmortgageY" style="font-weight:normal;">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
+                        <input type="radio" id="existmortgageN" name="existmortgage" onclick="setEnabled()" class="custom-control-input">
+                        <label class="custom-control-label" for="existmortgageN" style="font-weight:normal;">No</label>
+                    </div>
                 </td>
             </tr>
 
             <tr>
-                <th rowspan="2">Mortgage Interest(%):</th>
-                <td colspan="2">
-                    <input type="text" class="form-control" id="mortgage_interest" disabled>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input type="range" min="0.5" max="12" value="2.5" step="0.1" class="slider" id="mortgage_interest_range">
-                </td>
             </tr>
 
+
             <tr>
-                <th>Special Stamp Duty</th>
+                <th scope="row">Debt Amount (Either borrower or guarantor):</th>
                 <td colspan="2">
-                    <input class="form-check-input" type="checkbox" id="stamp_duty_check" style="margin-right: 2rem;">
-                    <select class="custom-select my-1 mr-sm-2" id="stamp_duty">
-                        <option class="dropdown-header" style="font-size: 2rem;" disabled>Property purchased between 2010-11-20 to 2012-10-26</option>
-                        <option value="1">Holding Period - Within 6 months (tax 15%)</option>
-                        <option value="2">Holding Period -> 6 months and < 12 months (tax 10%)</option>
-                        <option value="3">Holding Period -> 12 months and < 24 months (tax 5%)</option>
-                        <option value="4">Holding Period -> 24 months and < 32 months, no extra tax involved (tax 0%)</option>
-                        <option class="dropdown-header" style="font-size: 2rem;" disabled>Property purchased after 2012-10-27</option>
-                        <option value="1">Holding Period - Within 6 months (tax 20%)</option>
-                        <option value="2">Holding Period -> 6 months and < 12 months (tax 15%)</option>
-                        <option value="3">Holding Period -> 12 months and < 24 months (tax 10%)</option>
-                        <option value="4">Holding Period -> 24 months and < 32 months, no extra tax involved (tax 10%)</option>
+                    <select class="custom-select mr-sm-2" id="debt">
+                        <option>Select</option>
+                        <option value="0">No</option>
+                        <option value="10000">< 10,000</option>
+                        <option value="25000">10,000 - 49,999</option>
+                        <option value="750000">50,000 - 99,999</option>
+                        <option value="125000">100,000 - 149,999</option>
+                        <option value="175000">150,000 - 199,999</option>
+                        <option value="250000">> 200,000</option>
                     </select>
-                    <p class="form-text text-muted" style="font-size: 1rem;">
-                        SSD is paid by landlord or buyer
-                    </p>
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <th scope="row">Job Position:</th>
+                <td colspan="2">
+                    <select class="custom-select mr-sm-2" id="jobpos">
+                        <option>Select</option>
+                        <option value="Junior">Junior</option>
+                        <option value="Senior">Senior</option>
+                        <option value="Manager">Supervisor / Manager</option>
+                        <option value="Self-Employed">Self-Employed</option>
+                        <option value="Employer">Employer</option>
+                    </select>
                 </td>
             </tr>
 
             <tr>
-                <th>Buyer Stamp Duty</th>
+                <th scope="row">Working Duration:</th>
                 <td colspan="2">
-                    <input class="form-check-input" type="checkbox" id="buyer_stamp_duty_check" style="margin-right: 2rem;">
-                    <label class="custom-control-label" for="buyer_stamp_duty_check" style="font-weight:normal;">Applicable for any person or entity, except a HKPR</label>
+                    <select class="custom-select mr-sm-2" id="jobduration">
+                        <option>Select</option>
+                        <option value="0">Probation Period</option>
+                        <option value="0.5">< 1 year</option>
+                        <option value="2">1 - 3 years</option>
+                        <option value="5">4 - 6 years</option>
+                        <option value="8">> 7 years</option>
+                    </select>
                 </td>
             </tr>
 
             <tr>
-                <th rowspan="3">Non first home Stamp</th>
+                <th scope="row">Number of Children:</th>
                 <td colspan="2">
-                    <input class="form-check-input" name="non_first_home_stamp_duty_radio" type="radio" id="non_first_home_stamp_duty_normal" style="margin-right: 2rem;">
-                    <label class="custom-control-label" for="non_first_home_stamp_duty_normal" style="font-weight:normal;">Normal Stamp for first home buyer or commercial property.</label>
+                    <select class="custom-select mr-sm-2" id="nochildren">
+                        <option>Select</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4 or above</option>
+                    </select>
                 </td>
             </tr>
+
+
             <tr>
+                <th scope="row">Average Age of Children:</th>
                 <td colspan="2">
-                    <input class="form-check-input" name="non_first_home_stamp_duty_radio" type="radio" id="non_first_home_stamp_duty_residential" style="margin-right: 2rem;">
-                    <label class="custom-control-label" for="non_first_home_stamp_duty_residential" style="font-weight:normal;">Application to the non-first home buyer. Residential property</label>
+                    <select class="custom-select mr-sm-2" id="agechildren">
+                        <option>Select</option>
+                        <option value="3">0 - 6</option>
+                        <option value="8">7 - 11</option>
+                        <option value="14">12 - 17</option>
+                        <option value="20">18 - 22</option>
+                        <option value="26">23 - 30</option>
+                        <option value="30">30 or above</option>
+                    </select>
                 </td>
             </tr>
-            <tr>
-                <td colspan="2">
-                    <input class="form-check-input" name="non_first_home_stamp_duty_radio" type="radio" id="non_first_home_stamp_duty_property" style="margin-right: 2rem;">
-                    <label class="custom-control-label" for="non_first_home_stamp_duty_property" style="font-weight:normal;">Application to the non-first home buyer. Commercial Property</label>
-                </td>
-            </tr>
+
 
         </table>
 
-        <h1 id="result">Result</h1>
-        <table class="table">
-            <tr>
-                <th>Monthly Repayments:</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Total Interest Payable:</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>No of terms:</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>First Pay:</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Loan Amount:</th>
-                <td></td>
-            </tr>
-        </table>
+        <div>
+            <label style="padding-right:960px;"> </label>
+            <a href="BCstage4.html" type="button" id="2" onclick="cal()" class="btn btn-success mb-5">Next Stage  →</a>
 
-        <h1 id="result">Other Expenses</h1>
-        <table class="table">
-            <tr>
-                <td>Stamp duty:</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Lawyers:</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Deed:</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Agency Fee(1%):</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Total expenses:</th>
-                <td></td>
-            </tr>
-        </table>
+        </div>
 
+        <br><br>
 
 
 

@@ -34,60 +34,73 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-            var price_range_slider = document.getElementById("price_range");
-            var ratio_range_slider = document.getElementById("ratio_range");
-            var amount_range_slider = document.getElementById("amount_range");
+
             var mortgage_year_range_slider = document.getElementById("mortgage_year_range");
-            var mortgage_interest_range_slider = document.getElementById("mortgage_interest_range");
-            var price_output = document.getElementById('price');
-            var ratio_output = document.getElementById('ratio');
-            var amount_output = document.getElementById('amount');
+
             var mortgage_year_output = document.getElementById('mortgage_year');
-            var mortgage_interest_output = document.getElementById('mortgage_interest');
+
 
             // Display the default slider value
-            price_output.setAttribute('value', price_range_slider.value);
-            ratio_output.setAttribute('value', ratio_range_slider.value);
-            amount_output.setAttribute('value', amount_range_slider.value);
+
             mortgage_year_output.setAttribute('value', mortgage_year_range_slider.value);
-            mortgage_interest_output.setAttribute('value', mortgage_interest_range_slider.value);
+
 
             var price, ratio, amount;
 
             // Update the current slider value (each time you drag the slider handle)
-            price_range_slider.oninput = function() {
-                price_output.setAttribute('value', this.value);
-                price = parseInt(price_output.getAttribute('value'));
-                ratio = parseInt(ratio_output.getAttribute('value'));
-                amount = price * (ratio/100);
-                amount_output.setAttribute('value', parseInt(amount));
-                amount_range.value=parseInt(amount);
-            }
-            ratio_range_slider.oninput = function() {
-                ratio_output.setAttribute('value', this.value);
-                price = parseInt(price_output.getAttribute('value'));
-                ratio = parseInt(ratio_output.getAttribute('value'));
-                amount = price * (ratio/100);
-                amount_output.setAttribute('value', parseInt(amount));
-                amount_range.value=parseInt(amount);
-            }
 
             mortgage_year_range_slider.oninput = function() {
                 mortgage_year_output.setAttribute('value', this.value);
-            }
-            mortgage_interest_range_slider.oninput = function() {
-                mortgage_interest_output.setAttribute('value', this.value);
             }
 
 
         });
 
+    </script>
+
+
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script Language="JavaScript">
+        function setDisabled(){
+            $('#repayment_amount').attr("disabled","true");
+            $('#decrease_whole').attr("disabled","true");
+            $('#decrease_per_month').attr("disabled","true");
+        }
+        function setEnabled(){
+            $('#repayment_amount').removeAttr("disabled");
+            $('#decrease_whole').removeAttr("disabled");
+            $('#decrease_per_month').removeAttr("disabled");
+        }
         function cal(){
 
-
-
+            var income = parseInt($('#income').val());
+            var interest = parseFloat($('#interest').val())/100;
+            var period = parseInt($('#period').val());
+            var start_year = parseInt($('#start_year').val());
+            var start_month = parseInt($('#start_month').val());
+            var target_year = parseInt($('#target_year').val());
+            var target_month = parseInt($('#target_month').val());
+            var repayment_amount = parseInt($('#repayment_amount').val());
+            //	alert(amount+" "+interest+" "+period+" "+start_year+" "+start_month+" "+repayment_amount);
+            //  var monthly_repayment = (amount*(interest/12)*Math.pow((1+interest/12),period))/(Math.pow((1+interest/12),period)-1);
+            if(start_month-1==0){
+                start_year -= 1;
+                start_month = 13;
+            }
+            var last_repayment_date = (start_year + period/12) + "/" + (start_month-1);
+            var repayed_amount = 0;
+            start_year = parseInt($('#start_year').val());
+            start_month = parseInt($('#start_month').val());
+            if(target_month<start_month){
+                repayed_amount = monthly_repayment*((target_year-start_year-1)*12+(12-start_month)+target_month);
+            }
+            else{
+                repayed_amount = monthly_repayment*((target_year-start_year)*12+(target_month-start_month));
+            }
+            $('#monthly_repayment').html(Math.round(monthly_repayment));
+            $('#last_repayment_date').html(last_repayment_date);
+            $('#repayed_amount').html(Math.round(repayed_amount));
         }
-
     </script>
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
@@ -160,173 +173,156 @@
 
 
 
-
-
-    <section id="housingCal" class="container">
+    <section id="repayment" class="container">
+        Stage 1 - Background
         <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+
+            <div class="progress-bar" role="progressbar" style="width: 20%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">20%</div>
         </div>
 
-        <div class="calHead">Housing Mortgage Calculator
+
+        <div class="calHead">Budget Plan - Stage 1
             <div class="separator"></div>
         </div>
 
         <table class="table">
 
-
-
             <tr>
-                <th rowspan="2">Property Price(10K):</th>
-                <td colspan="2">
-                    <input type="text" class="form-control" id="price" placeholder="(10K)" disabled>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2"><input type="range" min="10" max="2000" value="200" class="slider" id="price_range"></td>
-            </tr>
-
-            <tr>
-                <th rowspan="2">Loan Ratio(%):</th>
+                <th rowspan="2">Monthly Household Income:</th>
                 <td>
-                    <input style="margin-top:1.2rem;" type="text" class="form-control" id="ratio" placeholder="%" disabled>
+                    <input style="margin-top:1 rem;" type="text" class="form-control" id="income" placeholder="(HKD)">
                 </td>
-                <td>
-                    Loan Amount(10K): <input type="text" class="form-control" id="amount" placeholder="%" disabled>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="range" min="1" max="95" value="60" class="slider" id="ratio_range">
-                </td>
-                <td>
-                    <input type="range" min="0" max="1900" value="120" class="slider" id="amount_range" disabled>
-                </td>
+
             </tr>
 
             <tr>
-                <th rowspan="2">Mortgage Years:</th>
-                <td colspan="2">
-                    <input type="text" class="form-control" id="mortgage_year" disabled>
-                </td>
             </tr>
+
+
+
+
             <tr>
+                <th rowspan="2">Marital Status:</th>
                 <td colspan="2">
-                    <input type="range" min="3" max="35" value="25" class="slider" id="mortgage_year_range">
+                    <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
+                        <input type="radio" id="single" name="status" onclick="setDisabled()" class="custom-control-input">
+                        <label class="custom-control-label" for="self-use" style="font-weight:normal;">Single</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
+                        <input type="radio" id="married" name="status" onclick="setEnabled()" class="custom-control-input">
+                        <label class="custom-control-label" for="n-self-use" style="font-weight:normal;">Married</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
+                        <input type="radio" id="divorced" name="status" onclick="setEnabled()" class="custom-control-input">
+                        <label class="custom-control-label" for="n-self-use" style="font-weight:normal;">Divorced</label>
+                    </div>
                 </td>
+
+            </tr>
+
+
+            <tr>
             </tr>
 
             <tr>
-                <th rowspan="2">Mortgage Interest(%):</th>
+                <th scope="row">Age:</th>
                 <td colspan="2">
-                    <input type="text" class="form-control" id="mortgage_interest" disabled>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input type="range" min="0.5" max="12" value="2.5" step="0.1" class="slider" id="mortgage_interest_range">
-                </td>
-            </tr>
-
-            <tr>
-                <th>Special Stamp Duty</th>
-                <td colspan="2">
-                    <input class="form-check-input" type="checkbox" id="stamp_duty_check" style="margin-right: 2rem;">
-                    <select class="custom-select my-1 mr-sm-2" id="stamp_duty">
-                        <option class="dropdown-header" style="font-size: 2rem;" disabled>Property purchased between 2010-11-20 to 2012-10-26</option>
-                        <option value="1">Holding Period - Within 6 months (tax 15%)</option>
-                        <option value="2">Holding Period -> 6 months and < 12 months (tax 10%)</option>
-                        <option value="3">Holding Period -> 12 months and < 24 months (tax 5%)</option>
-                        <option value="4">Holding Period -> 24 months and < 32 months, no extra tax involved (tax 0%)</option>
-                        <option class="dropdown-header" style="font-size: 2rem;" disabled>Property purchased after 2012-10-27</option>
-                        <option value="1">Holding Period - Within 6 months (tax 20%)</option>
-                        <option value="2">Holding Period -> 6 months and < 12 months (tax 15%)</option>
-                        <option value="3">Holding Period -> 12 months and < 24 months (tax 10%)</option>
-                        <option value="4">Holding Period -> 24 months and < 32 months, no extra tax involved (tax 10%)</option>
+                    <select class="custom-select mr-sm-2" id="age">
+                        <option>Select</option>
+                        <option value="20">18 - 22</option>
+                        <option value="25">23 - 27</option>
+                        <option value="30">28 - 32</option>
+                        <option value="35">33 - 37</option>
+                        <option value="40">38 - 42</option>
+                        <option value="45">43 - 47</option>
+                        <option value="50">48 - 52</option>
+                        <option value="55">53 - 57</option>
+                        <option value="60">58 - 65</option>
+                        <option value="75">over 65</option>
                     </select>
-                    <p class="form-text text-muted" style="font-size: 1rem;">
-                        SSD is paid by landlord or buyer
-                    </p>
                 </td>
             </tr>
 
             <tr>
-                <th>Buyer Stamp Duty</th>
+                <th rowspan="2">Purpose of Purchase:</th>
                 <td colspan="2">
-                    <input class="form-check-input" type="checkbox" id="buyer_stamp_duty_check" style="margin-right: 2rem;">
-                    <label class="custom-control-label" for="buyer_stamp_duty_check" style="font-weight:normal;">Applicable for any person or entity, except a HKPR</label>
+                    <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
+                        <input type="radio" id="self-use" name="repayment_method" onclick="setDisabled()" class="custom-control-input">
+                        <label class="custom-control-label" for="self-use" style="font-weight:normal;">Self-use</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
+                        <input type="radio" id="n-self-use" name="repayment_method" onclick="setEnabled()" class="custom-control-input">
+                        <label class="custom-control-label" for="n-self-use" style="font-weight:normal;">Non-Self-use</label>
+                    </div>
+                </td>
+            <tr>
+
+            <tr>
+                <th rowspan="2">Income mainly from Hong Kong?</th>
+                <td colspan="4">
+                    <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
+                        <input type="radio" id="incomeHK" name="repayment_method" onclick="setDisabled()" class="custom-control-input">
+                        <label class="custom-control-label" for="incomeHK" style="font-weight:normal;">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
+                        <input type="radio" id="incomeOther" name="repayment_method" onclick="setEnabled()" class="custom-control-input">
+                        <label class="custom-control-label" for="incomeOther" style="font-weight:normal;">No</label>
+                    </div>
                 </td>
             </tr>
 
             <tr>
-                <th rowspan="3">Non first home Stamp</th>
-                <td colspan="2">
-                    <input class="form-check-input" name="non_first_home_stamp_duty_radio" type="radio" id="non_first_home_stamp_duty_normal" style="margin-right: 2rem;">
-                    <label class="custom-control-label" for="non_first_home_stamp_duty_normal" style="font-weight:normal;">Normal Stamp for first home buyer or commercial property.</label>
-                </td>
             </tr>
+
             <tr>
-                <td colspan="2">
-                    <input class="form-check-input" name="non_first_home_stamp_duty_radio" type="radio" id="non_first_home_stamp_duty_residential" style="margin-right: 2rem;">
-                    <label class="custom-control-label" for="non_first_home_stamp_duty_residential" style="font-weight:normal;">Application to the non-first home buyer. Residential property</label>
+                <th rowspan="2">First-time House Buyer?</th>
+                <td colspan="4">
+                    <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
+                        <input type="radio" id="first-time" name="repayment_method" onclick="setDisabled()" class="custom-control-input">
+                        <label class="custom-control-label" for="first-time" style="font-weight:normal;">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
+                        <input type="radio" id="non-first-time" name="repayment_method" onclick="setEnabled()" class="custom-control-input">
+                        <label class="custom-control-label" for="first-time" style="font-weight:normal;">No</label>
+                    </div>
                 </td>
             </tr>
+
             <tr>
+            </tr>
+
+            <tr>
+                <th scope="row">Liquidity:</th>
                 <td colspan="2">
-                    <input class="form-check-input" name="non_first_home_stamp_duty_radio" type="radio" id="non_first_home_stamp_duty_property" style="margin-right: 2rem;">
-                    <label class="custom-control-label" for="non_first_home_stamp_duty_property" style="font-weight:normal;">Application to the non-first home buyer. Commercial Property</label>
+                    <select class="custom-select mr-sm-2" id="liquidity">
+                        <option>Select</option>
+                        <option value="50000">< 99,999</option>
+                        <option value="150000">100,000 - 199,999</option>
+                        <option value="300000">200,000 - 399,999</option>
+                        <option value="500000">400,000 - 599,999</option>
+                        <option value="700000">600,000 - 799,999</option>
+                        <option value="900000">800,000 - 999,999</option>
+                        <option value="1250000">1,000,000 - 1,399,999</option>
+                        <option value="1550000">1,400,000 - 1,799,999</option>
+                        <option value="1950000">1,800,000 - 2,199,999</option>
+                        <option value="2350000">2,200,000 - 2,599,999</option>
+                        <option value="2750000">2,600,000 - 2,999,999</option>
+                        <option value="3500000">> 3,000,000 </option>
+                    </select>
                 </td>
             </tr>
+
+
 
         </table>
 
-        <h1 id="result">Result</h1>
-        <table class="table">
-            <tr>
-                <th>Monthly Repayments:</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Total Interest Payable:</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>No of terms:</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>First Pay:</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Loan Amount:</th>
-                <td></td>
-            </tr>
-        </table>
+        <div>
+            <label style="padding-right:960px;"> </label>
+            <a href="BCstage2.html" type="button" id="2" onclick="cal()" class="btn btn-success mb-5">Next Stage  →</a>
 
-        <h1 id="result">Other Expenses</h1>
-        <table class="table">
-            <tr>
-                <td>Stamp duty:</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Lawyers:</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Deed:</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Agency Fee(1%):</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Total expenses:</th>
-                <td></td>
-            </tr>
-        </table>
+        </div>
 
+        <br><br>
 
 
 
