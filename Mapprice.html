@@ -1,0 +1,666 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Logic - Free Multipurpose Business Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+
+    <link rel="stylesheet" href="assets/css/iconfont.css">
+    <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+
+
+    <!--For Plugins external css-->
+    <link rel="stylesheet" href="assets/css/plugins.css" />
+
+    <!--Theme custom css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+
+
+
+    <script type="text/javascript" src="https://www.google.com/js"></script>
+    <script type="text/javascript">
+
+
+
+        function initMap() {
+            var YuenLong = {lat:22.445691, lng: 114.034771};
+            var TuenMum = {lat:22.394378 , lng:113.972740};
+            var TsuenWan = {lat:22.373219, lng:  114.117125};
+            var KwaiTsing = {lat:22.346167 , lng:114.109827};
+            var ShamShuiPo = {lat:22.330644 , lng:114.162682 };
+            var WestKL = {lat:22.326390, lng:  114.154035};
+            var CentralWestern = {lat:22.287660, lng: 114.146349};
+            var Aberdeen = {lat:22.248785, lng:  114.153453 };
+            var Island = {lat:22.289647 , lng:113.942471 };
+            var NorthernDistrict = {lat:22.493815 , lng: 114.139735 };
+            var TaiPo = {lat:22.441677, lng: 114.165169};
+            var Shatin = {lat:22.378102  ,lng: 114.195452};
+            var WongTaiSin = {lat:22.341172, lng: 114.193234 };
+            var KowloonCity = {lat: 22.330125, lng:114.191893 };
+            var KwunTong = {lat:22.311978 , lng:114.226072 };
+            var TseungKwanO = {lat:22.316490, lng:114.260432 };
+            var EasternDistrict = {lat:22.283816, lng:114.220253};
+            var WanChai = {lat:22.277022, lng: 114.173402};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 11,
+                center: YuenLong,
+                center: TuenMum,
+                center: TsuenWan,
+                center: KwaiTsing,
+                center: ShamShuiPo,
+                center: WestKL,
+                center: CentralWestern,
+                center: Aberdeen,
+                center: Island,
+                center: NorthernDistrict,
+                center: TaiPo,
+                center: Shatin,
+                center: WongTaiSin,
+                center: KowloonCity,
+                center: KwunTong,
+                center: TseungKwanO,
+                center: EasternDistrict,
+                center: WanChai
+            });
+
+
+            var icon = {
+                url: "https://img.icons8.com/color/48/000000/home.png", // url
+                scaledSize: new google.maps.Size(28, 28), // scaled size
+                origin: new google.maps.Point(0,0), // origin
+                anchor: new google.maps.Point(0, 0) // anchor
+            };
+
+
+
+            var Ainfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Yuen Long</strong></p>' +
+                        '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $8,632/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $11,288/sq. ft.</p>' +
+                    '<a href="https://en.midland.com.hk/find-property/Yuen%20Long#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker = new google.maps.Marker({
+                position: YuenLong,
+                map: map,
+                icon: icon,
+                title: 'YuenLong'
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+                Ainfowindow.open(map,marker);
+            });
+
+
+
+            var Binfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Tuen Mun</strong></p>' +
+                        '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $8,983/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $11,878/sq. ft.</p>' +
+                    '<a href="https://en.midland.com.hk/find-property/Tuen%20Mun#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker2 = new google.maps.Marker({
+                position:TuenMum,
+                map: map,
+                icon: icon,
+                title: 'Tuen Mun'
+            });
+            google.maps.event.addListener(marker2, 'click', function() {
+                Binfowindow.open(map,marker2);
+            });
+
+
+
+            var Cinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Tsuen Wan</strong></p>' +
+                        '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $9,823/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $12,588/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Tsuen%20Wan#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker3 = new google.maps.Marker({
+                position:TsuenWan,
+                map: map,
+                icon: icon,
+                title: 'Tsuen Wan'
+            });
+            google.maps.event.addListener(marker3, 'click', function() {
+                Cinfowindow.open(map,marker3);
+            });
+
+
+            var Dinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Kwai Tsing</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $10,907/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $14,133/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Tsing%20Yi#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker4 = new google.maps.Marker({
+                position:KwaiTsing,
+                map: map,
+                icon: icon,
+                title: 'Kwai Tsing'
+            });
+            google.maps.event.addListener(marker4, 'click', function() {
+                Dinfowindow.open(map,marker4);
+            });
+
+
+
+            var Einfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Sham Shui Po</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $11,555/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $15,564/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Cheung%20Sha%20Wan%20/%20Sham%20Shui%20Po#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker5 = new google.maps.Marker({
+                position:ShamShuiPo,
+                map: map,
+                icon: icon,
+                title: 'Sham Shui Po'
+            });
+            google.maps.event.addListener(marker5, 'click', function() {
+                Einfowindow.open(map,marker5);
+            });
+
+
+
+            var Finfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>West KowLoon</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $14,536/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $20,613/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Mongkok#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker6 = new google.maps.Marker({
+                position:WestKL,
+                map: map,
+                icon: icon,
+                title: 'West KowLoon'
+            });
+            google.maps.event.addListener(marker6, 'click', function() {
+                Finfowindow.open(map,marker6);
+            });
+
+
+            var Ginfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Central And Western District</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $15,752/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $21,362/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Sheung%20Wan%20/%20Central#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker7 = new google.maps.Marker({
+                position:CentralWestern,
+                map: map,
+                icon: icon,
+                title: 'Central And Western District'
+            });
+            google.maps.event.addListener(marker7, 'click', function() {
+                Ginfowindow.open(map,marker7);
+            });
+
+
+            var Hinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Aberdeen</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $13,132/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $16,294/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Aberdeen%20/%20Wong%20Chuk%20Hang#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker8 = new google.maps.Marker({
+                position:Aberdeen,
+                map: map,
+                icon: icon,
+                title: 'Aberdeen'
+            });
+            google.maps.event.addListener(marker8, 'click', function() {
+                Hinfowindow.open(map,marker8);
+            });
+
+
+            var Iinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Tung Chung</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $8,809/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $11,979/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Tung%20Chung#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker9 = new google.maps.Marker({
+                position:Island,
+                map: map,
+                icon: icon,
+                title: 'Tung Chung'
+            });
+            google.maps.event.addListener(marker9, 'click', function() {
+                Iinfowindow.open(map,marker9);
+            });
+
+
+            var Jinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Northern District</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $9,359/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $12,645/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Sheung%20Shui%20/%20Fanling#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker10 = new google.maps.Marker({
+                position:NorthernDistrict,
+                map: map,
+                icon: icon,
+                title: 'Northern District'
+            });
+            google.maps.event.addListener(marker10, 'click', function() {
+                Jinfowindow.open(map,marker10);
+            });
+
+
+            var Kinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Tai Po</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $10,908/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $13,646/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Tai%20Po#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker11 = new google.maps.Marker({
+                position:TaiPo,
+                map: map,
+                icon: icon,
+                title: 'Tai Po'
+            });
+            google.maps.event.addListener(marker11, 'click', function() {
+                Kinfowindow.open(map,marker11);
+            });
+
+
+            var Minfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Sha Tin</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $11,606/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $15,290/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Shatin#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker12 = new google.maps.Marker({
+                position:Shatin,
+                map: map,
+                icon: icon,
+                title: 'Sha Tin'
+            });
+            google.maps.event.addListener(marker12, 'click', function() {
+                Minfowindow.open(map,marker12);
+            });
+
+
+            var Ninfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Wong Tai Sin</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $10,376/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $14,071/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Wong%20Tai%20Sin%20/%20Lok%20Fu#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker13 = new google.maps.Marker({
+                position:WongTaiSin,
+                map: map,
+                icon: icon,
+                title: 'Wong Tai Sin'
+            });
+            google.maps.event.addListener(marker13, 'click', function() {
+                Ninfowindow.open(map,marker13);
+            });
+
+
+
+            var Oinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Kowloon City</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $13,317/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $16,965/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Kowloon%20City#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker14 = new google.maps.Marker({
+                position:KowloonCity,
+                map: map,
+                icon: icon,
+                title: 'Kowloon City'
+            });
+            google.maps.event.addListener(marker14, 'click', function() {
+                Oinfowindow.open(map,marker14);
+            });
+
+
+
+
+            var Pinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Kwun Tong</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $11,297/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $13,927/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Kwun%20Tong#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker15 = new google.maps.Marker({
+                position:KwunTong,
+                map: map,
+                icon: icon,
+                title: 'Kwun Tong'
+            });
+            google.maps.event.addListener(marker15, 'click', function() {
+                Pinfowindow.open(map,marker15);
+            });
+
+            var Tinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Tseung Kwan O</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $11,357/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $15,364/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Po%20Lam%20/%20Tseung%20Kwan%20O%20Station#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker16 = new google.maps.Marker({
+                position:TseungKwanO,
+                map: map,
+                icon: icon,
+                title: 'Tseung Kwan O'
+            });
+            google.maps.event.addListener(marker16, 'click', function() {
+                Tinfowindow.open(map,marker16);
+            });
+
+
+            var Uinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Eastern District</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $14,005/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $16,819/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Sai%20Wan%20Ho%20/%20Taikoo#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker17 = new google.maps.Marker({
+                position:EasternDistrict,
+                map: map,
+                icon: icon,
+                title: 'Eastern District'
+            });
+            google.maps.event.addListener(marker17, 'click', function() {
+                Uinfowindow.open(map,marker17);
+            });
+
+
+
+            var Vinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Wan Chai</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $20,630/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $20,630/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Wan%20Chai%20/%20Causeway%20Bay#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker18 = new google.maps.Marker({
+                position:WanChai,
+                map: map,
+                icon: icon,
+                title: 'Wan Chai'
+            });
+            google.maps.event.addListener(marker18, 'click', function() {
+                Vinfowindow.open(map,marker18);
+            });
+        }
+
+
+
+
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAb0Nkffvom4kvcfTdyti3s92M5rGb8xKE&callback=initMap">
+    </script>
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class='preloader'><div class='loaded'>&nbsp;</div></div>
+<div class="culmn">
+    <header id="main_menu" class="header navbar-fixed-top menu-scroll">
+        <div class="main_menu_bg">
+            <div class="container">
+                <div class="row">
+                    <div class="nave_menu">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#home">
+                                        <img src="assets/images/logo.png"/>
+                                    </a>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="index.html#home">HOME</a></li>
+                                        <li><a href="index.html#about">About</a></li>
+                                        <li><a href="index.html#service">Functions</a></li>
+                                        <li><a href="index.html#information">Information</a></li>
+                                        <li><a href="index.html#contact">CONTACT</a></li>
+
+
+                                        <li>
+                                            <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <span class="glyphicon glyphicon-search"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <form class="navbar-form" role="search">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Search">
+                                                        </div>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+
+                                </div>
+
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </header> <!--End of header -->
+
+
+
+    <section id="repayment" class="container">
+
+
+
+
+        <div class="calHead">Using Map to Find Property
+            <div class="separator"></div>
+        </div>
+
+        You can click on the below house icon for checking the <strong>square ft. price of gross floor area and saleable area.</strong>
+        <br><br>
+        You also can find the properties of that district!
+        <br><br>
+
+        <div id="map" style="width:100%;height:750px;"></div>
+        <h5>Data & Property Information Provided by Midland</h5>
+
+        <br><br><br>
+
+
+    </section>
+
+
+
+
+    <section id="footer" class="footer_widget">
+        <div class="video_overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="main_widget">
+                                <div class="col-sm-3 col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+                                        <div class="footer_logo">
+                                            <img src="assets/images/logo.png" alt="" />
+                                        </div>
+                                        <p></p>
+
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-sm-3  col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+
+                                        <div class="footer_title">
+                                            <h4>Function</h4>
+                                            <div class="separator"></div>
+                                        </div>
+                                        <ul>
+                                            <li><a href="mortgageCal.html">Housing Mortgage Calculator</a></li>
+                                            <li><a href="repaymentCal.html">Mortgage Amendment Repayment </a></li>
+                                            <li><a href="stressCal.html">Mortgage Stress-Test</a></li>
+                                            <li><a href="QSInfo.html">Housing Adviser Guide</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+
+                                        <div class="footer_title">
+                                            <h4>NEWSLETTER</h4>
+                                            <div class="separator"></div>
+                                        </div>
+
+                                        <div class="footer_subcribs_area">
+                                            <p>Sign up for our mailing list to get latest updates and offers.</p>
+                                            <form class="navbar-form navbar-left" role="search">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Search">
+                                                    <button type="submit" class="submit_btn"></button>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="main_footer">
+                        <div class="row">
+
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="copyright_text">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="flowus">
+                                    <a href=""><i class="fa fa-facebook"></i></a>
+                                    <a href=""><i class="fa fa-twitter"></i></a>
+                                    <a href=""><i class="fa fa-google-plus"></i></a>
+                                    <a href=""><i class="fa fa-instagram"></i></a>
+                                    <a href=""><i class="fa fa-youtube"></i></a>
+                                    <a href=""><i class="fa fa-dribbble"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+</div>
+
+<!-- START SCROLL TO TOP  -->
+
+<div class="scrollup">
+    <a href="#"><i class="fa fa-chevron-up"></i></a>
+</div>
+
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+<script src="assets/js/vendor/bootstrap.min.js"></script>
+
+<script src="assets/js/jquery.magnific-popup.js"></script>
+<script src="assets/js/jquery.mixitup.min.js"></script>
+<script src="assets/js/jquery.easing.1.3.js"></script>
+<script src="assets/js/jquery.masonry.min.js"></script>
+<script src="assets/js/jquery.fancybox.pack.js"></script>
+
+
+
+
+
+
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

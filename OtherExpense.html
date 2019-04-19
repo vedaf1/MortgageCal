@@ -1,0 +1,396 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Logic - Free Multipurpose Business Template</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+
+        <link rel="stylesheet" href="assets/css/iconfont.css">
+        <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/jquery.fancybox.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+
+
+        <!--For Plugins external css-->
+ 
+
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="assets/css/responsive.css" />
+		
+		
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	
+		<script type="text/javascript">
+		$(document).ready(function(){
+			
+		});
+		function cal(){
+			var property_price = parseFloat($('#property-price').val());
+			var stamp_duty;
+			var snp_agreement;
+			var mortgage_deed;
+			
+			if(property_price>10000000){
+                snp_agreement = 3000;
+			}else if(property_price>5000000 && property_price<=10000000){
+                snp_agreement = 2500;
+			}else if(property_price>2000000 && property_price<=5000000){
+                snp_agreement = 2000;
+			}else if(property_price>1000000 && property_price<=2000000){
+                snp_agreement = 1750;
+			}else if(property_price>500000 && property_price<=1000000){
+                snp_agreement = 1500;
+            }
+
+
+
+
+            if(property_price>5000000){
+                mortgage_deed = 30000 + (((property_price-5000000)/10000)*20);
+            }else if(property_price>1000000 && property_price<=5000000){
+                mortgage_deed = 10000 + (((property_price-1000000)/10000)*50);
+            }else if(property_price>500000 && property_price<=1000000){
+                mortgage_deed = 6250 + (((property_price-500000)/10000)*75);
+            }
+
+
+
+
+			
+			if(property_price<=2000000){
+				stamp_duty = 100;
+			}else if(property_price>2000000 && property_price<=2351760){
+				stamp_duty = 100 + (property_price - 2000000) * 0.1; 
+			}else if(property_price>2351760 && property_price<=3000000){
+				stamp_duty = property_price * 0.015;
+			}else if(property_price>3000000 && property_price<=3290320){
+				stamp_duty = 45000 + (property_price - 3000000) * 0.1;
+			}else if(property_price>3290320 && property_price<=4000000){
+				stamp_duty = property_price * 0.0225;
+			}else if(property_price>4000000 && property_price<=4428570){
+				stamp_duty = 90000 + (property_price - 4000000) * 0.1;
+			}else if(property_price>4428570 && property_price<=6000000){
+				stamp_duty = property_price * 0.03;
+			}else if(property_price>6000000 && property_price<=6720000){
+				stamp_duty = 180000 + (property_price-6000000) * 0.1;
+			}else if(property_price>6720000 && property_price<=20000000){
+				stamp_duty = property_price * 0.0375;
+			}else if(property_price>20000000 && property_price<=21739120){
+				stamp_duty = 750000 + (property_price - 20000000) * 0.1;
+			}else{
+				stamp_duty = property_price * 0.0425;
+			}
+
+
+			var total = snp_agreement + mortgage_deed + stamp_duty + Math.round(property_price*0.01);
+			$('#stamp-duty').html(Math.round(stamp_duty));
+			$('#agency-commission').html(Math.round(property_price*0.01));
+			$('#snp-agreement').html(Math.round(snp_agreement));
+            $('#mortgage-deed').html(Math.round(mortgage_deed));
+            $('#total').html(Math.round(total));
+		}
+
+
+        function reset(){
+            $('#stamp-duty').empty();
+            $('#agency-commission').empty();
+            $('#snp-agreement').empty();
+            $('#mortgage-deed').empty();
+            $('#total').empty();
+
+        }
+		</script>
+    </head>
+    <body data-spy="scroll" data-target=".navbar-collapse">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class='preloader'><div class='loaded'>&nbsp;</div></div>
+        <div class="culmn">
+            <header id="main_menu" class="header navbar-fixed-top menu-scroll">            
+                <div class="main_menu_bg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="nave_menu">
+                                <nav class="navbar navbar-default">
+                                    <div class="container-fluid">
+                                        <!-- Brand and toggle get grouped for better mobile display -->
+                                        <div class="navbar-header">
+                                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                                <span class="sr-only">Toggle navigation</span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                            </button>
+                                            <a class="navbar-brand" href="#home">
+                                                <img src="assets/images/logo.png"/>
+                                            </a>
+                                        </div>
+
+                                        <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+
+                                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                            <ul class="nav navbar-nav navbar-right">
+                                                <li><a href="index.html#home">HOME</a></li>
+                                                <li><a href="index.html#about">About</a></li>
+                                                <li><a href="index.html#service">Functions</a></li>
+                                                <li><a href="index.html#information">Information</a></li>
+                                                <li><a href="index.html#contact">CONTACT</a></li>
+                                                
+                                                
+                                                <li>
+                                                    <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="glyphicon glyphicon-search"></span></a>
+                                                    <ul class="dropdown-menu">
+                                                        <li>
+                                                            <form class="navbar-form" role="search">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" placeholder="Search">
+                                                                </div>
+                                                            </form>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+
+
+                                        </div>
+
+                                    </div>
+                                </nav>
+                            </div>	
+                        </div>
+
+                    </div>
+
+                </div>
+            </header> <!--End of header -->
+
+		  
+			
+		
+
+			<section id="expenseCal" class="container">
+				<div class="progress">
+				  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+				</div>
+
+				<div class="calHead">Other expense
+				<div class="separator"></div>
+				</div>
+				
+				<table class="table">
+
+					
+					
+					<tr>
+						<th rowspan="2">Please enter property price:</th>
+						<td colspan="2">
+							<input type="text" class="form-control" id="property-price" >
+						</td>
+					</tr>
+					
+					
+				</table>
+				
+				<div>
+                    <label style="padding-right:780px;"> </label>
+                    <button type="button" id="reset" style=" margin-left: 30px;" onclick="reset()" class="btnrent">Reset</button>
+                <button type="button" id="calculate" onclick="cal()" class="btncalcenter">Calculate</button>
+
+                </div>
+			
+					
+                <h1 id="result">Result</h1>
+                <table class="table">
+                <tr>
+                    <th>S&P Agreement:</th>
+                    <td id="snp-agreement"></td>
+                </tr>
+                <tr>
+                    <th>Mortgage Deed:</th>
+                    <td id="mortgage-deed"></td>
+                 </tr>
+                <tr>
+                    <th>Stamp Duty:</th>
+                    <td id="stamp-duty"></td>
+                </tr>
+                <tr>
+                    <th>Agency Commission (1%):</th>
+                    <td id="agency-commission"></td>
+                </tr>
+                <tr>
+                    <th>Total Expense:</th>
+                    <td id="total"></td>
+                </tr>
+
+
+                </table>
+
+<br><br>
+				
+				
+			</section>	
+
+           
+
+
+            <section id="footer" class="footer_widget">
+                <div class="video_overlay">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="main_widget">
+                                        <div class="col-sm-3 col-xs-12">
+                                            <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+                                                <div class="footer_logo">
+                                                    <img src="assets/images/logo.png" alt="" />
+                                                </div>
+                                                <p></p>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3  col-xs-12">
+                                            <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+
+                                                <div class="footer_title">
+                                                    <h4>SITEMAP</h4>
+                                                    <div class="separator"></div>
+                                                </div>
+                                                <ul>
+                                                    <li><a href="">Services</a></li>
+                                                    <li><a href="">About Us</a></li>
+                                                    <li><a href="">Our Team</a></li>
+                                                    <li><a href="">Portfolio</a></li>
+                                                </ul> 
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3  col-xs-12">
+                                            <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+
+                                                <div class="footer_title">
+                                                    <h4>Function</h4>
+                                                    <div class="separator"></div>
+                                                </div>
+                                                <ul>
+                                                    <li><a href="mortgageCal.html">Housing Mortgage Calculator</a></li>
+                                                    <li><a href="repaymentCal.html">Mortgage Amendment Repayment </a></li>
+                                                    <li><a href="stressCal.html">Mortgage Stress-Test</a></li>
+                                                    <li><a href="QSInfo.html">Housing Adviser Guide</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3 col-xs-12">
+                                            <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+
+                                                <div class="footer_title">
+                                                    <h4>NEWSLETTER</h4>
+                                                    <div class="separator"></div>
+                                                </div>
+
+                                                <div class="footer_subcribs_area">
+                                                    <p>Sign up for our mailing list to get latest updates and offers.</p>
+                                                    <form class="navbar-form navbar-left" role="search">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Search">
+                                                            <button type="submit" class="submit_btn"></button>
+                                                        </div>
+
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="main_footer">
+                                <div class="row">
+
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="copyright_text">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="flowus">
+                                            <a href=""><i class="fa fa-facebook"></i></a>
+                                            <a href=""><i class="fa fa-twitter"></i></a>
+                                            <a href=""><i class="fa fa-google-plus"></i></a>
+                                            <a href=""><i class="fa fa-instagram"></i></a>
+                                            <a href=""><i class="fa fa-youtube"></i></a>
+                                            <a href=""><i class="fa fa-dribbble"></i></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+
+        </div>
+
+        <!-- START SCROLL TO TOP  -->
+
+        <div class="scrollup">
+            <a href="#"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+        <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
+
+        <script src="assets/js/jquery.magnific-popup.js"></script>
+        <script src="assets/js/jquery.mixitup.min.js"></script>
+        <script src="assets/js/jquery.easing.1.3.js"></script>
+        <script src="assets/js/jquery.masonry.min.js"></script>
+        <script src="assets/js/jquery.fancybox.pack.js"></script>
+
+    
+
+        <script src="assets/js/main.js"></script>
+
+    </body>
+</html>

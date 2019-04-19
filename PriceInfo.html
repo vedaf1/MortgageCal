@@ -1,0 +1,415 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Logic - Free Multipurpose Business Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+
+    <link rel="stylesheet" href="assets/css/iconfont.css">
+    <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+
+
+    <!--For Plugins external css-->
+    <link rel="stylesheet" href="assets/css/plugins.css" />
+
+    <!--Theme custom css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+    <script type="text/javascript">
+
+        var HKIsland_lineChartData = {
+            labels: ["Jan-1999","Jul-1999","Jan-2000","Jul-2000","Jan-2001","Jul-2001","Jan-2002","Jul-2002",
+                "Jan-2003","Jul-2003","Jan-2004","Jul-2004","Jan-2005","Jul-2005","Jan-2006","Jul-2006","Jan-2007","Jul-2007",
+                "Jan-2008","Jul-2008","Jan-2009","Jul-2009","Jan-2010","Jul-2010","Jan-2011","Jul-2011","Jan-2012","Jul-2012",
+                "Jan-2013","Jul-2013","Jan-2014","Jul-2014","Jan-2015","Jul-2015","Jan-2016","Jul-2016","Jan-2017","Jul-2017","Jan-2018","Jul-2018","Jan-2019","Feb-2019"], //顯示區間名稱
+            datasets: [{
+                label: '< 430 feets', // tootip 出現的名稱
+                lineTension: 0, // 曲線的彎度，設0 表示直線
+                backgroundColor: "#ea464d",
+                borderColor: "#ea464d",
+                borderWidth: 5,
+                data: [3963.52,3914.84,3664.38,3250.49,2965.47,3018.88,2903.03,2706.08,2442.33,2170.49,2787.46,2877.58,3441.59,3653.97,3718.35,3768.06,
+                    4225.88,4628.24,6064.06,5930.84,4851.58,5847.5,6495.32,7015.95,8214.95,8623.63,8633.29,9966.27,11444.91,11535.03,11418.9,11742.02,13209.42,
+                    14071.28,12677.27,12548.51,13873.58,14992.41,15916.99,17661.71,15274.75,15829.38], // 資料
+                fill: false, // 是否填滿色彩
+            }, {
+                label: '431 - 752 feets',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#29b288",
+                borderColor: "#29b288",
+                borderWidth: 5,
+                data: [4658.25,4732.57,4545.47,3876.1,3723.09,3729.87,3399.14,3133.06,2945.96,2680.9,3378.33,3545.92,4402.58,
+                    4430.83,4613.29,4749.39,5012.21,5523.74,7142.48,6706.3,5715.95,6749.78,7487.71,8077.64,8963.01,9502.5,8844.93,10424.37,11720.46,11814.29,11214.7,
+                    12023.61,13055.39,14137.52,13343.85,12516.92,13865.32,14682.12,15836.9,17283.22,16110.69,16382.62],
+            },{
+                label: '753 - 1075 feets',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#1b83b2",
+                borderColor: "#1b83b2",
+                borderWidth: 5,
+                data: [5617.48,5667.92,5517.23,4560.33,4764.35,4509.89,3895.43,3858.08,3817.2,3418.46,4767.32,4866.73,5956.66,6313.04,6090.72,6200.26,6830.05,7197.11,9242.09,9395.56,
+                    7258.7,8888.13,9810.38,10313.26,12115.49,12484.13,11895.12,13809.48,14234.42,14422.45,14478.75,13064.12,16025.5,15877.87,12928.39,15173.11,17255.44,17183.07,18929.74,
+                    20129.4,19067.61,17993.46],
+            },{
+                label: '1076 - 1721 feets',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#962cb2",
+                borderColor: "#962cb2",
+                borderWidth: 5,
+                data: [5708.43,6660.87,6321.96,5555.42,5511.29,5515.47,4418.75,4765.83,4467.99,4688.17,5215.67,5701,7186.7,7559.61,7835.16,7845.85,8289.74,9526.09,11609.72,12142.43,9911.92,
+                    11231.42,13445.02,13360.39,14706.83,17044.83,14704.97,16324.09,16609.21,17541.3,16735.55,17001.07,17420.99,17935.3,17873.34,17621.01,17804.5,
+                    18901.5,21473.89,21537.16,20732.71,20981.78],
+            }, ]
+        };
+		
+		var Kowloon_lineChartData = {
+			labels: ["Jan-1999","Jul-1999","Jan-2000","Jul-2000","Jan-2001","Jul-2001","Jan-2002","Jul-2002",
+                "Jan-2003","Jul-2003","Jan-2004","Jul-2004","Jan-2005","Jul-2005","Jan-2006","Jul-2006","Jan-2007","Jul-2007",
+                "Jan-2008","Jul-2008","Jan-2009","Jul-2009","Jan-2010","Jul-2010","Jan-2011","Jul-2011","Jan-2012","Jul-2012",
+                "Jan-2013","Jul-2013","Jan-2014","Jul-2014","Jan-2015","Jul-2015","Jan-2016","Jul-2016","Jan-2017","Jul-2017","Jan-2018","Jul-2018","Jan-2019","Feb-2019"],
+			datasets: [{
+                label: '< 430 feets', // tootip 出現的名稱
+                lineTension: 0, // 曲線的彎度，設0 表示直線
+                backgroundColor: "#ea464d",
+                borderColor: "#ea464d",
+                borderWidth: 5,
+                data: [3422.73,3288.21,3102.03,2835.87,2611.97,2448.55,2333.91,2147.08,1979.49,1836.51,2068.11,2228.28,2527.15,2726.61,2688.89,
+                    2787.18,2965.56,3328.90,4089.41,3939.00,3643.84,4191.51,4790.73,5308.11,6000.89,6222.18,6045.76,7612.01,8587.77,
+                    8822.44,8787.05,9658.20,10863.06,11495.45,9664.05,10168.05,11332.22,11944.73,13077.31,14558.28,13521.02,13807.06], // 資料
+                fill: false, // 是否填滿色彩
+            },{
+                label: '431 - 752 feets',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#29b288",
+                borderColor: "#29b288",
+                borderWidth: 5,
+                data: [3525.21,3454.97,3291.83,2883.99,2674.86,2678.77,2470.29,2321.65,2076.01,1938.33,2720.76,2605.56,3386.97,3556.33,3566.73,
+                    3517.77,3677.20,4297.32,5465.86,4653.33,4422.65,5169.78,6060.90,6697.94,7683.45,7354.95,
+                    7055.71,8511.13,10058.06,9571.24,9536.03,9999.90,11278.62,11918.62,10133.03,10914.90,11035.58,12106.29,13126.27,13292.66,12831.77,13977.82],
+            }, {
+                label: '753 - 1075 feets',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#1b83b2",
+                borderColor: "#1b83b2",
+                borderWidth: 5,
+                data: [4254.59,4157.78,3998.64,3247.61,3120.89,2981.17,2888.73,2979.59,2692.79,2391.05,3472.07,3806.61,
+                    4909.46,5284.70,5051.60,5280.14,5747.35,6115.71,8839.45,7676.67,7003.40,7388.67,8997.01,9672.97,11014.68,11940.55,11861.58,
+                    12312.90,13858.44,12594.59,12128.96,12151.63,13059.75,14324.81,14322.12,14231.26,13863.46,14120.05,15850.47,15722.63,16550.21,18256.93],
+            }, {
+                    label: '1076 - 1721 feets',
+                    lineTension: 0,
+                    fill: false,
+                    backgroundColor: "#962cb2",
+                    borderColor: "#962cb2",
+                    borderWidth: 5,
+                    data: [5229.70,5036.74,4400.72,3876.84,4042.12,3596.93,3952.19,3885.58,3223.18,3078.34,3737.21,6413.93,6267.24,6633.65,
+                        6770.12,7087.76,7599.56,7259.72,9755.38,10350.70,8531.57,9872.06,11291.99,12459.78,13633.34,16216.60,13502.34,15814.42,14206.27,
+                        13993.52,13440.75,12655.35,16091.46,14724.30,14265.73,15363.75,15789.62,18285.73,16352.24,20270.79,17366.74,20500.45],
+                }, ]
+		};
+		
+		var NewTerritories_lineChartData = {
+			labels: ["Jan-1999","Jul-1999","Jan-2000","Jul-2000","Jan-2001","Jul-2001","Jan-2002","Jul-2002",
+                "Jan-2003","Jul-2003","Jan-2004","Jul-2004","Jan-2005","Jul-2005","Jan-2006","Jul-2006","Jan-2007","Jul-2007",
+                "Jan-2008","Jul-2008","Jan-2009","Jul-2009","Jan-2010","Jul-2010","Jan-2011","Jul-2011","Jan-2012","Jul-2012",
+                "Jan-2013","Jul-2013","Jan-2014","Jul-2014","Jan-2015","Jul-2015","Jan-2016","Jul-2016","Jan-2017","Jul-2017","Jan-2018","Jul-2018","Jan-2019","Feb-2019"],
+            datasets: [{
+                label: '< 430 feets', // tootip 出現的名稱
+                lineTension: 0, // 曲線的彎度，設0 表示直線
+                backgroundColor: "#ea464d",
+                borderColor: "#ea464d",
+                borderWidth: 5,
+                data: [3407.59,3350.46,3177.19,2880.83,2573.32,2162.32,2404.42,2297.31,2001.32,
+                    1862.52,2215.55,2343.20,2649.04,2757.36,2775.39,2650.25,2663.99,2944.56,3611.05,3515.64,3225.87,3651.65,4150.26,
+                    4599.63,5190.68,5479.51,5344.15,6363.21,7696.74,7836.84,7781.56,8544.57,9728.71,10656.44,8978.71,9189.04,10441.47,11131.55,12270.17,13375.16,12707.84,12838.18], // 資料
+                fill: false, // 是否填滿色彩
+            },{
+                label: '431 - 752 feets',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#29b288",
+                borderColor: "#29b288",
+                borderWidth: 5,
+                data: [3325.65,3325.74,3181.74,2838.93,2671.71,2250.39,2338.09,2331.77,2031.98,1908.51,2263.12,2490.36,
+                    2811.99,3069.52,3022.32,2860.95,2876.56,3018.14,3654.99,3562.83,3346.09,3703.30,4058.19,4576.40,5123.14,5193.93,5131.13,6074.56,6973.95,
+                    7036.01,6796.14,7707.33,8479.07,9247.01,7743.75,8450.18,9164.98,9421.11,10716.74,11782.34,10764.95,11414.81],
+            }, {
+                label: '753 - 1075 feets',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#1b83b2",
+                borderColor: "#1b83b2",
+                borderWidth: 5,
+                data: [4022.52,3688.90,3698.66,3355.57,3281.99,2674.59,2796.10,2703.94,2583.45,2478.75,
+                    2862.62,3073.51,3570.54,3920.42,3832.81,3647.09,3630.28,4006.91,4692.90,4581.61,4137.07,4500.32,5118.31,5725.99,6116.64,6395.17,6262.04,
+                    6879.47,7761.21,8223.13,7984.92,8291.50,9045.13,9946.57,8419.99,8825.42,9977.88,10486.71,11322.09,11753.26,11366.69,11881.373],
+            }, {
+                label: '1076 - 1721 feets',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#962cb2",
+                borderColor: "#962cb2",
+                borderWidth: 5,
+                data: [4687.61,4512.12,4318.69,3903.88,3535.24,2935.27,3086.70,2980.89,2941.68,
+                    2391.97,3427.56,3751.89,4377.03,4987.87,4203.58,4673.77,4526.98,4399.42,5324.27,5203.50,4488.98,5686.32,5436.31,6284.33,6171.36,
+                    6135.97,6960.48,7469.22,7246.44,7115.26,7176.48,7945.35,8747.56,8944.43,7627.15,9463.10,8570.77,9383.21,11227.15,10355.07,11943.62,11103.21],
+            },]
+		};
+		
+        function drawLineCanvas(ctx,data) {
+            window.myLine = new Chart(ctx, {  //先建立一個 chart
+                type: 'line', // 型態
+                data: data,
+                options: {
+                    responsive: true,
+                    legend: { //是否要顯示圖示
+                        display: true,
+                    },
+                    tooltips: { //是否要顯示 tooltip
+                        enabled: true
+                    },
+                    scales: {  //是否要顯示 x、y 軸
+                        xAxes: [{
+                            display: true
+                        }],
+                        yAxes: [{
+                            display: true
+                        }]
+                    },
+                        title: {
+                            display: true,
+                            text: 'Gross Floor Area Average Prices (HKD$ Per Square Fts.)',
+                            fontSize: 26
+                        }
+
+                }
+            });
+        };
+
+		function setChart(menu){
+			var option = $(menu).val();
+			switch(option){
+				case "HK":$('#canvas').remove();
+						  var canvasHTML = "<canvas id='canvas'></canvas>";
+						  $('#prev-canvas').after(canvasHTML);
+						  var ctx = document.getElementById("canvas").getContext("2d");
+						  drawLineCanvas(ctx, HKIsland_lineChartData);
+						  break;
+				case "KL":$('#canvas').remove();
+						  var canvasHTML = "<canvas id='canvas'></canvas>";
+						  $('#prev-canvas').after(canvasHTML);
+						  var ctx = document.getElementById("canvas").getContext("2d");
+						  drawLineCanvas(ctx, Kowloon_lineChartData);
+						  break;
+						  
+				case "NT":$('#canvas').remove();
+						  var canvasHTML = "<canvas id='canvas'></canvas>";
+						  $('#prev-canvas').after(canvasHTML);
+						  var ctx = document.getElementById("canvas").getContext("2d");
+						  drawLineCanvas(ctx, NewTerritories_lineChartData);
+						  break;
+			}
+		}
+		
+        window.onload = function () {
+			var canvas = document.getElementById("canvas");
+            var ctx = document.getElementById("canvas").getContext("2d");
+            drawLineCanvas(ctx,HKIsland_lineChartData);
+        };
+
+    </script>
+
+
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script Language="JavaScript">
+
+    </script>
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class='preloader'><div class='loaded'>&nbsp;</div></div>
+<div class="culmn">
+    <header id="main_menu" class="header navbar-fixed-top menu-scroll">
+        <div class="main_menu_bg">
+            <div class="container">
+                <div class="row">
+                    <div class="nave_menu">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#home">
+                                        <img src="assets/images/logo.png"/>
+                                    </a>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="index.html#home">HOME</a></li>
+                                        <li><a href="index.html#about">About</a></li>
+                                        <li><a href="index.html#service">Functions</a></li>
+                                        <li><a href="index.html#information">Information</a></li>
+                                        <li><a href="index.html#contact">CONTACT</a></li>
+
+
+                                        <li>
+                                            <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <span class="glyphicon glyphicon-search"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <form class="navbar-form" role="search">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Search">
+                                                        </div>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+
+                                </div>
+
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </header> <!--End of header -->
+
+
+
+    <section id="info" class="container">
+<br><br><br><br><br>
+        <div class="calHead">Property Price Historical Data
+            <div class="separator"></div>
+        </div>
+<table>
+        <tr>
+            <th>Select Region:</th>
+            <td colspan="1">
+                <select onchange="setChart(this)" class="custom-select my-1 mr-sm-2" id="region" >
+                    <option value="HK">Hong Kong Island</option>
+                    <option value="KL">Kowloon</option>
+                    <option value="NT">New Territories</option>
+                </select>
+
+            </td>
+        </tr>
+</table>
+
+        <br><br><br id="prev-canvas">
+        <canvas id="canvas"></canvas>
+
+
+
+        <label style="padding-right:500px;"> </label>
+
+
+        <br><br><br><br>
+
+
+    </section>
+
+
+    <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="main_footer">
+                        <div class="row">
+
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="copyright_text">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="flowus">
+                                    <a href=""><i class="fa fa-facebook"></i></a>
+                                    <a href=""><i class="fa fa-twitter"></i></a>
+                                    <a href=""><i class="fa fa-google-plus"></i></a>
+                                    <a href=""><i class="fa fa-instagram"></i></a>
+                                    <a href=""><i class="fa fa-youtube"></i></a>
+                                    <a href=""><i class="fa fa-dribbble"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+</div>
+
+<!-- START SCROLL TO TOP  -->
+
+<div class="scrollup">
+    <a href="#"><i class="fa fa-chevron-up"></i></a>
+</div>
+
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+<script src="assets/js/vendor/bootstrap.min.js"></script>
+
+<script src="assets/js/jquery.magnific-popup.js"></script>
+<script src="assets/js/jquery.mixitup.min.js"></script>
+<script src="assets/js/jquery.easing.1.3.js"></script>
+<script src="assets/js/jquery.masonry.min.js"></script>
+<script src="assets/js/jquery.fancybox.pack.js"></script>
+
+
+
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

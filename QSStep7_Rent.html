@@ -1,0 +1,1212 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Logic - Free Multipurpose Business Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+
+    <link rel="stylesheet" href="assets/css/iconfont.css">
+    <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+
+
+    <!--For Plugins external css-->
+    <link rel="stylesheet" href="assets/css/plugins.css" />
+
+    <!--Theme custom css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            age = getParameterByName('age');
+            $('#age').attr('value',age)
+
+            affordable_mortgage_years = getParameterByName('affordable_mortgage_years');
+            $('#n').attr('value',affordable_mortgage_years)
+
+            interest = getParameterByName('interest');
+            $('#r').attr('value',interest)
+
+            income = getParameterByName('income');
+            $('#income').attr('value',income)
+
+            monthlyrepayment = getParameterByName('monthlyrepayment');
+            $('#monthlyrepayment').attr('value',monthlyrepayment)
+
+            debt = getParameterByName('debt');
+            $('#debt').attr('value',debt)
+
+            loanamt = getParameterByName('loanamt');
+            $('#loanamt').attr('value',loanamt)
+
+            downpayment = getParameterByName('downpayment');
+            $('#downpayment').attr('value',downpayment)
+
+            price = getParameterByName('price');
+            $('#p').attr('value',price)
+
+            ft = getParameterByName('ft');
+            $('#ft').attr('value',ft)
+
+            priceft = getParameterByName('priceft');
+            $('#priceft').attr('value',priceft)
+
+        });
+
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+    </script>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+        });
+        function savedata(){
+            var age = getParameterByName('age');
+            var affordable_mortgage_years = getParameterByName('affordable_mortgage_years');
+            var interest = getParameterByName('interest');
+            var income = getParameterByName('income');
+            var monthlyrepayment = getParameterByName('monthlyrepayment');
+            var debt = getParameterByName('debt');
+            var loanamt = getParameterByName('loanamt');
+            var downpayment = getParameterByName('downpayment');
+            var price = getParameterByName('price');
+            var ft = getParameterByName('ft');
+            var priceft = getParameterByName('price');
+
+
+
+
+            $('#2').attr('href', "QSStep8.html?affordable_mortgage_years="+affordable_mortgage_years+"&age="+age+"&interest="+interest+"&income="+income+"&monthlyrepayment="+monthlyrepayment+"&debt="+debt+"&loanamt="+loanamt+"&downpayment="+downpayment+"&price="+price+"&ft="+ft+"&priceft="+priceft);
+            $('#back').attr('href', "QSStep6.html?affordable_mortgage_years="+affordable_mortgage_years+"&age="+age+"&interest="+interest+"&income="+income+"&monthlyrepayment="+monthlyrepayment+"&debt="+debt+"&loanamt="+loanamt+"&downpayment="+downpayment+"&price="+price+"&ft="+ft+"&priceft="+priceft);
+            $('#mortcalc').attr('href', "QSStep7.html?affordable_mortgage_years="+affordable_mortgage_years+"&age="+age+"&interest="+interest+"&income="+income+"&monthlyrepayment="+monthlyrepayment+"&debt="+debt+"&loanamt="+loanamt+"&downpayment="+downpayment+"&price="+price+"&ft="+ft+"&priceft="+priceft);
+
+        }
+
+
+    </script>
+
+
+
+
+
+
+    <script language=javascript>
+        function chkdata1()
+        {
+
+
+            var checkOK = "0123456789-.";
+            var checkStr = document.Tool02.p.value;
+            var allValid=true;
+            var decPoints=0;
+            var allNum="";
+            var x=1;
+
+
+            for (i = 0;  i < checkStr.length;  i++)
+            {
+                ch = checkStr.charAt(i);
+                for (j = 0;  j < checkOK.length;  j++)
+                    if (ch == checkOK.charAt(j))
+                        break;
+                if (j == checkOK.length)
+                {
+                    allValid = false;
+                    break;
+                }
+                if (ch == ".")
+                {
+                    allNum += ".";
+                    decPoints++;
+                }
+                else
+                    allNum += ch;
+            }
+
+            if (!allValid)
+            {
+                alert("Please Input Value.");
+                document.Tool02.p.focus();
+                return false;
+            }
+
+            if (decPoints > 1)
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.p.focus();
+                return false;
+            }
+
+            if (decPoints > 1)
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.p.focus();
+                return false;
+            }
+
+            if (document.Tool02.p.value<=0)
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.p.focus();
+                return false;
+            }
+
+
+//以上是判断输入的值是否含有非数字字符串
+        }
+
+        function chkdata2()
+        {
+//以下是判断输入的值是否含有非数字字符串
+
+            var checkOK = "0123456789-.";
+            var checkStr = document.Tool02.a.value;
+            var allValid=true;
+            var decPoints=0;
+            var allNum="";
+            var x=1;
+
+//检查首付价格。
+            for (i = 0;  i < checkStr.length;  i++)
+            {
+                ch = checkStr.charAt(i);         //检查输入字符串是否含有除'0123456789.'以外的字符
+                for (j = 0;  j < checkOK.length;  j++)
+                    if (ch == checkOK.charAt(j))
+                        break;
+                if (j == checkOK.length)
+                {
+                    allValid = false;
+                    break;
+                }
+                if (ch == ".")               //把输入字符串逐字符存入allNum中
+                {
+                    allNum += ".";
+                    decPoints++;
+                }
+                else
+                    allNum += ch;
+            }
+
+            if (!allValid)             //如果输入字符串含有非数值字符,则给出警告
+            {
+                alert("Please Input Value.");
+                document.Tool02.a.focus();
+                return false;
+            }
+
+            if (decPoints > 1)        //如果字符串含有一个以上的".",则提示输入无效
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.a.focus();
+                return false;
+            }
+
+            if (decPoints > 1)
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.a.focus();
+                return false;
+            }
+
+            if ((document.Tool02.a.value<=0)|(document.Tool02.a.value>100))
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.a.focus();
+                return false;
+            }
+
+
+//以上是判断输入的值是否含有非数字字符串
+        }
+
+
+        function chkdata3()
+        {
+//以下是判断输入的值是否含有非数字字符串
+
+            var checkOK = "0123456789-.";
+            var checkStr = document.Tool02.t.value;
+            var allValid=true;
+            var decPoints=0;
+            var allNum="";
+            var x=1;
+
+//检查房屋保险费率。
+            for (i = 0;  i < checkStr.length;  i++)
+            {
+                ch = checkStr.charAt(i);         //检查输入字符串是否含有除'0123456789.'以外的字符
+                for (j = 0;  j < checkOK.length;  j++)
+                    if (ch == checkOK.charAt(j))
+                        break;
+                if (j == checkOK.length)
+                {
+                    allValid = false;
+                    break;
+                }
+                if (ch == ".")               //把输入字符串逐字符存入allNum中
+                {
+                    allNum += ".";
+                    decPoints++;
+                }
+                else
+                    allNum += ch;
+            }
+
+            if (!allValid)             //如果输入字符串含有非数值字符,则给出警告
+            {
+                alert("Please Input Value.");
+                document.Tool02.t.focus();
+                return false;
+            }
+
+            if (decPoints > 1)        //如果字符串含有一个以上的".",则提示输入无效
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.t.focus();
+                return false;
+            }
+
+            if (decPoints > 1)
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.t.focus();
+                return false;
+            }
+
+            if ((document.Tool02.t.value<0.05)|(document.Tool02.t.value>0.1))
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.t.focus();
+                return false;
+            }
+
+
+//以上是判断输入的值是否含有非数字字符串
+        }
+
+
+        function chkdata4()
+        {
+//以下是判断输入的值是否含有非数字字符串
+
+            var checkOK = "0123456789-.";
+            var checkStr = document.Tool02.b.value;
+            var allValid=true;
+            var decPoints=0;
+            var allNum="";
+            var x=1;
+
+//检查每月物业管理费。
+            for (i = 0;  i < checkStr.length;  i++)
+            {
+                ch = checkStr.charAt(i);         //检查输入字符串是否含有除'0123456789.'以外的字符
+                for (j = 0;  j < checkOK.length;  j++)
+                    if (ch == checkOK.charAt(j))
+                        break;
+                if (j == checkOK.length)
+                {
+                    allValid = false;
+                    break;
+                }
+                if (ch == ".")               //把输入字符串逐字符存入allNum中
+                {
+                    allNum += ".";
+                    decPoints++;
+                }
+                else
+                    allNum += ch;
+            }
+
+            if (!allValid)             //如果输入字符串含有非数值字符,则给出警告
+            {
+                alert("Please Input Value.");
+                document.Tool02.b.focus();
+                return false;
+            }
+
+            if (decPoints > 1)        //如果字符串含有一个以上的".",则提示输入无效
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.b.focus();
+                return false;
+            }
+
+            if (decPoints > 1)
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.b.focus();
+                return false;
+            }
+
+            if (document.Tool02.b.value<=0)
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.b.focus();
+                return false;
+            }
+
+//以上是判断输入的值是否含有非数字字符串
+        }
+
+        function chkdata5()
+        {
+//以下是判断输入的值是否含有非数字字符串
+
+            var checkOK = "0123456789-.";
+            var checkStr = document.Tool02.r.value;
+            var allValid=true;
+            var decPoints=0;
+            var allNum="";
+            var x=1;
+
+//检查贷款年利率。
+            for (i = 0;  i < checkStr.length;  i++)
+            {
+                ch = checkStr.charAt(i);         //检查输入字符串是否含有除'0123456789.'以外的字符
+                for (j = 0;  j < checkOK.length;  j++)
+                    if (ch == checkOK.charAt(j))
+                        break;
+                if (j == checkOK.length)
+                {
+                    allValid = false;
+                    break;
+                }
+                if (ch == ".")               //把输入字符串逐字符存入allNum中
+                {
+                    allNum += ".";
+                    decPoints++;
+                }
+                else
+                    allNum += ch;
+            }
+
+            if (!allValid)             //如果输入字符串含有非数值字符,则给出警告
+            {
+                alert("Please Input Value.");
+                document.Tool02.r.focus();
+                return false;
+            }
+
+            if (decPoints > 1)        //如果字符串含有一个以上的".",则提示输入无效
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.r.focus();
+                return false;
+            }
+
+            if (decPoints > 1)
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.r.focus();
+                return false;
+            }
+
+            if ((document.Tool02.r.value<=0)|(document.Tool02.r.value>100))
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.r.focus();
+                return false;
+            }
+
+
+//以上是判断输入的值是否含有非数字字符串
+        }
+
+
+
+        function chkdata6()
+        {
+//以下是判断输入的值是否含有非数字字符串
+
+            var checkOK = "0123456789-.";
+            var checkStr = document.Tool02.n.value;
+            var allValid=true;
+            var decPoints=0;
+            var allNum="";
+            var x=1;
+
+//检查预期贷款期限。
+            for (i = 0;  i < checkStr.length;  i++)
+            {
+                ch = checkStr.charAt(i);         //检查输入字符串是否含有除'0123456789.'以外的字符
+                for (j = 0;  j < checkOK.length;  j++)
+                    if (ch == checkOK.charAt(j))
+                        break;
+                if (j == checkOK.length)
+                {
+                    allValid = false;
+                    break;
+                }
+                if (ch == ".")               //把输入字符串逐字符存入allNum中
+                {
+                    allNum += ".";
+                    decPoints++;
+                }
+                else
+                    allNum += ch;
+            }
+
+            if (!allValid)             //如果输入字符串含有非数值字符,则给出警告
+            {
+                alert("Please Input Value.");
+                document.Tool02.n.focus();
+                return false;
+            }
+
+            if (decPoints > 1)        //如果字符串含有一个以上的".",则提示输入无效
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.n.focus();
+                return false;
+            }
+
+            if (decPoints > 1)
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.n.focus();
+                return false;
+            }
+
+            if (document.Tool02.n.value<=0)
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.n.focus();
+                return false;
+            }
+
+
+//以上是判断输入的值是否含有非数字字符串
+        }
+
+
+        function chkdata7()
+        {
+//以下是判断输入的值是否含有非数字字符串
+
+            var checkOK = "0123456789-.";
+            var checkStr = document.Tool02.d.value;
+            var allValid=true;
+            var decPoints=0;
+            var allNum="";
+            var x=1;
+
+//检查每年房价增值。
+            for (i = 0;  i < checkStr.length;  i++)
+            {
+                ch = checkStr.charAt(i);         //检查输入字符串是否含有除'0123456789.'以外的字符
+                for (j = 0;  j < checkOK.length;  j++)
+                    if (ch == checkOK.charAt(j))
+                        break;
+                if (j == checkOK.length)
+                {
+                    allValid = false;
+                    break;
+                }
+                if (ch == ".")               //把输入字符串逐字符存入allNum中
+                {
+                    allNum += ".";
+                    decPoints++;
+                }
+                else
+                    allNum += ch;
+            }
+
+            if (!allValid)             //如果输入字符串含有非数值字符,则给出警告
+            {
+                alert("Please Input Value.");
+                document.Tool02.d.focus();
+                return false;
+            }
+
+            if (decPoints > 1)        //如果字符串含有一个以上的".",则提示输入无效
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.d.focus();
+                return false;
+            }
+
+            if (decPoints > 1)
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.d.focus();
+                return false;
+            }
+
+            if ((document.Tool02.d.value<=0)|(document.Tool02.d.value>100))
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.d.focus();
+                return false;
+            }
+
+
+
+//以上是判断输入的值是否含有非数字字符串
+        }
+
+
+
+
+        function chkdata8()
+        {
+//以下是判断输入的值是否含有非数字字符串
+
+            var checkOK = "0123456789-.";
+            var checkStr = document.Tool02.c.value;
+            var allValid=true;
+            var decPoints=0;
+            var allNum="";
+            var x=1;
+
+//检查房租。
+            for (i = 0;  i < checkStr.length;  i++)
+            {
+                ch = checkStr.charAt(i);         //检查输入字符串是否含有除'0123456789.'以外的字符
+                for (j = 0;  j < checkOK.length;  j++)
+                    if (ch == checkOK.charAt(j))
+                        break;
+                if (j == checkOK.length)
+                {
+                    allValid = false;
+                    break;
+                }
+                if (ch == ".")               //把输入字符串逐字符存入allNum中
+                {
+                    allNum += ".";
+                    decPoints++;
+                }
+                else
+                    allNum += ch;
+            }
+
+            if (!allValid)             //如果输入字符串含有非数值字符,则给出警告
+            {
+                alert("Please Input Value.");
+                document.Tool02.c.focus();
+                return false;
+            }
+
+            if (decPoints > 1)        //如果字符串含有一个以上的".",则提示输入无效
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.c.focus();
+                return false;
+            }
+
+            if (decPoints > 1)
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.c.focus();
+                return false;
+            }
+
+            if (document.Tool02.c.value<=0)
+            {
+                alert("Please Input an Invalid Value.");
+                document.Tool02.c.focus();
+                return false;
+            }
+
+
+//以上是判断输入的值是否含有非数字字符串
+        }
+
+
+
+
+        function dealdata(z)        //保存到小数点后2位
+        {
+            var x=z;
+            x=parseInt(z*1);
+            x=x/1;
+            return x;
+        }
+
+
+
+        function result_expense()
+        {
+            var n;
+            var c1;
+            var c;
+            var p;
+            var a;
+            var t;
+            var b;
+            var r;
+            var d;
+            var buyincome;
+            var income;
+            var sum;
+            var temp;
+            var des;
+
+            p=document.Tool02.p.value*10000;
+            a=document.Tool02.a.value;
+            t=0;
+            b=document.Tool02.b.value;
+            r=document.Tool02.r.value;
+            n=document.Tool02.n.value;
+            d=document.Tool02.d.value;
+            c=document.Tool02.c.value;
+
+            temp=Math.pow((1+r/100/12),(12*n));
+            c1=p*(1-a/100)*(r/1200)*temp/(temp-1);
+            buyincome=p*Math.pow((1+d/100),n)-(p*(t/100)+12*(c1+b)*n);
+            income=p*(a/100)*Math.pow((1+0.08),n)-c*12*n;
+            sum=buyincome-income;
+
+            for (var i=0;i<1;i++)
+            {
+
+                if (document.Tool02.p.value=="")
+                {
+                    alert("請輸入這層樓的價格！");
+                    document.Tool02.p.focus();
+
+                    break ;
+                }
+
+                if (document.Tool02.a.value=="")
+                {
+                    alert("請輸入你會支付的首期！");
+                    document.Tool02.a.focus();
+
+                    break ;
+                }
+
+                if (document.Tool02.b.value=="")
+                {
+                    alert("請輸入房子每月的管理费！");
+                    document.Tool02.b.focus();
+
+                    break ;
+                }
+
+                if (document.Tool02.r.value=="")
+                {
+                    alert("請輸入貸款年利率！");
+                    document.Tool02.r.focus();
+
+                    break ;
+                }
+
+                if (document.Tool02.n.value=="")
+                {
+                    alert("請輸入预期貸款年期！");
+                    document.Tool02.n.focus();
+
+                    break ;
+                }
+
+                if (document.Tool02.d.value=="")
+                {
+                    alert("請輸入估計每年樓價增值！");
+                    document.Tool02.d.focus();
+
+                    break ;
+                }
+
+                if (document.Tool02.c.value=="")
+                {
+                    alert("請輸入若您要租房子需每月付房租！");
+                    document.Tool02.c.focus();
+
+                    break ;
+                }
+
+                function clear(sum)
+                {
+
+                    if (sum<=0)
+                    {
+
+                        sum=0-sum;
+                        sum=Math.floor(sum);
+                        return sum;
+                    }
+                    else
+                    {
+                        des="-";
+                        sum=Math.floor(sum);
+                        return des+sum;
+                    }
+
+                }
+
+                function decide(sum){
+                    if (sum<=0)
+                    {
+                        var suggestr = "Rent Property";
+                        return suggestr;
+                    }
+                    else
+                    {
+                        var suggestp = "Purchase Property";
+                        return suggestp;
+                    }
+                }
+
+
+
+
+                $('#monthly_repayment').html("$ "+ Math.round(c1));
+                $('#purchaseneticome').html("$ "+Math.round(buyincome));
+                $('#rentneticome').html("$ "+Math.round(income));
+                $('#difference').html("$ "+clear(sum));
+                $('#suggest').html(decide(sum));
+            }
+
+
+
+        }
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class='preloader'><div class='loaded'>&nbsp;</div></div>
+<div class="culmn">
+    <header id="main_menu" class="header navbar-fixed-top menu-scroll">
+        <div class="main_menu_bg">
+            <div class="container">
+                <div class="row">
+                    <div class="nave_menu">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#home">
+                                        <img src="assets/images/logo.png"/>
+                                    </a>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="index.html#home">HOME</a></li>
+                                        <li><a href="index.html#about">About</a></li>
+                                        <li><a href="index.html#service">Functions</a></li>
+                                        <li><a href="index.html#information">Information</a></li>
+                                        <li><a href="index.html#contact">CONTACT</a></li>
+
+
+                                        <li>
+                                            <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <span class="glyphicon glyphicon-search"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <form class="navbar-form" role="search">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Search">
+                                                        </div>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+
+                                </div>
+
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </header> <!--End of header -->
+
+
+
+    <section id="repayment" class="container">
+
+
+
+        <div class="calHead">Rent Or Purchase Property Evaluation
+            <div class="separator"></div>
+        </div>
+
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">70%</div>
+        </div>
+        To Suggest the Rent or Purchase Property: <br><br>
+
+
+
+
+
+
+        <div>
+
+
+
+
+            <table id="headername">
+
+                <tr>
+                    <td>
+
+                        <table>
+                            <tr>
+                                <td>
+
+                                    <form name="Tool02" action="javascript:result_expense();" method="post" >
+                                        <input type=hidden value=5 name=stock_commision_limit_HA>
+                                        <input type=hidden value=0.2 name=stock_stamptax_rate_HA>
+                                        <input type=hidden value=10 name=stock_change_fee_HA>
+                                        <input type=hidden value=0.3 name=stock_commision_rate_HB>
+                                        <input type=hidden value=0.2 name=stock_stamptax_rate_HB>
+                                        <input type=hidden value=0.05 name=stock_balance_rate_HB>
+                                        <input type=hidden value=0.2 name=stock_stamptax_rate_SA>
+                                        <input type=hidden value=0.3 name=stock_commision_rate_SB>
+                                        <input type=hidden value=0.2 name=stock_stamptax_rate_SB>
+                                        <input type=hidden value=0.05 name=stock_balance_rate_SB>
+                                        <input type=hidden value=500 name=stock_balance_limit_SB>
+                                        <input type=hidden value=0.2 name=yhsbl>
+                                        <input type=hidden value=10 name=ghfbl>
+                                        <input type=hidden value=0 name=jsfbl>
+
+
+                                        <table class="table" >
+
+                                            <tr>
+                                                <th rowspan="1">Property Price:</th>
+                                                <td colspan="1">
+                                                <td><input type="text" class="form-control" onchange="return chkdata1();" name="p"  size=60 placeholder="(10K)"> </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th rowspan="1">Down Payment Ratio:</th>
+                                                <td colspan="1">
+                                                <td><input type="text" class="form-control" onchange="return chkdata2();" name="a"  placeholder="%"> </td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <th rowspan="1">Management Fee:</th>
+                                                <td colspan="1">
+                                                <td><input type="text" class="form-control" onchange="return chkdata4();" name="b"  placeholder="(HKD)"> </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th rowspan="1">Mortgage Interest Rate:</th>
+                                                <td colspan="1">
+                                                <td><input type="text" class="form-control" onchange="return chkdata5();" name="r"  placeholder="%"> </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th rowspan="1">Mortgage Years:</th>
+                                                <td colspan="1">
+                                                <td><input type="text" class="form-control" onchange="return chkdata6();" name="n"  placeholder=""> </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th rowspan="1">Estimated Property Value Appreciation (Annually):</th>
+                                                <td colspan="1">
+                                                <td><input type="text" class="form-control" onchange="return chkdata7();" name="d"  placeholder="%"> </td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <th rowspan="1">Rent Price for that Property:</th>
+                                                <td colspan="1">
+                                                <td><input type="text" class="form-control" onchange="return chkdata5();" name="c"  placeholder="(HKD)"> </td>
+                                            </tr>
+
+
+                                        </table>
+
+
+                                        <div>
+
+
+                                            <input type="button" id="calculate" style="margin-left:980px;" onclick="javascript:result_expense();" value="Calculate" name="ok" class="btncalcenter">
+
+                                        </div>
+
+
+
+
+
+
+
+
+
+                                        <h1 id="result">Result</h1>
+                                        <table class="table table-hover" id="resultmessage_test">
+                                            <tr>
+                                                <th>Monthly Repayment:</th>
+                                                <td><label id="monthly_repayment"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Net Income of <strong>Purchase Property</strong>:</th>
+                                                <td><label id="purchaseneticome"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Net Income of <strong>Rent Property</strong>:</th>
+                                                <td><label id="rentneticome"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Purchase - Rent (Net Income):</th>
+                                                <td><label id="difference"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Suggestion:</th>
+                                                <td><label id="suggest"></label></td>
+                                            </tr>
+                                        </table>
+
+
+
+
+
+
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    </td>
+                </tr>
+            </table>
+
+            </td>
+            </tr>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div>
+            <label style="padding-right:960px;"> </label>
+            <a href="QSStep6.html" type="button" id="back" style="margin-left: 30px; margin-right: 780px;" onclick="savedata()" class="btnback" style="margin-right: 830px;">←  Back</a>
+            <a href="QSStep8.html" type="button" id="2" onclick="savedata()" class="btnnextstep">Next Stage  →</a>
+
+        </div>
+        <br><br>
+        <a href="QSStep7.html" type="button" id="mortcalc" onclick="savedata()"  style="width: 70%; margin-left: 170px" class="btnmortcalc">Housing Mortgage Calculator</a>
+
+        <br><br>
+
+
+
+    </section>
+
+
+
+
+    <section id="footer" class="footer_widget">
+        <div class="video_overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="main_widget">
+                                <div class="col-sm-3 col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+                                        <div class="footer_logo">
+                                            <img src="assets/images/logo.png" alt="" />
+                                        </div>
+                                        <p></p>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3  col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+
+                                        <div class="footer_title">
+                                            <h4>SITEMAP</h4>
+                                            <div class="separator"></div>
+                                        </div>
+                                        <ul>
+                                            <li><a href="">Services</a></li>
+                                            <li><a href="">About Us</a></li>
+                                            <li><a href="">Our Team</a></li>
+                                            <li><a href="">Portfolio</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3  col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+
+                                        <div class="footer_title">
+                                            <h4>Function</h4>
+                                            <div class="separator"></div>
+                                        </div>
+                                        <ul>
+                                            <li><a href="mortgageCal.html">Housing Mortgage Calculator</a></li>
+                                            <li><a href="repaymentCal.html">Mortgage Amendment Repayment </a></li>
+                                            <li><a href="stressCal.html">Mortgage Stress-Test</a></li>
+                                            <li><a href="QSInfo.html">Housing Adviser Guide</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+
+                                        <div class="footer_title">
+                                            <h4>NEWSLETTER</h4>
+                                            <div class="separator"></div>
+                                        </div>
+
+                                        <div class="footer_subcribs_area">
+                                            <p>Sign up for our mailing list to get latest updates and offers.</p>
+                                            <form class="navbar-form navbar-left" role="search">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Search">
+                                                    <button type="submit" class="submit_btn"></button>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="main_footer">
+                        <div class="row">
+
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="copyright_text">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="flowus">
+                                    <a href=""><i class="fa fa-facebook"></i></a>
+                                    <a href=""><i class="fa fa-twitter"></i></a>
+                                    <a href=""><i class="fa fa-google-plus"></i></a>
+                                    <a href=""><i class="fa fa-instagram"></i></a>
+                                    <a href=""><i class="fa fa-youtube"></i></a>
+                                    <a href=""><i class="fa fa-dribbble"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+</div>
+
+<!-- START SCROLL TO TOP  -->
+
+<div class="scrollup">
+    <a href="#"><i class="fa fa-chevron-up"></i></a>
+</div>
+
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+<script src="assets/js/vendor/bootstrap.min.js"></script>
+
+<script src="assets/js/jquery.magnific-popup.js"></script>
+<script src="assets/js/jquery.mixitup.min.js"></script>
+<script src="assets/js/jquery.easing.1.3.js"></script>
+<script src="assets/js/jquery.masonry.min.js"></script>
+<script src="assets/js/jquery.fancybox.pack.js"></script>
+
+
+
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
