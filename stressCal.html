@@ -3,106 +3,154 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Logic - Free Multipurpose Business Template</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Logic - Free Multipurpose Business Template</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 
-    <link rel="stylesheet" href="assets/css/iconfont.css">
-    <link rel="stylesheet" href="assets/fonts/stylesheet.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+        <link rel="stylesheet" href="assets/css/iconfont.css">
+        <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/jquery.fancybox.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
 
 
-    <!--For Plugins external css-->
-    <link rel="stylesheet" href="assets/css/plugins.css" />
+        <!--For Plugins external css-->
+    
 
-    <!--Theme custom css -->
-    <link rel="stylesheet" href="assets/css/style.css">
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="assets/css/style.css">
 
-    <!--Theme Responsive css-->
-    <link rel="stylesheet" href="assets/css/responsive.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="assets/css/responsive.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script Language="JavaScript">
+			var mortgage_year_range_slider;
+			var mortgage_year_output;
+            $(document).ready(function(){
 
-    <script type="text/javascript">
-        $(document).ready(function(){
+                mortgage_year_range_slider = document.getElementById("mortgage_year_range");
 
-            var mortgage_year_range_slider = document.getElementById("mortgage_year_range");
-
-            var mortgage_year_output = document.getElementById('mortgage_year');
-
-
-            // Display the default slider value
-
-            mortgage_year_output.setAttribute('value', mortgage_year_range_slider.value);
+                mortgage_year_output = document.getElementById('mortgage_year');
 
 
-            var price, ratio, amount;
+                // Display the default slider value
 
-            // Update the current slider value (each time you drag the slider handle)
+                mortgage_year_output.setAttribute('value', mortgage_year_range_slider.value);
 
-            mortgage_year_range_slider.oninput = function() {
-                mortgage_year_output.setAttribute('value', this.value);
+
+                var price, ratio, amount;
+
+                // Update the current slider value (each time you drag the slider handle)
+
+                mortgage_year_range_slider.oninput = function() {
+                    mortgage_year_output.setAttribute('value', this.value);
+                }
+
+
+            });
+            function setDisabled(){
+                $('#repayment_amount').attr("disabled","true");
+                $('#decrease_whole').attr("disabled","true");
+                $('#decrease_per_month').attr("disabled","true");
             }
-
-
-        });
-
-    </script>
-
-
-    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    <script Language="JavaScript">
-        function setDisabled(){
-            $('#repayment_amount').attr("disabled","true");
-            $('#decrease_whole').attr("disabled","true");
-            $('#decrease_per_month').attr("disabled","true");
-        }
-        function setEnabled(){
-            $('#repayment_amount').removeAttr("disabled");
-            $('#decrease_whole').removeAttr("disabled");
-            $('#decrease_per_month').removeAttr("disabled");
-        }
-        function cal(){
-
-            var income = parseInt($('#income').val());
-            var interest = parseFloat($('#interest').val())/100;
-            var period = parseInt($('#period').val());
-            var start_year = parseInt($('#start_year').val());
-            var start_month = parseInt($('#start_month').val());
-            var target_year = parseInt($('#target_year').val());
-            var target_month = parseInt($('#target_month').val());
-            var repayment_amount = parseInt($('#repayment_amount').val());
-            //	alert(amount+" "+interest+" "+period+" "+start_year+" "+start_month+" "+repayment_amount);
-            //  var monthly_repayment = (amount*(interest/12)*Math.pow((1+interest/12),period))/(Math.pow((1+interest/12),period)-1);
-            if(start_month-1==0){
-                start_year -= 1;
-                start_month = 13;
+            function setEnabled(){
+                $('#repayment_amount').removeAttr("disabled");
+                $('#decrease_whole').removeAttr("disabled");
+                $('#decrease_per_month').removeAttr("disabled");
             }
-            var last_repayment_date = (start_year + period/12) + "/" + (start_month-1);
-            var repayed_amount = 0;
-            start_year = parseInt($('#start_year').val());
-            start_month = parseInt($('#start_month').val());
-            if(target_month<start_month){
-                repayed_amount = monthly_repayment*((target_year-start_year-1)*12+(12-start_month)+target_month);
+            function cal(){
+                let income = parseFloat($('#income').val());
+				let totalloan = parseFloat($('#totalloan').val());
+				let years = parseInt($('#mortgage_year').val());
+				let loanratio = parseFloat($('#loanratio').val())/100;
+                let interest = parseFloat($('#interest').val())/100;
+				let e_new = interest + 0.03;
+                let debt = parseFloat($('#debt').val());
+				let purpose = $('input[name="purpose"]:checked').val();
+				let has_loan = $('input[name="has-loan"]:checked').val();
+				
+				let actual_monthly_income = income-debt;
+				let monthly_repayment = (totalloan * (interest/12) * Math.pow((1 + (interest/12)), 12*years)) / (Math.pow((1 + (interest/12)), 12*years) - 1);
+				let debt_to_income_ratio = monthly_repayment / actual_monthly_income;
+				let debt_to_income_ratio_label = Math.round(debt_to_income_ratio*100) + "% ";
+				if(loanratio >= 0.81 && loanratio <= 0.99){
+					if(debt_to_income_ratio < 0.45){
+						debt_to_income_ratio_label += "Pass";
+					}else{
+						debt_to_income_ratio_label += "Not Pass";
+					}
+				}else if(loanratio >= 0.01 && loanratio <= 0.8){
+					if(debt_to_income_ratio < 0.5){
+						debt_to_income_ratio_label += "Pass";
+					}else{
+						debt_to_income_ratio_label += "Not Pass";
+					}
+				}else if(purpose=="non-self" || has_loan=="yes"){
+					if(debt_to_income_ratio < 0.4){
+						debt_to_income_ratio_label += "Pass";
+					}else{
+						debt_to_income_ratio_label += "Not Pass";
+					}
+				}
+				let monthly_repayment_after_stress = (totalloan * (e_new / 12) * Math.pow((1 + (e_new / 12)), 12*years)) / (Math.pow((1 + (e_new / 12)), 12*years) - 1);
+				let stress_test_ratio = monthly_repayment_after_stress / actual_monthly_income;
+				let stress_test_ratio_label = Math.round(stress_test_ratio*100) + "% ";
+				if(loanratio >= 0.81 && loanratio <= 0.99){
+					if(stress_test_ratio < 0.55){
+						stress_test_ratio_label += "Pass";
+					}else{
+						stress_test_ratio_label += "Not Pass";
+					}
+				}else if(loanratio >= 0.01 && loanratio <= 0.8){
+					if(stress_test_ratio < 0.6){
+						stress_test_ratio_label += "Pass";
+					}else{
+						stress_test_ratio_label += "Not Pass";
+					}
+				}else if(purpose=="non-self" || has_loan=="yes"){
+					if(stress_test_ratio < 0.5){
+						stress_test_ratio_label += "Pass";
+					}else{
+						stress_test_ratio_label += "Not Pass";
+					}
+				}
+				let minimum_income_limit = monthly_repayment_after_stress / 0.6;
+				
+				
+				console.log(income+" "+actual_monthly_income+" "+monthly_repayment+" "+monthly_repayment_after_stress+" "+minimum_income_limit);
+				
+				$('#monthly-income').html(Math.round(income));
+				$('#actual-monthly-income').html(Math.round(actual_monthly_income));
+				$('#monthly-repayment').html(Math.round(monthly_repayment));
+				$('#debt-to-income').html(debt_to_income_ratio_label);
+				$('#monthly-repayment-after-stress').html(Math.round(monthly_repayment_after_stress));
+				$('#stress-test-ratio').html(stress_test_ratio_label);
+				$('#income-limit').html(Math.round(minimum_income_limit));
             }
-            else{
-                repayed_amount = monthly_repayment*((target_year-start_year)*12+(target_month-start_month));
-            }
-            $('#monthly_repayment').html(Math.round(monthly_repayment));
-            $('#last_repayment_date').html(last_repayment_date);
-            $('#repayed_amount').html(Math.round(repayed_amount));
-        }
-    </script>
-</head>
+			function reset(){
+				$('#income').val('');
+				$('#totalloan').val('');
+				$('#loanratio').val('');
+				$('#interest').val('');
+				$('#debt').val('');
+				$('#monthly-income').empty();
+				$('#actual-monthly-income').empty();
+				$('#monthly-repayment').empty();
+				$('#debt-to-income').empty();
+				$('#monthly-repayment-after-stress').empty();
+				$('#stress-test-ratio').empty();
+				$('#income-limit').empty();
+			}
+        </script>
+    </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -185,7 +233,12 @@
 
             <tr>
                 <th scope="row">Monthly Household Income</th>
-                <td colspan="2"><input type="text" class="form-control" id="income" ></td>
+                <td colspan="2"><input type="text" class="form-control" id="income" placeholder="(HKD)"></td>
+            </tr>
+
+            <tr>
+                <th scope="row">Total Mortgage Loan Amount</th>
+                <td colspan="2"><input type="text" class="form-control" id="totalloan" placeholder="(HKD)"></td>
             </tr>
 
             <tr>
@@ -199,121 +252,99 @@
                     <input type="range" min="5" max="30" value="15" class="slider" id="mortgage_year_range">
                 </td>
             </tr>
-
+            <tr>
+                <th scope="row">Mortgage Loan Ratio(%):</th>
+                <td colspan="2"><input type="text" class="form-control" id="loanratio" placeholder="%"></td>
+            </tr>
             <tr>
                 <th scope="row">Mortgage Interest Rate(%):</th>
                 <td colspan="2"><input type="text" class="form-control" id="interest" placeholder="%"></td>
             </tr>
 
             <tr>
-                <th scope="row">Total Monthly Debt Repayment Amount (e.g. Personal Loan)</th>
+                <th scope="row">Monthly Debt Repayment Amount (e.g. Personal Loan)</th>
                 <td colspan="2"><input type="text" class="form-control" id="debt" ></td>
             </tr>
 
-            </tr>
-
 
             <tr>
-                <th rowspan="2">Purpose of Purchase:</th>
-                <td colspan="2">
+                <th>Purpose of Purchase:</th>
+                <td>
                     <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
-                        <input type="radio" id="self-use" name="repayment_method" onclick="setDisabled()" class="custom-control-input">
+                        <input type="radio" id="self-use" name="purpose" value="self" onclick="setDisabled()" class="custom-control-input">
                         <label class="custom-control-label" for="self-use" style="font-weight:normal;">Self-use</label>
                     </div>
+				</td>
+				<td>
                     <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
-                        <input type="radio" id="n-self-use" name="repayment_method" onclick="setEnabled()" class="custom-control-input">
+                        <input type="radio" id="n-self-use" name="purpose" value="non-self" onclick="setEnabled()" class="custom-control-input">
                         <label class="custom-control-label" for="n-self-use" style="font-weight:normal;">Non-Self-use</label>
                     </div>
                 </td>
-
-
-            <tr>
-            </tr>
-
-            <tr>
-                <th rowspan="2">Are your income derived mainly in Hong Kong?</th>
-                <td colspan="4">
-                    <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
-                        <input type="radio" id="incomeHK" name="repayment_method" onclick="setDisabled()" class="custom-control-input">
-                        <label class="custom-control-label" for="incomeHK" style="font-weight:normal;">Yes</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
-                        <input type="radio" id="incomeOther" name="repayment_method" onclick="setEnabled()" class="custom-control-input">
-                        <label class="custom-control-label" for="incomeOther" style="font-weight:normal;">No</label>
-                    </div>
-                </td>
             </tr>
 
 
             <tr>
-            </tr>
-
-            <tr>
-                <th rowspan="2">Do you have an outstanding mortgage loan?</th>
-                <td colspan="4">
+                <th>Do you have an outstanding mortgage loan?</th>
+                <td>
                     <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
-                        <input type="radio" id="borrowerY" name="repayment_method" onclick="setDisabled()" class="custom-control-input">
+                        <input type="radio" id="borrowerY" name="has-loan" value="yes" onclick="setDisabled()" class="custom-control-input">
                         <label class="custom-control-label" for="borrowerY" style="font-weight:normal;">Yes</label>
                     </div>
+				</td>
+				<td>
                     <div class="custom-control custom-radio custom-control-inline" style="display:inline;">
-                        <input type="radio" id="borrowerN" name="repayment_method" onclick="setEnabled()" class="custom-control-input">
+                        <input type="radio" id="borrowerN" name="has-loan" value="no" onclick="setEnabled()" class="custom-control-input">
                         <label class="custom-control-label" for="borrowerN" style="font-weight:normal;">No</label>
                     </div>
                 </td>
             </tr>
-
-            <tr>
-            </tr>
         </table>
 
         <div>
-            <label style="padding-right:960px;"> </label>
+            <label style="padding-right:810px;"> </label>
             <button type="button" id="calculate" onclick="cal()" class="btn btn-success mb-5">Calculate</button>
+			<button type="button" id="reset" style="margin-bottom:28px;" onclick="reset()" class="btn btn-success mb-5">Reset</button>
         </div>
 
         <h1 id="result">Result</h1>
         <table class="table table-hover">
             <tr>
-                <th>Monthly Household Income(HKD):</th>
-                <td><label id="monthly_income"></label></td>
+                <th>Monthly Household Income:</th>
+                <td><label id="monthly-income"></label></td>
             </tr>
             <tr>
-                <th>Mortgage Years:</th>
-                <td><label id="mortgage_years"></label></td>
+                <th>Actual Monthly Income:</th>
+                <td><label id="actual-monthly-income"></label></td>
+            </tr>
+
+
+            <tr>
+                <th>Monthly Repayments:</th>
+                <td><label id="monthly-repayment"></label></td>
+            </tr>
+
+            <tr>
+                <th>Debt-to-Income Ratio:</th>
+                <td><label id="debt-to-income"></label></td>
             </tr>
             <tr>
-                <th>Mortgage Interest Rate:</th>
-                <td><label id="interest_rate"></label></td>
+                <th>Monthly Repayment (After Stress Test):</th>
+                <td><label id="monthly-repayment-after-stress"></label></td>
             </tr>
             <tr>
-                <th>Total Monthly Debt Repayment Amount :</th>
-                <td><label id="debt_amt"></label></td>
-            </tr>
+            <th>Stress Test Ratio (Assume Interest Rate increased 3%):</th>
+            <td><label id="stress-test-ratio"></label></td>
+        </tr>
             <tr>
-                <th>Purpose of Purchase:</th>
-                <td><label id="purpose"></label></td>
-            </tr>
-            <tr>
-                <th>Income derived mainly in Hong Kong:</th>
-                <td><label></label></td>
-            </tr>
-            <tr>
-                <th>Outstanding mortgage loan:</th>
-                <td><label></label></td>
-            </tr>
-            <tr>
-                <th>Maximum Affordable Monthly Mortgage Repayment Amount:</th>
-                <td><label></label></td>
-            </tr>
-            <tr>
-                <th>Maximum Affordable Mortgage Loan Amount:</th>
-                <td><label></label></td>
+                <th>Minimum Income Limit for that Mortgage Amount:</th>
+                <td><label id="income-limit"></label></td>
             </tr>
         </table>
 
 
         <button  type="button" id="reset"   onclick=""  class="btn btn-success mb-5">Reset</button>
-        <button type="button" id="schedule" onclick="" class="btn btn-success mb-5">Repayment Schedule</button>
+
 
 
 
@@ -342,34 +373,20 @@
                                     </div>
                                 </div>
 
-                                <div class="col-sm-3  col-xs-12">
-                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
 
-                                        <div class="footer_title">
-                                            <h4>SITEMAP</h4>
-                                            <div class="separator"></div>
-                                        </div>
-                                        <ul>
-                                            <li><a href="">Services</a></li>
-                                            <li><a href="">About Us</a></li>
-                                            <li><a href="">Our Team</a></li>
-                                            <li><a href="">Portfolio</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
 
                                 <div class="col-sm-3  col-xs-12">
                                     <div class="single_widget wow fadeIn" data-wow-duration="800ms">
 
                                         <div class="footer_title">
-                                            <h4>ACHIVES</h4>
+                                            <h4>Function</h4>
                                             <div class="separator"></div>
                                         </div>
                                         <ul>
-                                            <li><a href="">January 2015</a></li>
-                                            <li><a href="">February 2015</a></li>
-                                            <li><a href="">March 2015</a></li>
-                                            <li><a href="">April 2015</a></li>
+                                            <li><a href="mortgageCal.html">Housing Mortgage Calculator</a></li>
+                                            <li><a href="repaymentCal.html">Mortgage Amendment Repayment </a></li>
+                                            <li><a href="stressCal.html">Mortgage Stress-Test</a></li>
+                                            <li><a href="QSInfo.html">Housing Adviser Guide</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -414,7 +431,6 @@
 
                             <div class="col-sm-6 col-xs-12">
                                 <div class="copyright_text">
-                                    <p class=" wow fadeInRight" data-wow-duration="1s">Made with Veda Cheng<i class="fa fa-heart"></i> by <a href="http://bootstrapthemes.co">Bootstrap Themes</a>2018. All Rights Reserved</p>
                                 </div>
                             </div>
 
@@ -444,43 +460,25 @@
 
 
 
-</div>
+        </div>
 
-<!-- START SCROLL TO TOP  -->
+        <!-- START SCROLL TO TOP  -->
 
-<div class="scrollup">
-    <a href="#"><i class="fa fa-chevron-up"></i></a>
-</div>
+        <div class="scrollup">
+            <a href="#"><i class="fa fa-chevron-up"></i></a>
+        </div>
 
-<script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
-<script src="assets/js/vendor/bootstrap.min.js"></script>
+        <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
 
-<script src="assets/js/jquery.magnific-popup.js"></script>
-<script src="assets/js/jquery.mixitup.min.js"></script>
-<script src="assets/js/jquery.easing.1.3.js"></script>
-<script src="assets/js/jquery.masonry.min.js"></script>
-<script src="assets/js/jquery.fancybox.pack.js"></script>
-
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-<script src="http://maps.google.com/maps/api/js"></script>
-<script src="assets/js/gmaps.min.js"></script>
+        <script src="assets/js/jquery.magnific-popup.js"></script>
+        <script src="assets/js/jquery.mixitup.min.js"></script>
+        <script src="assets/js/jquery.easing.1.3.js"></script>
+        <script src="assets/js/jquery.masonry.min.js"></script>
+        <script src="assets/js/jquery.fancybox.pack.js"></script>
 
 
-<script>
+        <script src="assets/js/main.js"></script>
 
-    function showmap() {
-        var mapOptions = {
-            zoom: 8,
-            scrollwheel: false,
-            center: new google.maps.LatLng(-34.397, 150.644),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-    }
-</script>
-
-<script src="assets/js/plugins.js"></script>
-<script src="assets/js/main.js"></script>
-
-</body>
+    </body>
 </html>

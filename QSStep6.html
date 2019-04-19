@@ -1,0 +1,1115 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Logic - Free Multipurpose Business Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+
+    <link rel="stylesheet" href="assets/css/iconfont.css">
+    <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+
+
+    <!--For Plugins external css-->
+    <link rel="stylesheet" href="assets/css/plugins.css" />
+
+    <!--Theme custom css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+
+
+
+    <script type="text/javascript" src="https://www.google.com/js"></script>
+
+
+
+
+        <script type="text/javascript">
+
+            $(document).ready(function(){
+                age = getParameterByName('age');
+                $('#age').attr('value',age)
+
+                affordable_mortgage_years = getParameterByName('affordable_mortgage_years');
+                $('#affordable_mortgage_years').attr('value',affordable_mortgage_years)
+
+                interest = getParameterByName('interest');
+                $('#interest').attr('value',interest)
+
+                income = getParameterByName('income');
+                $('#income').attr('value',income)
+
+                monthlyrepayment = getParameterByName('monthlyrepayment');
+                $('#monthlyrepayment').attr('value',monthlyrepayment)
+
+                debt = getParameterByName('debt');
+                $('#debt').attr('value',debt)
+
+                loanamt = getParameterByName('loanamt');
+                $('#loanamt').attr('value',loanamt)
+
+                downpayment = getParameterByName('downpayment');
+                $('#downpayment').attr('value',downpayment)
+
+                price = getParameterByName('price');
+                $('#price').attr('value',price)
+
+                ft = getParameterByName('ft');
+                $('#ft').attr('value',ft)
+
+                priceft = getParameterByName('priceft');
+                $('#priceft').attr('value',priceft)
+
+            });
+
+        /**
+         Get query string for setting language
+         **/
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+    </script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+        });
+        function savedata(){
+            var age = getParameterByName('age');
+            var affordable_mortgage_years = getParameterByName('affordable_mortgage_years');
+            var interest = getParameterByName('interest');
+            var income = getParameterByName('income');
+            var monthlyrepayment = getParameterByName('monthlyrepayment');
+            var debt = getParameterByName('debt');
+            var loanamt = getParameterByName('loanamt');
+            var downpayment = getParameterByName('downpayment');
+            var price = getParameterByName('price');
+            var ft = getParameterByName('ft');
+            var priceft = getParameterByName('price');
+
+
+            $('#nextstage').removeAttr('class');
+            $('#nextstage').addClass('btnnextstep')
+            $('#nextstage').attr('href', "QSStep8.html?affordable_mortgage_years="+affordable_mortgage_years+"&age="+age+"&interest="+interest+"&income="+income+"&monthlyrepayment="+monthlyrepayment+"&debt="+debt+"&loanamt="+loanamt+"&downpayment="+downpayment+"&price="+price+"&ft="+ft+"&priceft="+priceft);
+
+
+            $('#mortcalc').attr('href', "QSStep7.html?affordable_mortgage_years="+affordable_mortgage_years+"&age="+age+"&interest="+interest+"&income="+income+"&monthlyrepayment="+monthlyrepayment+"&debt="+debt+"&loanamt="+loanamt+"&downpayment="+downpayment+"&price="+price+"&ft="+ft+"&priceft="+priceft);
+            $('#rent').attr('href', "QSStep7_Rent.html?affordable_mortgage_years="+affordable_mortgage_years+"&age="+age+"&interest="+interest+"&income="+income+"&monthlyrepayment="+monthlyrepayment+"&debt="+debt+"&loanamt="+loanamt+"&downpayment="+downpayment+"&price="+price+"&ft="+ft+"&priceft="+priceft);
+
+        }
+
+
+        function checknull() {
+            $('#nextstage').removeAttr('href');
+            $('#nextstage').removeAttr('class');
+            $('#nextstage').addClass('btnlock');
+        }
+
+
+    </script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+    <script type="text/javascript">
+
+        var HKIsland_lineChartData = {
+            labels: ["Jan-1999","Jul-1999","Jan-2000","Jul-2000","Jan-2001","Jul-2001","Jan-2002","Jul-2002",
+                "Jan-2003","Jul-2003","Jan-2004","Jul-2004","Jan-2005","Jul-2005","Jan-2006","Jul-2006","Jan-2007","Jul-2007",
+                "Jan-2008","Jul-2008","Jan-2009","Jul-2009","Jan-2010","Jul-2010","Jan-2011","Jul-2011","Jan-2012","Jul-2012",
+                "Jan-2013","Jul-2013","Jan-2014","Jul-2014","Jan-2015","Jul-2015","Jan-2016","Jul-2016","Jan-2017","Jul-2017","Jan-2018","Jul-2018","Jan-2019","Feb-2019"], //顯示區間名稱
+            datasets: [{
+                label: '< 430 feets', // tootip 出現的名稱
+                lineTension: 0, // 曲線的彎度，設0 表示直線
+                backgroundColor: "#ea464d",
+                borderColor: "#ea464d",
+                borderWidth: 5,
+                data: [3963.52,3914.84,3664.38,3250.49,2965.47,3018.88,2903.03,2706.08,2442.33,2170.49,2787.46,2877.58,3441.59,3653.97,3718.35,3768.06,
+                    4225.88,4628.24,6064.06,5930.84,4851.58,5847.5,6495.32,7015.95,8214.95,8623.63,8633.29,9966.27,11444.91,11535.03,11418.9,11742.02,13209.42,
+                    14071.28,12677.27,12548.51,13873.58,14992.41,15916.99,17661.71,15274.75,15829.38], // 資料
+                fill: false, // 是否填滿色彩
+            }, {
+                label: '431 - 752 feets',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#29b288",
+                borderColor: "#29b288",
+                borderWidth: 5,
+                data: [4658.25,4732.57,4545.47,3876.1,3723.09,3729.87,3399.14,3133.06,2945.96,2680.9,3378.33,3545.92,4402.58,
+                    4430.83,4613.29,4749.39,5012.21,5523.74,7142.48,6706.3,5715.95,6749.78,7487.71,8077.64,8963.01,9502.5,8844.93,10424.37,11720.46,11814.29,11214.7,
+                    12023.61,13055.39,14137.52,13343.85,12516.92,13865.32,14682.12,15836.9,17283.22,16110.69,16382.62],
+            },{
+                label: '753 - 1075 feets',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#1b83b2",
+                borderColor: "#1b83b2",
+                borderWidth: 5,
+                data: [5617.48,5667.92,5517.23,4560.33,4764.35,4509.89,3895.43,3858.08,3817.2,3418.46,4767.32,4866.73,5956.66,6313.04,6090.72,6200.26,6830.05,7197.11,9242.09,9395.56,
+                    7258.7,8888.13,9810.38,10313.26,12115.49,12484.13,11895.12,13809.48,14234.42,14422.45,14478.75,13064.12,16025.5,15877.87,12928.39,15173.11,17255.44,17183.07,18929.74,
+                    20129.4,19067.61,17993.46],
+            },{
+                label: '1076 - 1721 feets',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#962cb2",
+                borderColor: "#962cb2",
+                borderWidth: 5,
+                data: [5708.43,6660.87,6321.96,5555.42,5511.29,5515.47,4418.75,4765.83,4467.99,4688.17,5215.67,5701,7186.7,7559.61,7835.16,7845.85,8289.74,9526.09,11609.72,12142.43,9911.92,
+                    11231.42,13445.02,13360.39,14706.83,17044.83,14704.97,16324.09,16609.21,17541.3,16735.55,17001.07,17420.99,17935.3,17873.34,17621.01,17804.5,
+                    18901.5,21473.89,21537.16,20732.71,20981.78],
+            }, ]
+        };
+
+        var Kowloon_lineChartData = {
+            labels: ["Jan-1999","Jul-1999","Jan-2000","Jul-2000","Jan-2001","Jul-2001","Jan-2002","Jul-2002",
+                "Jan-2003","Jul-2003","Jan-2004","Jul-2004","Jan-2005","Jul-2005","Jan-2006","Jul-2006","Jan-2007","Jul-2007",
+                "Jan-2008","Jul-2008","Jan-2009","Jul-2009","Jan-2010","Jul-2010","Jan-2011","Jul-2011","Jan-2012","Jul-2012",
+                "Jan-2013","Jul-2013","Jan-2014","Jul-2014","Jan-2015","Jul-2015","Jan-2016","Jul-2016","Jan-2017","Jul-2017","Jan-2018","Jul-2018","Jan-2019","Feb-2019"],
+            datasets: [{
+                label: '< 430 feets', // tootip 出現的名稱
+                lineTension: 0, // 曲線的彎度，設0 表示直線
+                backgroundColor: "#ea464d",
+                borderColor: "#ea464d",
+                borderWidth: 5,
+                data: [3422.73,3288.21,3102.03,2835.87,2611.97,2448.55,2333.91,2147.08,1979.49,1836.51,2068.11,2228.28,2527.15,2726.61,2688.89,
+                    2787.18,2965.56,3328.90,4089.41,3939.00,3643.84,4191.51,4790.73,5308.11,6000.89,6222.18,6045.76,7612.01,8587.77,
+                    8822.44,8787.05,9658.20,10863.06,11495.45,9664.05,10168.05,11332.22,11944.73,13077.31,14558.28,13521.02,13807.06], // 資料
+                fill: false, // 是否填滿色彩
+            },{
+                label: '431 - 752 feets',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#29b288",
+                borderColor: "#29b288",
+                borderWidth: 5,
+                data: [3525.21,3454.97,3291.83,2883.99,2674.86,2678.77,2470.29,2321.65,2076.01,1938.33,2720.76,2605.56,3386.97,3556.33,3566.73,
+                    3517.77,3677.20,4297.32,5465.86,4653.33,4422.65,5169.78,6060.90,6697.94,7683.45,7354.95,
+                    7055.71,8511.13,10058.06,9571.24,9536.03,9999.90,11278.62,11918.62,10133.03,10914.90,11035.58,12106.29,13126.27,13292.66,12831.77,13977.82],
+            }, {
+                label: '753 - 1075 feets',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#1b83b2",
+                borderColor: "#1b83b2",
+                borderWidth: 5,
+                data: [4254.59,4157.78,3998.64,3247.61,3120.89,2981.17,2888.73,2979.59,2692.79,2391.05,3472.07,3806.61,
+                    4909.46,5284.70,5051.60,5280.14,5747.35,6115.71,8839.45,7676.67,7003.40,7388.67,8997.01,9672.97,11014.68,11940.55,11861.58,
+                    12312.90,13858.44,12594.59,12128.96,12151.63,13059.75,14324.81,14322.12,14231.26,13863.46,14120.05,15850.47,15722.63,16550.21,18256.93],
+            }, {
+                label: '1076 - 1721 feets',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#962cb2",
+                borderColor: "#962cb2",
+                borderWidth: 5,
+                data: [5229.70,5036.74,4400.72,3876.84,4042.12,3596.93,3952.19,3885.58,3223.18,3078.34,3737.21,6413.93,6267.24,6633.65,
+                    6770.12,7087.76,7599.56,7259.72,9755.38,10350.70,8531.57,9872.06,11291.99,12459.78,13633.34,16216.60,13502.34,15814.42,14206.27,
+                    13993.52,13440.75,12655.35,16091.46,14724.30,14265.73,15363.75,15789.62,18285.73,16352.24,20270.79,17366.74,20500.45],
+            }, ]
+        };
+
+        var NewTerritories_lineChartData = {
+            labels: ["Jan-1999","Jul-1999","Jan-2000","Jul-2000","Jan-2001","Jul-2001","Jan-2002","Jul-2002",
+                "Jan-2003","Jul-2003","Jan-2004","Jul-2004","Jan-2005","Jul-2005","Jan-2006","Jul-2006","Jan-2007","Jul-2007",
+                "Jan-2008","Jul-2008","Jan-2009","Jul-2009","Jan-2010","Jul-2010","Jan-2011","Jul-2011","Jan-2012","Jul-2012",
+                "Jan-2013","Jul-2013","Jan-2014","Jul-2014","Jan-2015","Jul-2015","Jan-2016","Jul-2016","Jan-2017","Jul-2017","Jan-2018","Jul-2018","Jan-2019","Feb-2019"],
+            datasets: [{
+                label: '< 430 feets', // tootip 出現的名稱
+                lineTension: 0, // 曲線的彎度，設0 表示直線
+                backgroundColor: "#ea464d",
+                borderColor: "#ea464d",
+                borderWidth: 5,
+                data: [3407.59,3350.46,3177.19,2880.83,2573.32,2162.32,2404.42,2297.31,2001.32,
+                    1862.52,2215.55,2343.20,2649.04,2757.36,2775.39,2650.25,2663.99,2944.56,3611.05,3515.64,3225.87,3651.65,4150.26,
+                    4599.63,5190.68,5479.51,5344.15,6363.21,7696.74,7836.84,7781.56,8544.57,9728.71,10656.44,8978.71,9189.04,10441.47,11131.55,12270.17,13375.16,12707.84,12838.18], // 資料
+                fill: false, // 是否填滿色彩
+            },{
+                label: '431 - 752 feets',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#29b288",
+                borderColor: "#29b288",
+                borderWidth: 5,
+                data: [3325.65,3325.74,3181.74,2838.93,2671.71,2250.39,2338.09,2331.77,2031.98,1908.51,2263.12,2490.36,
+                    2811.99,3069.52,3022.32,2860.95,2876.56,3018.14,3654.99,3562.83,3346.09,3703.30,4058.19,4576.40,5123.14,5193.93,5131.13,6074.56,6973.95,
+                    7036.01,6796.14,7707.33,8479.07,9247.01,7743.75,8450.18,9164.98,9421.11,10716.74,11782.34,10764.95,11414.81],
+            }, {
+                label: '753 - 1075 feets',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#1b83b2",
+                borderColor: "#1b83b2",
+                borderWidth: 5,
+                data: [4022.52,3688.90,3698.66,3355.57,3281.99,2674.59,2796.10,2703.94,2583.45,2478.75,
+                    2862.62,3073.51,3570.54,3920.42,3832.81,3647.09,3630.28,4006.91,4692.90,4581.61,4137.07,4500.32,5118.31,5725.99,6116.64,6395.17,6262.04,
+                    6879.47,7761.21,8223.13,7984.92,8291.50,9045.13,9946.57,8419.99,8825.42,9977.88,10486.71,11322.09,11753.26,11366.69,11881.373],
+            }, {
+                label: '1076 - 1721 feets',
+                lineTension: 0,
+                fill: false,
+                backgroundColor: "#962cb2",
+                borderColor: "#962cb2",
+                borderWidth: 5,
+                data: [4687.61,4512.12,4318.69,3903.88,3535.24,2935.27,3086.70,2980.89,2941.68,
+                    2391.97,3427.56,3751.89,4377.03,4987.87,4203.58,4673.77,4526.98,4399.42,5324.27,5203.50,4488.98,5686.32,5436.31,6284.33,6171.36,
+                    6135.97,6960.48,7469.22,7246.44,7115.26,7176.48,7945.35,8747.56,8944.43,7627.15,9463.10,8570.77,9383.21,11227.15,10355.07,11943.62,11103.21],
+            },]
+        };
+
+        function drawLineCanvas(ctx,data) {
+            window.myLine = new Chart(ctx, {  //先建立一個 chart
+                type: 'line', // 型態
+                data: data,
+                options: {
+                    responsive: true,
+                    legend: { //是否要顯示圖示
+                        display: true,
+                    },
+                    tooltips: { //是否要顯示 tooltip
+                        enabled: true
+                    },
+                    scales: {  //是否要顯示 x、y 軸
+                        xAxes: [{
+                            display: true
+                        }],
+                        yAxes: [{
+                            display: true
+                        }]
+                    },
+                    title: {
+                        display: true,
+                        text: 'Gross Floor Area Average Prices (HKD$ Per Square Fts.)',
+                        fontSize: 26
+                    }
+
+                }
+            });
+        };
+
+		function initChart(){
+			var ctx = document.getElementById("canvas").getContext("2d");
+            drawLineCanvas(ctx, HKIsland_lineChartData);
+		}
+		
+        function setChart(menu){
+            var option = $(menu).val();
+            switch(option){
+                case "HK":$('#canvas').remove();
+                    var canvasHTML = "<canvas id='canvas'></canvas>";
+                    $('#prev-canvas').after(canvasHTML);
+                    var ctx = document.getElementById("canvas").getContext("2d");
+                    drawLineCanvas(ctx, HKIsland_lineChartData);
+                    break;
+                case "KL":$('#canvas').remove();
+                    var canvasHTML = "<canvas id='canvas'></canvas>";
+                    $('#prev-canvas').after(canvasHTML);
+                    var ctx = document.getElementById("canvas").getContext("2d");
+                    drawLineCanvas(ctx, Kowloon_lineChartData);
+                    break;
+
+                case "NT":$('#canvas').remove();
+                    var canvasHTML = "<canvas id='canvas'></canvas>";
+                    $('#prev-canvas').after(canvasHTML);
+                    var ctx = document.getElementById("canvas").getContext("2d");
+                    drawLineCanvas(ctx, NewTerritories_lineChartData);
+                    break;
+            }
+        }
+
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            var ctx = document.getElementById("canvas").getContext("2d");
+            drawLineCanvas(ctx,HKIsland_lineChartData);
+        };
+
+    </script>
+
+
+
+
+
+
+
+<script>
+
+
+        function initMap() {
+            var YuenLong = {lat:22.445691, lng: 114.034771};
+            var TuenMum = {lat:22.394378 , lng:113.972740};
+            var TsuenWan = {lat:22.373219, lng:  114.117125};
+            var KwaiTsing = {lat:22.346167 , lng:114.109827};
+            var ShamShuiPo = {lat:22.330644 , lng:114.162682 };
+            var WestKL = {lat:22.326390, lng:  114.154035};
+            var CentralWestern = {lat:22.287660, lng: 114.146349};
+            var Aberdeen = {lat:22.248785, lng:  114.153453 };
+            var Island = {lat:22.289647 , lng:113.942471 };
+            var NorthernDistrict = {lat:22.493815 , lng: 114.139735 };
+            var TaiPo = {lat:22.441677, lng: 114.165169};
+            var Shatin = {lat:22.378102  ,lng: 114.195452};
+            var WongTaiSin = {lat:22.341172, lng: 114.193234 };
+            var KowloonCity = {lat: 22.330125, lng:114.191893 };
+            var KwunTong = {lat:22.311978 , lng:114.226072 };
+            var TseungKwanO = {lat:22.316490, lng:114.260432 };
+            var EasternDistrict = {lat:22.283816, lng:114.220253};
+            var WanChai = {lat:22.277022, lng: 114.173402};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 11,
+                center: YuenLong,
+                center: TuenMum,
+                center: TsuenWan,
+                center: KwaiTsing,
+                center: ShamShuiPo,
+                center: WestKL,
+                center: CentralWestern,
+                center: Aberdeen,
+                center: Island,
+                center: NorthernDistrict,
+                center: TaiPo,
+                center: Shatin,
+                center: WongTaiSin,
+                center: KowloonCity,
+                center: KwunTong,
+                center: TseungKwanO,
+                center: EasternDistrict,
+                center: WanChai
+            });
+
+
+            var icon = {
+                url: "https://img.icons8.com/color/48/000000/home.png", // url
+                scaledSize: new google.maps.Size(28, 28), // scaled size
+                origin: new google.maps.Point(0,0), // origin
+                anchor: new google.maps.Point(0, 0) // anchor
+            };
+
+
+
+            var Ainfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Yuen Long</strong></p>' +
+                        '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $8,632/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $11,288/sq. ft.</p>' +
+                    '<a href="https://en.midland.com.hk/find-property/Yuen%20Long#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker = new google.maps.Marker({
+                position: YuenLong,
+                map: map,
+                icon: icon,
+                title: 'YuenLong'
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+                Ainfowindow.open(map,marker);
+            });
+
+
+
+            var Binfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Tuen Mun</strong></p>' +
+                        '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $8,983/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $11,878/sq. ft.</p>' +
+                    '<a href="https://en.midland.com.hk/find-property/Tuen%20Mun#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker2 = new google.maps.Marker({
+                position:TuenMum,
+                map: map,
+                icon: icon,
+                title: 'Tuen Mun'
+            });
+            google.maps.event.addListener(marker2, 'click', function() {
+                Binfowindow.open(map,marker2);
+            });
+
+
+
+            var Cinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Tsuen Wan</strong></p>' +
+                        '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $9,823/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $12,588/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Tsuen%20Wan#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker3 = new google.maps.Marker({
+                position:TsuenWan,
+                map: map,
+                icon: icon,
+                title: 'Tsuen Wan'
+            });
+            google.maps.event.addListener(marker3, 'click', function() {
+                Cinfowindow.open(map,marker3);
+            });
+
+
+            var Dinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Kwai Tsing</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $10,907/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $14,133/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Tsing%20Yi#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker4 = new google.maps.Marker({
+                position:KwaiTsing,
+                map: map,
+                icon: icon,
+                title: 'Kwai Tsing'
+            });
+            google.maps.event.addListener(marker4, 'click', function() {
+                Dinfowindow.open(map,marker4);
+            });
+
+
+
+            var Einfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Sham Shui Po</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $11,555/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $15,564/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Cheung%20Sha%20Wan%20/%20Sham%20Shui%20Po#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker5 = new google.maps.Marker({
+                position:ShamShuiPo,
+                map: map,
+                icon: icon,
+                title: 'Sham Shui Po'
+            });
+            google.maps.event.addListener(marker5, 'click', function() {
+                Einfowindow.open(map,marker5);
+            });
+
+
+
+            var Finfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>West KowLoon</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $14,536/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $20,613/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Mongkok#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker6 = new google.maps.Marker({
+                position:WestKL,
+                map: map,
+                icon: icon,
+                title: 'West KowLoon'
+            });
+            google.maps.event.addListener(marker6, 'click', function() {
+                Finfowindow.open(map,marker6);
+            });
+
+
+            var Ginfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Central And Western District</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $15,752/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $21,362/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Sheung%20Wan%20/%20Central#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker7 = new google.maps.Marker({
+                position:CentralWestern,
+                map: map,
+                icon: icon,
+                title: 'Central And Western District'
+            });
+            google.maps.event.addListener(marker7, 'click', function() {
+                Ginfowindow.open(map,marker7);
+            });
+
+
+            var Hinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Aberdeen</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $13,132/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $16,294/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Aberdeen%20/%20Wong%20Chuk%20Hang#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker8 = new google.maps.Marker({
+                position:Aberdeen,
+                map: map,
+                icon: icon,
+                title: 'Aberdeen'
+            });
+            google.maps.event.addListener(marker8, 'click', function() {
+                Hinfowindow.open(map,marker8);
+            });
+
+
+            var Iinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Tung Chung</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $8,809/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $11,979/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Tung%20Chung#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker9 = new google.maps.Marker({
+                position:Island,
+                map: map,
+                icon: icon,
+                title: 'Tung Chung'
+            });
+            google.maps.event.addListener(marker9, 'click', function() {
+                Iinfowindow.open(map,marker9);
+            });
+
+
+            var Jinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Northern District</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $9,359/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $12,645/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Sheung%20Shui%20/%20Fanling#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker10 = new google.maps.Marker({
+                position:NorthernDistrict,
+                map: map,
+                icon: icon,
+                title: 'Northern District'
+            });
+            google.maps.event.addListener(marker10, 'click', function() {
+                Jinfowindow.open(map,marker10);
+            });
+
+
+            var Kinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Tai Po</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $10,908/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $13,646/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Tai%20Po#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker11 = new google.maps.Marker({
+                position:TaiPo,
+                map: map,
+                icon: icon,
+                title: 'Tai Po'
+            });
+            google.maps.event.addListener(marker11, 'click', function() {
+                Kinfowindow.open(map,marker11);
+            });
+
+
+            var Minfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Sha Tin</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $11,606/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $15,290/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Shatin#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker12 = new google.maps.Marker({
+                position:Shatin,
+                map: map,
+                icon: icon,
+                title: 'Sha Tin'
+            });
+            google.maps.event.addListener(marker12, 'click', function() {
+                Minfowindow.open(map,marker12);
+            });
+
+
+            var Ninfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Wong Tai Sin</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $10,376/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $14,071/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Wong%20Tai%20Sin%20/%20Lok%20Fu#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker13 = new google.maps.Marker({
+                position:WongTaiSin,
+                map: map,
+                icon: icon,
+                title: 'Wong Tai Sin'
+            });
+            google.maps.event.addListener(marker13, 'click', function() {
+                Ninfowindow.open(map,marker13);
+            });
+
+
+
+            var Oinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Kowloon City</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $13,317/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $16,965/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Kowloon%20City#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker14 = new google.maps.Marker({
+                position:KowloonCity,
+                map: map,
+                icon: icon,
+                title: 'Kowloon City'
+            });
+            google.maps.event.addListener(marker14, 'click', function() {
+                Oinfowindow.open(map,marker14);
+            });
+
+
+
+
+            var Pinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Kwun Tong</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $11,297/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $13,927/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Kwun%20Tong#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker15 = new google.maps.Marker({
+                position:KwunTong,
+                map: map,
+                icon: icon,
+                title: 'Kwun Tong'
+            });
+            google.maps.event.addListener(marker15, 'click', function() {
+                Pinfowindow.open(map,marker15);
+            });
+
+            var Tinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Tseung Kwan O</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $11,357/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $15,364/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Po%20Lam%20/%20Tseung%20Kwan%20O%20Station#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker16 = new google.maps.Marker({
+                position:TseungKwanO,
+                map: map,
+                icon: icon,
+                title: 'Tseung Kwan O'
+            });
+            google.maps.event.addListener(marker16, 'click', function() {
+                Tinfowindow.open(map,marker16);
+            });
+
+
+            var Uinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Eastern District</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $14,005/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $16,819/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Sai%20Wan%20Ho%20/%20Taikoo#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker17 = new google.maps.Marker({
+                position:EasternDistrict,
+                map: map,
+                icon: icon,
+                title: 'Eastern District'
+            });
+            google.maps.event.addListener(marker17, 'click', function() {
+                Uinfowindow.open(map,marker17);
+            });
+
+
+
+            var Vinfowindow = new google.maps.InfoWindow({
+                content:  '<p align="center" style="color: #ff8b3f; font-size:15px;"><strong>Wan Chai</strong></p>' +
+                    '<p style="line-height:1px;"><strong>Gross Floor Area:</strong> $20,630/sq. ft.</p>' +
+                    '<p><strong>Saleable Area:</strong> $20,630/sq. ft.</p>'+
+                    '<a href="https://en.midland.com.hk/find-property/Wan%20Chai%20/%20Causeway%20Bay#list" target="_blank" class="btninfowindow">Properties of that District</a>'
+            });
+            var marker18 = new google.maps.Marker({
+                position:WanChai,
+                map: map,
+                icon: icon,
+                title: 'Wan Chai'
+            });
+            google.maps.event.addListener(marker18, 'click', function() {
+                Vinfowindow.open(map,marker18);
+            });
+        }
+
+
+
+
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAb0Nkffvom4kvcfTdyti3s92M5rGb8xKE&callback=initMap">
+    </script>
+
+<script>
+ function showmap() {
+     var googelmap = document.getElementById('mapinfo');
+     if (googelmap.style.display === 'none') {
+         googelmap.style.display = 'block';
+     }
+ }
+
+ function shownextstep() {
+     var mortcalc = document.getElementById('mortcalc');
+     var rent = document.getElementById('rent');
+
+
+         mortcalc.style.display = 'block';
+         rent.style.display = 'block';
+
+
+
+ }
+</script>
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse" onload="checknull()">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class='preloader'><div class='loaded'>&nbsp;</div></div>
+<div class="culmn">
+    <header id="main_menu" class="header navbar-fixed-top menu-scroll">
+        <div class="main_menu_bg">
+            <div class="container">
+                <div class="row">
+                    <div class="nave_menu">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#home">
+                                        <img src="assets/images/logo.png"/>
+                                    </a>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="index.html#home">HOME</a></li>
+                                        <li><a href="index.html#about">About</a></li>
+                                        <li><a href="index.html#service">Functions</a></li>
+                                        <li><a href="index.html#information">Information</a></li>
+                                        <li><a href="index.html#contact">CONTACT</a></li>
+
+
+                                        <li>
+                                            <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <span class="glyphicon glyphicon-search"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <form class="navbar-form" role="search">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Search">
+                                                        </div>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+
+                                </div>
+
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </header> <!--End of header -->
+
+
+
+    <section id="repayment" class="container">
+
+
+
+
+        <div class="calHead">Step 6 - Select Your Property
+            <div class="separator"></div>
+        </div>
+
+
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">65%</div>
+        </div>
+        The following data are our suggestion after the previous Evaluation Step:
+        <br> <br>
+        <table class="table">
+            <tr>
+                <th rowspan="1">Affordable Property Price:</th>
+                <td colspan="2">
+                    <input type="text" class="form-control" id="price"  disabled >
+                </td>
+            </tr>
+            <tr>
+                <th rowspan="1">Preferred Unit of Ft.:</th>
+                <td colspan="2">
+                    <input type="text" class="form-control" id="ft"  disabled>
+                </td>
+            </tr>
+            <tr>
+                <th rowspan="1">Price / Ft.:</th>
+                <td colspan="2">
+                    <input type="text" class="form-control" id="priceft"  disabled>
+                </td>
+            </tr>
+        </table>
+
+
+        <div>
+
+            <button  type="button" id="previewgraph"  class="btnback" style="margin-left: 200px; margin-right: 300px;">Preview Property Price by Region</button>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <table>
+                        <tr>
+                            <th>Select Region:</th>
+                            <td colspan="1">
+                                <select onchange="setChart(this)" class="custom-select my-1 mr-sm-2" id="region" >
+                                    <option value="HK">Hong Kong Island</option>
+                                    <option value="KL">Kowloon</option>
+                                    <option value="NT">New Territories</option>
+                                </select>
+
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br><br id="prev-canvas">
+                    <canvas id="canvas"></canvas>
+                    <label style="padding-right:500px;"> </label>
+                </div>
+
+            </div>
+
+            <button  type="button" id="showmap" onclick="showmap(); shownextstep(); savedata();" class="btnnextstep">Show Property Price on Map</button>
+
+
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("previewgraph");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on the button, open the modal
+            btn.onclick = function() {
+                modal.style.display = "block";
+				initChart();
+				
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+
+
+
+
+
+<div id="mapinfo" style="display: none">
+    <br>
+        You can click on the below house icon for checking the square ft. price of gross floor area and saleable area.
+        <br>
+        You also can find the properties of that district!
+        <br><br>
+
+        <div id="map" style="width:100%;height:750px;"></div>
+    </div>
+        <br><br>
+
+        <a href="QSStep7.html" type="button" id="mortcalc" onclick="savedata()" class="btnmortcalc"  style=" display: none">I Have Decided Property (Mortgage Calculator)</a>
+        <br>
+        <a href="rentOrbuy.html" type="button" id="rent" onclick="savedata()"  style=" display: none" class="btnrent">Rent Or Purchase Evaluation</a>
+
+        <br><br>
+
+
+
+
+            <div>
+                <a href="QSStep5.html" type="button" id="back" onclick="savedata()" class="btnback" style="margin-right: 830px;">←  Back</a>
+                <a href="QSStep8.html" type="button" id="nextstage" onclick="" class="btnnextstep">Next Stage  →</a>
+            </div>
+
+            <br><br>
+
+    </section>
+
+
+
+
+    <section id="footer" class="footer_widget">
+        <div class="video_overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="main_widget">
+                                <div class="col-sm-3 col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+                                        <div class="footer_logo">
+                                            <img src="assets/images/logo.png" alt="" />
+                                        </div>
+                                        <p></p>
+
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-sm-3  col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+
+                                        <div class="footer_title">
+                                            <h4>Function</h4>
+                                            <div class="separator"></div>
+                                        </div>
+                                        <ul>
+                                            <li><a href="mortgageCal.html">Housing Mortgage Calculator</a></li>
+                                            <li><a href="repaymentCal.html">Mortgage Amendment Repayment </a></li>
+                                            <li><a href="stressCal.html">Mortgage Stress-Test</a></li>
+                                            <li><a href="QSInfo.html">Housing Adviser Guide</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+
+                                        <div class="footer_title">
+                                            <h4>NEWSLETTER</h4>
+                                            <div class="separator"></div>
+                                        </div>
+
+                                        <div class="footer_subcribs_area">
+                                            <p>Sign up for our mailing list to get latest updates and offers.</p>
+                                            <form class="navbar-form navbar-left" role="search">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Search">
+                                                    <button type="submit" class="submit_btn"></button>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="main_footer">
+                        <div class="row">
+
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="copyright_text">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="flowus">
+                                    <a href=""><i class="fa fa-facebook"></i></a>
+                                    <a href=""><i class="fa fa-twitter"></i></a>
+                                    <a href=""><i class="fa fa-google-plus"></i></a>
+                                    <a href=""><i class="fa fa-instagram"></i></a>
+                                    <a href=""><i class="fa fa-youtube"></i></a>
+                                    <a href=""><i class="fa fa-dribbble"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+</div>
+
+<!-- START SCROLL TO TOP  -->
+
+<div class="scrollup">
+    <a href="#"><i class="fa fa-chevron-up"></i></a>
+</div>
+
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+<script src="assets/js/vendor/bootstrap.min.js"></script>
+
+<script src="assets/js/jquery.magnific-popup.js"></script>
+<script src="assets/js/jquery.mixitup.min.js"></script>
+<script src="assets/js/jquery.easing.1.3.js"></script>
+<script src="assets/js/jquery.masonry.min.js"></script>
+<script src="assets/js/jquery.fancybox.pack.js"></script>
+
+
+
+
+
+
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

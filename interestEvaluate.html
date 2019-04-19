@@ -1,0 +1,810 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Logic - Free Multipurpose Business Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+
+    <link rel="stylesheet" href="assets/css/iconfont.css">
+    <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+
+
+    <!--For Plugins external css-->
+
+
+    <!--Theme custom css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+    <script type="text/javascript">
+        var price_range_slider;
+        var ratio_range_slider;
+        var amount_range_slider;
+        var mortgage_year_range_slider;
+        var mortgage_interest_range_slider;
+        var price_output;
+        var ratio_output;
+        var amount_output;
+        var mortgage_year_output;
+        var mortgage_interest_output;
+        $(document).ready(function(){
+            // price_range_slider = document.getElementById("price_range");
+            // ratio_range_slider = document.getElementById("ratio_range");
+            // amount_range_slider = document.getElementById("amount_range");
+            // mortgage_year_range_slider = document.getElementById("mortgage_year_range");
+            // mortgage_interest_range_slider = document.getElementById("mortgage_interest_range");
+            price_output = document.getElementById('price');
+            ratio_output = document.getElementById('ratio');
+            amount_output = document.getElementById('amount');
+            mortgage_year_output = document.getElementById('mortgage_year');
+            mortgage_interest_output = document.getElementById('mortgage_interest');
+
+            // Display the default slider value
+            // price_output.setAttribute('value', price_range_slider.value);
+            // ratio_output.setAttribute('value', ratio_range_slider.value);
+            // amount_output.setAttribute('value', amount_range_slider.value);
+            // mortgage_year_output.setAttribute('value', mortgage_year_range_slider.value);
+            // mortgage_interest_output.setAttribute('value', mortgage_interest_range_slider.value);
+
+
+
+            // Update the current slider value (each time you drag the slider handle)
+            // price_range_slider.oninput = function() {
+            //     price_output.setAttribute('value', this.value);
+            //     price = parseInt(price_output.getAttribute('value'));
+            //     ratio = parseInt(ratio_output.getAttribute('value'));
+            //     amount = price * (ratio/100);
+            //     amount_output.setAttribute('value', parseInt(amount));
+            //     amount_range.value=parseInt(amount);
+            //     cal();
+            // }
+            // ratio_range_slider.oninput = function() {
+            //     ratio_output.setAttribute('value', this.value);
+            //     price = parseInt(price_output.getAttribute('value'));
+            //     ratio = parseInt(ratio_output.getAttribute('value'));
+            //     amount = price * (ratio/100);
+            //     amount_output.setAttribute('value', parseInt(amount));
+            //     amount_range.value=parseInt(amount);
+            //     cal();
+            // }
+            //
+            // mortgage_year_range_slider.oninput = function() {
+            //     mortgage_year_output.setAttribute('value', this.value);
+            //     cal();
+            // }
+            // mortgage_interest_range_slider.oninput = function() {
+            //     mortgage_interest_output.setAttribute('value', this.value);
+            //     cal();
+            // }
+
+
+        });
+
+
+
+
+
+
+        function cal(){
+            price_output = document.getElementById('price');
+            ratio_output = document.getElementById('ratio');
+
+            amount_output = document.getElementById('amount');
+            mortgage_year_output = document.getElementById('mortgage_year');
+            mortgage_interest_output = document.getElementById('mortgage_interest');
+
+            var float_price = parseInt(price_output.value) ;
+            var float_ratio = parseFloat(ratio_output.value) / 100;
+            var int_year = parseInt(mortgage_year_output.value);
+            var float_interest = parseFloat(mortgage_interest_output.value) / 100;
+
+
+            console.log(float_price+" "+float_ratio+" "+int_year+" "+float_interest);
+
+
+
+
+                var monthly_repayment = ((float_price * float_ratio) * (float_interest / 12) * Math.pow((1 + (float_interest / 12)), 12 * int_year)) / (Math.pow((1 + (float_interest / 12)), 12 * int_year) - 1);
+                var down_payment = float_price * (1 - float_ratio);
+                var terms = int_year * 12;
+                var total_repayment = float_price * float_ratio;
+                var total_interest = monthly_repayment * terms - total_repayment;
+                var total_repayment_included = total_repayment + total_interest;
+
+                $('#monthly-repayment').html("<label>" + Math.round(monthly_repayment) + "</label>");
+                $('#down-payment').html("<label>" + Math.round(down_payment) + "</label>");
+                $('#terms').html("<label>" + terms + "</label>");
+                $('#total-repayment').html("<label>" + Math.round(total_repayment) + "</label>");
+                $('#interest').html("<label>" + Math.round(total_interest) + "</label>");
+                $('#total-repayment-included').html("<label>" + Math.round(total_repayment_included) + "</label>");
+
+
+                var monthly_repayment1 = ((float_price * float_ratio) * (0.01 / 12) * Math.pow((1 + (0.01 / 12)), 12 * int_year)) / (Math.pow((1 + (0.01 / 12)), 12 * int_year) - 1);
+                var monthly_repayment15 = ((float_price * float_ratio) * (0.015 / 12) * Math.pow((1 + (0.015 / 12)), 12 * int_year)) / (Math.pow((1 + (0.015 / 12)), 12 * int_year) - 1);
+                var monthly_repayment2 = ((float_price * float_ratio) * (0.02 / 12) * Math.pow((1 + (0.02 / 12)), 12 * int_year)) / (Math.pow((1 + (0.02 / 12)), 12 * int_year) - 1);
+                var monthly_repayment25 = ((float_price * float_ratio) * (0.025 / 12) * Math.pow((1 + (0.025 / 12)), 12 * int_year)) / (Math.pow((1 + (0.025 / 12)), 12 * int_year) - 1);
+                var monthly_repayment3 = ((float_price * float_ratio) * (0.03 / 12) * Math.pow((1 + (0.03 / 12)), 12 * int_year)) / (Math.pow((1 + (0.03 / 12)), 12 * int_year) - 1);
+                var monthly_repayment35 = ((float_price * float_ratio) * (0.035 / 12) * Math.pow((1 + (0.035 / 12)), 12 * int_year)) / (Math.pow((1 + (0.035 / 12)), 12 * int_year) - 1);
+                var monthly_repayment4 = ((float_price * float_ratio) * (0.04 / 12) * Math.pow((1 + (0.04 / 12)), 12 * int_year)) / (Math.pow((1 + (0.04 / 12)), 12 * int_year) - 1);
+                var monthly_repayment45 = ((float_price * float_ratio) * (0.045 / 12) * Math.pow((1 + (0.045 / 12)), 12 * int_year)) / (Math.pow((1 + (0.045 / 12)), 12 * int_year) - 1);
+                var monthly_repayment5 = ((float_price * float_ratio) * (0.05 / 12) * Math.pow((1 + (0.05 / 12)), 12 * int_year)) / (Math.pow((1 + (0.05 / 12)), 12 * int_year) - 1);
+                var monthly_repayment55 = ((float_price * float_ratio) * (0.055 / 12) * Math.pow((1 + (0.055 / 12)), 12 * int_year)) / (Math.pow((1 + (0.055 / 12)), 12 * int_year) - 1);
+                var monthly_repayment6 = ((float_price * float_ratio) * (0.06 / 12) * Math.pow((1 + (0.06 / 12)), 12 * int_year)) / (Math.pow((1 + (0.06 / 12)), 12 * int_year) - 1);
+
+
+                var total_interest1 = monthly_repayment1 * terms - total_repayment;
+                var total_interest15 = monthly_repayment15 * terms - total_repayment;
+                var total_interest2 = monthly_repayment2 * terms - total_repayment;
+                var total_interest25 = monthly_repayment25 * terms - total_repayment;
+                var total_interest3 = monthly_repayment3 * terms - total_repayment;
+                var total_interest35 = monthly_repayment35 * terms - total_repayment;
+                var total_interest4 = monthly_repayment4 * terms - total_repayment;
+                var total_interest45 = monthly_repayment45 * terms - total_repayment;
+                var total_interest5 = monthly_repayment5 * terms - total_repayment;
+                var total_interest55 = monthly_repayment55 * terms - total_repayment;
+                var total_interest6 = monthly_repayment6 * terms - total_repayment;
+
+
+                $('#1-monthlyrepayment').html("<label>" + Math.round(monthly_repayment1) + "</label>");
+                $('#15-monthlyrepayment').html("<label>" + Math.round(monthly_repayment15) + "</label>");
+                $('#2-monthlyrepayment').html("<label>" + Math.round(monthly_repayment2) + "</label>");
+                $('#25-monthlyrepayment').html("<label>" + Math.round(monthly_repayment25) + "</label>");
+                $('#3-monthlyrepayment').html("<label>" + Math.round(monthly_repayment3) + "</label>");
+                $('#35-monthlyrepayment').html("<label>" + Math.round(monthly_repayment35) + "</label>");
+                $('#4-monthlyrepayment').html("<label>" + Math.round(monthly_repayment4) + "</label>");
+                $('#45-monthlyrepayment').html("<label>" + Math.round(monthly_repayment45) + "</label>");
+                $('#5-monthlyrepayment').html("<label>" + Math.round(monthly_repayment5) + "</label>");
+                $('#55-monthlyrepayment').html("<label>" + Math.round(monthly_repayment55) + "</label>");
+                $('#6-monthlyrepayment').html("<label>" + Math.round(monthly_repayment6) + "</label>");
+
+                $('#1-repaymentamt').html("<label>" + Math.round(total_repayment) + "</label>");
+                $('#15-repaymentamt').html("<label>" + Math.round(total_repayment) + "</label>");
+                $('#2-repaymentamt').html("<label>" + Math.round(total_repayment) + "</label>");
+                $('#25-repaymentamt').html("<label>" + Math.round(total_repayment) + "</label>");
+                $('#3-repaymentamt').html("<label>" + Math.round(total_repayment) + "</label>");
+                $('#35-repaymentamt').html("<label>" + Math.round(total_repayment) + "</label>");
+                $('#4-repaymentamt').html("<label>" + Math.round(total_repayment) + "</label>");
+                $('#45-repaymentamt').html("<label>" + Math.round(total_repayment) + "</label>");
+                $('#5-repaymentamt').html("<label>" + Math.round(total_repayment) + "</label>");
+                $('#55-repaymentamt').html("<label>" + Math.round(total_repayment) + "</label>");
+                $('#6-repaymentamt').html("<label>" + Math.round(total_repayment) + "</label>");
+
+
+                $('#1-interest').html("<label>" + Math.round(total_interest1) + "</label>");
+                $('#15-interest').html("<label>" + Math.round(total_interest15) + "</label>");
+                $('#2-interest').html("<label>" + Math.round(total_interest2) + "</label>");
+                $('#25-interest').html("<label>" + Math.round(total_interest25) + "</label>");
+                $('#3-interest').html("<label>" + Math.round(total_interest3) + "</label>");
+                $('#35-interest').html("<label>" + Math.round(total_interest35) + "</label>");
+                $('#4-interest').html("<label>" + Math.round(total_interest4) + "</label>");
+                $('#45-interest').html("<label>" + Math.round(total_interest45) + "</label>");
+                $('#5-interest').html("<label>" + Math.round(total_interest5) + "</label>");
+                $('#55-interest').html("<label>" + Math.round(total_interest55) + "</label>");
+                $('#6-interest').html("<label>" + Math.round(total_interest6) + "</label>");
+
+
+
+
+        }
+
+        function reset(){
+            $('#monthly-repayment').empty();
+            $('#down-payment').empty();
+            $('#terms').empty();
+            $('#total-repayment').empty();
+            $('#interest').empty();
+            $('#total-repayment-included').empty();
+
+
+            $('#1-monthlyrepayment').empty();
+            $('#15-monthlyrepayment').empty();
+            $('#2-monthlyrepayment').empty();
+            $('#25-monthlyrepayment').empty();
+            $('#3-monthlyrepayment').empty();
+            $('#35-monthlyrepayment').empty();
+            $('#4-monthlyrepayment').empty();
+            $('#45-monthlyrepayment').empty();
+            $('#5-monthlyrepayment').empty();
+            $('#55-monthlyrepayment').empty();
+            $('#6-monthlyrepayment').empty();
+
+            $('#1-repaymentamt').empty();
+            $('#15-repaymentamt').empty();
+            $('#2-repaymentamt').empty();
+            $('#25-repaymentamt').empty();
+            $('#3-repaymentamt').empty();
+            $('#35-repaymentamt').empty();
+            $('#4-repaymentamt').empty();
+            $('#45-repaymentamt').empty();
+            $('#5-repaymentamt').empty();
+            $('#55-repaymentamt').empty();
+            $('#6-repaymentamt').empty();
+
+            $('#1-interest').empty();
+            $('#15-interest').empty();
+            $('#2-interest').empty();
+            $('#25-interest').empty();
+            $('#3-interest').empty();
+            $('#35-interest').empty();
+            $('#4-interest').empty();
+            $('#45-interest').empty();
+            $('#5-interest').empty();
+            $('#55-interest').empty();
+            $('#6-interest').empty();
+        }
+
+    </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+    <script type="text/javascript">
+
+        var HKIsland_lineChartData = {
+            labels: ["3/4/2018","13/4/2018","23/4/2018","3/5/2018","14/5/2018","23/5/2018","4/6/2018","13/6/2018","25/6/2018","3/7/2018","13/7/2018","23/7/2018","3/8/2018","13/8/2018","23/8/2018","3/9/2018","13/9/2018","24/9/2018","3/10/2018","15/10/2018",
+                "23/10/2018","5/11/2018","13/11/2018","23/11/2018","3/12/2018","13/12/2018","24/12/2018","3/1/2019","14/1/2019","23/1/2019","4/2/2019","13/2/2019","25/2/2019","4/3/2019","13/3/2019","25/3/2019","3/4/2019","12/4/2019"
+            ],
+
+            datasets: [{
+                label: 'HIBOR Rate', // tootip 出現的名稱
+                lineTension: 0, // 曲線的彎度，設0 表示直線
+                backgroundColor: "#ea464d",
+                borderColor: "#ea464d",
+                borderWidth: 5,
+                data: [0.9600 ,0.8400 ,1.0200 ,1.2400 ,0.9900 ,0.9900 ,1.0500 ,1.6000 ,2.1900 ,2.0400 ,1.7300 ,1.8500 ,1.4900 ,1.2800 ,
+                    1.4200 ,1.6400 ,1.7000 ,2.1500 ,1.8000 ,1.6200 ,1.5400 ,1.0700 ,1.0700 ,1.0800 ,1.6500 ,2.2500 ,2.2700 ,1.7300 ,1.2800 ,
+                    1.2600 ,1.0300 ,1.0800 ,0.9200 ,1.3300 ,1.5000 ,1.8000 ,1.7000 ,1.8900], // 資料
+                fill: false, // 是否填滿色彩
+            }, ]
+        };
+
+        var Kowloon_lineChartData = {
+            labels: ["3/4/2018","13/4/2018","23/4/2018","3/5/2018","14/5/2018","23/5/2018","4/6/2018","13/6/2018","25/6/2018","3/7/2018","13/7/2018","23/7/2018","3/8/2018","13/8/2018","23/8/2018","3/9/2018","13/9/2018","24/9/2018","3/10/2018","15/10/2018",
+                "23/10/2018","5/11/2018","13/11/2018","23/11/2018","3/12/2018","13/12/2018","24/12/2018","3/1/2019","14/1/2019","23/1/2019","4/2/2019","13/2/2019","25/2/2019","4/3/2019","13/3/2019","25/3/2019","3/4/2019","12/4/2019"
+            ],
+            datasets: [{
+                label: 'Monetary Base', // tootip 出現的名稱
+                lineTension: 0, // 曲線的彎度，設0 表示直線
+                backgroundColor: "#ea464d",
+                borderColor: "#ea464d",
+                borderWidth: 5,
+                data: [1714361,1713908,1662843,1668616,1667445,1646483,1647364,1644110,1644110,1648643,1644899,1644664,1644868,1646824,
+                    1624543,1613616,1609935,1613561,1615463,1615284,1610736,1619279,1616380,1614328,1620783,1621177,1633635,1627412,1633175,1644718,1670834,
+                    1656910,1648773,1649850,1644744,1634471,1625618,1623239],
+            },]
+        };
+
+
+
+        function drawLineCanvas(ctx,data) {
+            window.myLine = new Chart(ctx, {  //先建立一個 chart
+                type: 'line', // 型態
+                data: data,
+                options: {
+                    responsive: true,
+                    legend: { //是否要顯示圖示
+                        display: true,
+                    },
+                    tooltips: { //是否要顯示 tooltip
+                        enabled: true
+                    },
+                    scales: {  //是否要顯示 x、y 軸
+                        xAxes: [{
+                            display: true
+                        }],
+                        yAxes: [{
+                            display: true
+                        }]
+                    },
+                    title: {
+                        display: true,
+                        text: 'Historical HIBOR Rate (%) - For Recent 1 Year',
+                        fontSize: 26
+                    }
+
+                }
+            });
+        };
+
+        function setChart(menu){
+            var option = $(menu).val();
+            switch(option){
+                case "HK":$('#canvas').remove();
+                    var canvasHTML = "<canvas id='canvas'></canvas>";
+                    $('#prev-canvas').after(canvasHTML);
+                    var ctx = document.getElementById("canvas").getContext("2d");
+                    drawLineCanvas(ctx, HKIsland_lineChartData);
+                    break;
+                case "KL":$('#canvas').remove();
+                    var canvasHTML = "<canvas id='canvas'></canvas>";
+                    $('#prev-canvas').after(canvasHTML);
+                    var ctx = document.getElementById("canvas").getContext("2d");
+                    drawLineCanvas(ctx, Kowloon_lineChartData);
+                    break;
+
+
+            }
+        }
+
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            var ctx = document.getElementById("canvas").getContext("2d");
+            drawLineCanvas(ctx,HKIsland_lineChartData);
+        };
+
+    </script>
+
+
+
+
+
+
+
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class='preloader'><div class='loaded'>&nbsp;</div></div>
+<div class="culmn">
+    <header id="main_menu" class="header navbar-fixed-top menu-scroll">
+        <div class="main_menu_bg">
+            <div class="container">
+                <div class="row">
+                    <div class="nave_menu">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#home">
+                                        <img src="assets/images/logo.png"/>
+                                    </a>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="index.html#home">HOME</a></li>
+                                        <li><a href="index.html#about">About</a></li>
+                                        <li><a href="index.html#service">Functions</a></li>
+                                        <li><a href="index.html#information">Information</a></li>
+                                        <li><a href="index.html#contact">CONTACT</a></li>
+
+
+                                        <li>
+                                            <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <span class="glyphicon glyphicon-search"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <form class="navbar-form" role="search">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Search">
+                                                        </div>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+
+                                </div>
+
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </header> <!--End of header -->
+
+
+
+
+
+    <section id="housingCal" class="container">
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+        </div>
+
+        <div class="calHead">Housing Mortgage Calculator
+            <div class="separator"></div>
+        </div>
+
+        <table class="table">
+
+
+
+            <tr>
+                <th rowspan="1">Property Price(10K):</th>
+                <td colspan="1">
+                    <input type="text" class="form-control" id="price" placeholder="(10K)" >
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="1">Loan Ratio(%):</th>
+                <td>
+                    <input type="text" class="form-control" id="ratio" placeholder="%" >
+                </td>
+
+            </tr>
+
+
+            <tr>
+                <th rowspan="1">Mortgage Years:</th>
+                <td colspan="1">
+                    <input type="text" class="form-control" id="mortgage_year" >
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2">Mortgage Interest(%):</th>
+                <td colspan="2">
+                    <input type="text" class="form-control" id="mortgage_interest" >
+                </td>
+            </tr>
+
+
+
+
+        </table>
+
+        <div>
+            <label style="padding-right:810px;"> </label>
+            <button type="button" id="calculate" onclick="cal()" class="btn btn-success mb-5">Calculate</button>
+            <button type="button" id="reset" style="margin-bottom:28px;" onclick="reset()" class="btn btn-success mb-5">Reset</button>
+        </div>
+
+
+        <h1 id="result">Result</h1>
+        <table class="table">
+            <tr>
+                <th>Monthly Repayments:</th>
+                <td id="monthly-repayment"></td>
+            </tr>
+            <tr>
+                <th>Down Payment:</th>
+                <td id="down-payment"></td>
+            </tr>
+            <tr>
+                <th>No. of terms:</th>
+                <td id="terms"></td>
+            </tr>
+            <tr>
+                <th>Total Repayment Amount:</th>
+                <td id="total-repayment"></td>
+            </tr>
+            <tr>
+                <th>Total Interest:</th>
+                <td id="interest"></td>
+            </tr>
+            <tr>
+                <th>Total Repayment (Included Interest):</th>
+                <td id="total-repayment-included"></td>
+            </tr>
+
+
+
+        </table>
+
+        <h1 id="result">Interest Scenario</h1>
+        <table border="2" cellpadding="0" cellspacing="0" id="tablehk" class="table">
+            <br>
+            <tr style="background-color:#3e5372; color:#ffffff;">
+                <td align="center"><strong>Interest Rate</strong></td>
+                <td align="center"><strong>Monthly Repayment</strong></td>
+                <td align="center"><strong>Total Repayment Amount</strong></td>
+                <td align="center"><strong>Total Interest</strong></td>
+                           </tr>
+            <tr>
+                <td align="center">1%</td>
+                <td align="center" id="1-monthlyrepayment"> </td>
+                <td align="center" id="1-repaymentamt"> </td>
+                <td align="center" id="1-interest"> </td>
+            </tr>
+            <tr>
+                <td align="center">1.5%</td>
+                <td align="center" id="15-monthlyrepayment"> </td>
+                <td align="center" id="15-repaymentamt"> </td>
+                <td align="center" id="15-interest"> </td>
+            </tr>
+            <tr>
+                <td align="center">2%</td>
+                <td align="center" id="2-monthlyrepayment"> </td>
+                <td align="center" id="2-repaymentamt"> </td>
+                <td align="center" id="2-interest"> </td>
+            </tr>
+            <tr>
+                <td align="center">2.5%</td>
+                <td align="center" id="25-monthlyrepayment"> </td>
+                <td align="center" id="25-repaymentamt"> </td>
+                <td align="center" id="25-interest"> </td>
+            </tr>
+            <tr>
+                <td align="center">3%</td>
+                <td align="center" id="3-monthlyrepayment"> </td>
+                <td align="center" id="3-repaymentamt"> </td>
+                <td align="center" id="3-interest"> </td>
+            </tr>
+            <tr>
+                <td align="center">3.5%</td>
+                <td align="center" id="35-monthlyrepayment"> </td>
+                <td align="center" id="35-repaymentamt"> </td>
+                <td align="center" id="35-interest"> </td>
+            </tr>
+            <tr>
+                <td align="center">4%</td>
+                <td align="center" id="4-monthlyrepayment"> </td>
+                <td align="center" id="4-repaymentamt"> </td>
+                <td align="center" id="4-interest"> </td>
+            </tr>
+            <tr>
+                <td align="center">4.5%</td>
+                <td align="center" id="45-monthlyrepayment"> </td>
+                <td align="center" id="45-repaymentamt"> </td>
+                <td align="center" id="45-interest"> </td>
+            </tr>
+            <tr>
+                <td align="center">5%</td>
+                <td align="center" id="5-monthlyrepayment"> </td>
+                <td align="center" id="5-repaymentamt"> </td>
+                <td align="center" id="5-interest"> </td>
+            </tr>
+            <tr>
+                <td align="center">5.5%</td>
+                <td align="center" id="55-monthlyrepayment"> </td>
+                <td align="center" id="55-repaymentamt"> </td>
+                <td align="center" id="55-interest"> </td>
+            </tr>
+            <tr>
+                <td align="center">6%</td>
+                <td align="center" id="6-monthlyrepayment"> </td>
+                <td align="center" id="6-repaymentamt"> </td>
+                <td align="center" id="6-interest"> </td>
+            </tr>
+
+        </table>
+
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Open Modal</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <table>
+                    <tr>
+                        <th>Select Region:</th>
+                        <td colspan="1">
+                            <select onchange="setChart(this)" class="custom-select my-1 mr-sm-2" id="region" >
+                                <option value="HK">HIBOR Rate</option>
+                                <option value="KL">Monetary Base</option>
+                            </select>
+
+                        </td>
+                    </tr>
+                </table>
+
+                <br><br><br id="prev-canvas">
+                <canvas id="canvas"></canvas>
+
+
+
+                <label style="padding-right:500px;"> </label>
+            </div>
+
+        </div>
+
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on the button, open the modal
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+
+
+        <br><br>
+
+
+
+
+    </section>
+
+
+
+
+    <section id="footer" class="footer_widget">
+        <div class="video_overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="main_widget">
+                                <div class="col-sm-3 col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+                                        <div class="footer_logo">
+                                            <img src="assets/images/logo.png" alt="" />
+                                        </div>
+                                        <p></p>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3  col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+
+                                        <div class="footer_title">
+                                            <h4>SITEMAP</h4>
+                                            <div class="separator"></div>
+                                        </div>
+                                        <ul>
+                                            <li><a href="">Services</a></li>
+                                            <li><a href="">About Us</a></li>
+                                            <li><a href="">Our Team</a></li>
+                                            <li><a href="">Portfolio</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3  col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+
+                                        <div class="footer_title">
+                                            <h4>Function</h4>
+                                            <div class="separator"></div>
+                                        </div>
+                                        <ul>
+                                            <li><a href="mortgageCal.html">Housing Mortgage Calculator</a></li>
+                                            <li><a href="repaymentCal.html">Mortgage Amendment Repayment </a></li>
+                                            <li><a href="stressCal.html">Mortgage Stress-Test</a></li>
+                                            <li><a href="QSInfo.html">Housing Adviser Guide</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+
+                                        <div class="footer_title">
+                                            <h4>NEWSLETTER</h4>
+                                            <div class="separator"></div>
+                                        </div>
+
+                                        <div class="footer_subcribs_area">
+                                            <p>Sign up for our mailing list to get latest updates and offers.</p>
+                                            <form class="navbar-form navbar-left" role="search">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Search">
+                                                    <button type="submit" class="submit_btn"></button>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="main_footer">
+                        <div class="row">
+
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="copyright_text">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="flowus">
+                                    <a href=""><i class="fa fa-facebook"></i></a>
+                                    <a href=""><i class="fa fa-twitter"></i></a>
+                                    <a href=""><i class="fa fa-google-plus"></i></a>
+                                    <a href=""><i class="fa fa-instagram"></i></a>
+                                    <a href=""><i class="fa fa-youtube"></i></a>
+                                    <a href=""><i class="fa fa-dribbble"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+</div>
+
+<!-- START SCROLL TO TOP  -->
+
+<div class="scrollup">
+    <a href="#"><i class="fa fa-chevron-up"></i></a>
+</div>
+
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+<script src="assets/js/vendor/bootstrap.min.js"></script>
+
+<script src="assets/js/jquery.magnific-popup.js"></script>
+<script src="assets/js/jquery.mixitup.min.js"></script>
+<script src="assets/js/jquery.easing.1.3.js"></script>
+<script src="assets/js/jquery.masonry.min.js"></script>
+<script src="assets/js/jquery.fancybox.pack.js"></script>
+
+
+
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
