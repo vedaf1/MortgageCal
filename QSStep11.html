@@ -1,0 +1,480 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Logic - Free Multipurpose Business Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+
+    <link rel="stylesheet" href="assets/css/iconfont.css">
+    <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+
+
+    <!--For Plugins external css-->
+
+
+    <!--Theme custom css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            $('#back').on('click', function(e){
+                e.preventDefault();
+                window.history.back();
+            });
+
+            age = getParameterByName('age');
+            $('#age').attr('value',age)
+
+            affordable_mortgage_years = getParameterByName('affordable_mortgage_years');
+            $('#affordable_mortgage_years').attr('value',affordable_mortgage_years)
+
+            interest = getParameterByName('interest');
+            $('#interest').attr('value',interest)
+
+            income = getParameterByName('income');
+            $('#income').attr('value',income)
+
+            monthlyrepayment = getParameterByName('monthlyrepayment');
+            $('#monthlyrepayment').attr('value',monthlyrepayment)
+
+            debt = getParameterByName('debt');
+            $('#debt').attr('value',debt)
+
+            loanamt = getParameterByName('loanamt');
+            $('#loanamt').attr('value',loanamt)
+
+            downpayment = getParameterByName('downpayment');
+            $('#downpayment').attr('value',downpayment)
+
+            price = getParameterByName('price');
+            $('#price').attr('value',price)
+
+            ft = getParameterByName('ft');
+            $('#ft').attr('value',ft)
+
+            priceft = getParameterByName('priceft');
+            $('#priceft').attr('value',priceft)
+
+        });
+
+        /**
+         Get query string for setting language
+         **/
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+    </script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+        });
+
+
+        function checknull() {
+            $('#nextstage').removeAttr('href');
+            $('#nextstage').removeAttr('class');
+            $('#nextstage').addClass('btnlock')
+
+        }
+
+
+        function savedata() {
+            var age = getParameterByName('age');
+            var affordable_mortgage_years = getParameterByName('affordable_mortgage_years');
+            var interest = getParameterByName('interest');
+            var income = getParameterByName('income');
+            var monthlyrepayment = getParameterByName('monthlyrepayment');
+            var debt = getParameterByName('debt');
+            var loanamt = getParameterByName('loanamt');
+            var downpayment = getParameterByName('downpayment');
+            var price = getParameterByName('price');
+            var ft = getParameterByName('ft');
+            var priceft = getParameterByName('priceft');
+
+            $('#back').attr('href', "QSStep9.html?affordable_mortgage_years=" + affordable_mortgage_years + "&age=" + age + "&interest=" + interest + "&income=" + income + "&monthlyrepayment=" + monthlyrepayment + "&debt=" + debt + "&loanamt=" + loanamt + "&downpayment=" + downpayment + "&price=" + price + "&ft=" + ft + "&priceft=" + priceft);
+            $('#nextstage').attr('href', "QSStep11.html?affordable_mortgage_years=" + affordable_mortgage_years + "&age=" + age + "&interest=" + interest + "&income=" + income + "&monthlyrepayment=" + monthlyrepayment + "&debt=" + debt + "&loanamt=" + loanamt + "&downpayment=" + downpayment + "&price=" + price + "&ft=" + ft + "&priceft=" + priceft);
+
+
+        }
+
+    </script>
+
+
+
+
+
+
+
+
+
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse" onload="savedata()">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class='preloader'><div class='loaded'>&nbsp;</div></div>
+<div class="culmn">
+    <header id="main_menu" class="header navbar-fixed-top menu-scroll">
+        <div class="main_menu_bg">
+            <div class="container">
+                <div class="row">
+                    <div class="nave_menu">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#home">
+                                        <img src="assets/images/logo.png"/>
+                                    </a>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="index.html#home">HOME</a></li>
+                                        <li><a href="index.html#about">About</a></li>
+                                        <li><a href="index.html#service">Functions</a></li>
+                                        <li><a href="index.html#information">Information</a></li>
+                                        <li><a href="index.html#contact">CONTACT</a></li>
+
+
+                                        <li>
+                                            <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <span class="glyphicon glyphicon-search"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <form class="navbar-form" role="search">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Search">
+                                                        </div>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+
+                                </div>
+
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </header> <!--End of header -->
+
+
+
+
+
+    <section id="expenseCal" class="container">
+
+
+        <div class="calHead">Finish!
+            <div class="separator"></div>
+        </div>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100%</div>
+        </div>
+        Thank you for using Logic Housing Adviser Guide. Here is our suggestion:
+        <br><br>
+
+        <table class="table">
+
+            <tr>
+                <th rowspan="1">Age:</th>
+                <td colspan="2">
+                    <input type="text" class="form-control" id="age" placeholder="(Set)" disabled>
+                </td>
+            </tr>
+            <tr>
+                <th rowspan="1">Affordable Mortgage Years:</th>
+                <td colspan="2">
+                    <input type="text" class="form-control" id="affordable_mortgage_years"  disabled >
+                </td>
+            </tr>
+
+
+            <tr>
+                <th rowspan="1">Expected Monthly Repayment:</th>
+                <td colspan="2">
+                    <input type="text" class="form-control" id="monthlyrepayment"  disabled>
+                </td>
+            </tr>
+
+
+            <tr>
+                <th rowspan="1">Affordable Mortgage Loan Amount:</th>
+                <td colspan="2">
+                    <input type="text" class="form-control" id="loanamt"  disabled>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="1">Down Payment:</th>
+                <td colspan="2">
+                    <input type="text" class="form-control" id="downpayment"  disabled >
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="1">Affordable Property Price:</th>
+                <td colspan="2">
+                    <input type="text" class="form-control" id="price"  disabled >
+                </td>
+            </tr>
+
+
+
+
+        </table>
+        <br><br>
+        <h1 id="result">Mortgage Plan Information</h1>
+        <br>
+        <table class="table">
+            <tr>
+                <th rowspan="1" width="45%">MoneyHero - Compare Mortgage Plan</th>
+                <td colspan="1" >
+                    <a href="https://www.moneyhero.com.hk/en/mortgage" target="_blank" type="button" class="btnmortcalc" style="margin-top: 5px; margin-bottom: 5px; border-radius: 7px; margin-left: 260px;">Click Here</a>
+                    <img src="https://www.moneyhero.com.hk/s3/hongkong/moneyhero.com.hk/secured-production/hk/images/general/MoneyHero-Logo-EN-Fullcolor.png" border="0" width="20%" style="margin-left: 15px">
+                </td>
+            </tr>
+            <tr>
+                <th rowspan="1">Hang Seng Bank - Mortgage Plan</th>
+                <td colspan="1">
+                    <a href="https://www.hangseng.com/en-hk/personal/mortgages/new-purchase-mortgage-plan/conventional/" target="_blank" type="button" class="btnmortcalc" style="margin-top: 5px; margin-bottom: 5px; border-radius: 7px; margin-left: 260px;">Click Here</a>
+                    <img src="data:image/jpeg;base64,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"
+                         border="0" width="13%" style="margin-left: 20px">
+
+                </td>
+            </tr>
+            <tr>
+                <th rowspan="1">HSBC - Mortgage Plan</th>
+                <td colspan="1">
+                    <a href="https://www.hsbc.com.hk/mortgages/" target="_blank" type="button" class="btnmortcalc" style="margin-top: 5px; margin-bottom: 5px; border-radius: 7px; margin-left: 260px;">Click Here</a>
+                    <img src="https://stepkenshop.com/images/files/upload/imagesCAMLU1AD.jpg"
+                         border="0" width="15%" style="margin-left: 15px">
+
+                </td>
+            </tr>
+            <tr>
+                <th rowspan="1">Bank of China - Mortgage Plan</th>
+                <td colspan="1">
+                    <a href="https://www.bochk.com/en/mortgage.html" target="_blank" type="button" class="btnmortcalc" style="margin-top: 5px; margin-bottom: 5px; border-radius: 7px; margin-left: 260px;">Click Here</a>
+                    <img src="http://allvectorlogo.com/img/2017/09/bank-of-china-logo.png"
+                         border="0" width="15%" style="margin-left: 15px">
+
+                </td>
+            </tr>
+            <tr>
+                <th rowspan="1">Standard Chartered Bank - Mortgage Plan</th>
+                <td colspan="1">
+                    <a href="https://www.sc.com/hk/mortgages/" target="_blank" type="button" class="btnmortcalc" style="margin-top: 5px; margin-bottom: 5px; border-radius: 7px; margin-left: 260px;">Click Here</a>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZeNDMsvm7caKY4aNa1hgtNvsskc0jzCgCfhB8SL03A0aE24ux"
+                         border="0" width="12%" style="margin-left: 15px">
+
+                </td>
+            </tr>
+            <tr>
+                <th rowspan="1">DBS - Mortgage Plan</th>
+                <td colspan="1">
+                    <a href="https://www.dbs.com.hk/personal/loans/home-loans/mortgage-loan" target="_blank" type="button" class="btnmortcalc" style="margin-top: 5px; margin-bottom: 5px; border-radius: 7px; margin-left: 260px;">Click Here</a>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2LMVhgSuKVvs907ByYG6c_xGUllNGIPunFDFwfl9X6qTus-fR"
+                         border="0" width="15%" style="margin-left: 15px">
+
+                </td>
+            </tr>
+        </table>
+
+
+    </section>
+
+
+
+
+    <section id="footer" class="footer_widget">
+        <div class="video_overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="main_widget">
+                                <div class="col-sm-3 col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+                                        <div class="footer_logo">
+                                            <img src="assets/images/logo.png" alt="" />
+                                        </div>
+                                        <p></p>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3  col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+
+                                        <div class="footer_title">
+                                            <h4>SITEMAP</h4>
+                                            <div class="separator"></div>
+                                        </div>
+                                        <ul>
+                                            <li><a href="">Services</a></li>
+                                            <li><a href="">About Us</a></li>
+                                            <li><a href="">Our Team</a></li>
+                                            <li><a href="">Portfolio</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3  col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+
+                                        <div class="footer_title">
+                                            <h4>Function</h4>
+                                            <div class="separator"></div>
+                                        </div>
+                                        <ul>
+                                            <li><a href="mortgageCal.html">Housing Mortgage Calculator</a></li>
+                                            <li><a href="repaymentCal.html">Mortgage Amendment Repayment </a></li>
+                                            <li><a href="stressCal.html">Mortgage Stress-Test</a></li>
+                                            <li><a href="QSInfo.html">Housing Adviser Guide</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+
+                                        <div class="footer_title">
+                                            <h4>NEWSLETTER</h4>
+                                            <div class="separator"></div>
+                                        </div>
+
+                                        <div class="footer_subcribs_area">
+                                            <p>Sign up for our mailing list to get latest updates and offers.</p>
+                                            <form class="navbar-form navbar-left" role="search">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Search">
+                                                    <button type="submit" class="submit_btn"></button>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="main_footer">
+                        <div class="row">
+
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="copyright_text">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="flowus">
+                                    <a href=""><i class="fa fa-facebook"></i></a>
+                                    <a href=""><i class="fa fa-twitter"></i></a>
+                                    <a href=""><i class="fa fa-google-plus"></i></a>
+                                    <a href=""><i class="fa fa-instagram"></i></a>
+                                    <a href=""><i class="fa fa-youtube"></i></a>
+                                    <a href=""><i class="fa fa-dribbble"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+</div>
+
+<!-- START SCROLL TO TOP  -->
+
+<div class="scrollup">
+    <a href="#"><i class="fa fa-chevron-up"></i></a>
+</div>
+
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+<script src="assets/js/vendor/bootstrap.min.js"></script>
+
+<script src="assets/js/jquery.magnific-popup.js"></script>
+<script src="assets/js/jquery.mixitup.min.js"></script>
+<script src="assets/js/jquery.easing.1.3.js"></script>
+<script src="assets/js/jquery.masonry.min.js"></script>
+<script src="assets/js/jquery.fancybox.pack.js"></script>
+
+
+
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

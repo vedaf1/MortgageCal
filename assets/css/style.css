@@ -422,6 +422,34 @@ Button
 
 
 
+.tooltipinfo {
+    position: relative;
+    display: inline-block;
+
+}
+
+.tooltipinfo .tooltiptext {
+    visibility: hidden;
+    width: 450px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltipinfo:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+
+
+
 .btn {
      display: inline-block;
      min-width: 150px;
@@ -589,6 +617,39 @@ Button
     text-decoration: none;
     border: 1px solid #214f82;
 }
+
+
+.btninfobg {
+    display: inline-block;
+    min-width: 290px;
+    line-height: 50px;
+    height: 70px;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 1px;
+    margin: 0;
+    font-size:0.8125rem;
+    border-radius: 0px;
+    margin-top: 20px;
+    background-color: #ff5f85;
+    transition: .5s;
+    border: 1px solid #c44966;
+    font-size: 15px;
+    font-family: 'montserratregular';
+}
+
+.btninfobg:hover {
+    background-color: #ff2e6c;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #b01947;
+}
+
+
+
+
+
+
 
 
 .btninfohv {

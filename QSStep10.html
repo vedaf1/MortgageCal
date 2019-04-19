@@ -206,7 +206,14 @@
             $('#agency-commission').html(Math.round(property_price*0.01));
             $('#snp-agreement').html(Math.round(snp_agreement));
             $('#mortgage-deed').html(Math.round(mortgage_deed));
-            $('#total').html(Math.round(total));
+            $('#total').html("<b>"+Math.round(total)+"</b>");
+
+            $('#nextstage').removeAttr('class');
+            $('#nextstage').addClass('btnnextstep');
+            $('#remind').show();
+
+            $('#nextstage').attr('href', "QSStep11.html?affordable_mortgage_years=" + affordable_mortgage_years + "&age=" + age + "&interest=" + interest + "&income=" + income + "&monthlyrepayment=" + monthlyrepayment + "&debt=" + debt + "&loanamt=" + loanamt + "&downpayment=" + downpayment + "&price=" + price + "&ft=" + ft + "&priceft=" + priceft);
+
         }
 
 
@@ -218,13 +225,21 @@
             $('#snp-agreement').empty();
             $('#mortgage-deed').empty();
             $('#total').empty();
+            $('#remind').hide();
 
+        }
+
+        function checknull() {
+            $('#nextstage').removeAttr('href');
+            $('#nextstage').removeAttr('class');
+            $('#nextstage').addClass('btnlock');
+            $('#remind').hide();
         }
 
 
     </script>
 </head>
-<body data-spy="scroll" data-target=".navbar-collapse" onload="savedata()">
+<body data-spy="scroll" data-target=".navbar-collapse" onload="savedata(); checknull();">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -305,7 +320,7 @@
         <div class="progress">
             <div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">95%</div>
         </div>
-        Except Down Payment, user also needs to pay for the other expense:<br><br>
+        Except Down Payment, you also needs to pay for the other expense:<br><br>
 
 
         <table class="table">
@@ -351,12 +366,15 @@
             <tr>
                 <th>Total Expense:</th>
                 <td id="total"></td>
-            </tr>
+
+        </tr>
 
 
         </table>
 
-        <br><br>
+
+        <p id="remind"  style="font-size: 20px; margin-left: 70px; width: 90%; text-align: center;  border-radius: 5px; padding: 5px 0;background-color: #d2613d;  color: #fff;"><b>Remind:</b> <br><b> These Expenses are not included in the Down Payment.</b> <br>Please make sure that you have enough saving for down payment and these expenses.</p>
+        <br>
         <div>
             <a href="QSStep9.html" type="button" id="back" onclick="savedata()" class="btnback" style="margin-right: 830px;">←  Back</a>
             <a href="QSStep11.html" type="button" id="nextstage" onclick="" class="btnnextstep">Next Stage  →</a>

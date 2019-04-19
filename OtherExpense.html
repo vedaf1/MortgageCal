@@ -102,7 +102,8 @@
 			$('#agency-commission').html(Math.round(property_price*0.01));
 			$('#snp-agreement').html(Math.round(snp_agreement));
             $('#mortgage-deed').html(Math.round(mortgage_deed));
-            $('#total').html(Math.round(total));
+            $('#total').html("<b>"+Math.round(total)+"</b>");
+            $('#remind').show();
 		}
 
 
@@ -112,11 +113,16 @@
             $('#snp-agreement').empty();
             $('#mortgage-deed').empty();
             $('#total').empty();
+            $('#remind').hide();
 
+        }
+
+        function hideremind(){
+            $('#remind').hide();
         }
 		</script>
     </head>
-    <body data-spy="scroll" data-target=".navbar-collapse">
+    <body data-spy="scroll" data-target=".navbar-collapse" onload="hideremind()">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -244,11 +250,12 @@
 
 
                 </table>
+                <p id="remind"  style="font-size: 20px; margin-left: 70px; width: 90%; text-align: center;  border-radius: 5px; padding: 5px 0;background-color: #d2613d;  color: #fff;"><b>Remind:</b> <br><b> These Expenses are not included in the Down Payment.</b> <br>Please make sure that you have enough saving for down payment and these expenses.</p>
 
 <br><br>
-				
-				
-			</section>	
+
+
+			</section>
 
            
 
