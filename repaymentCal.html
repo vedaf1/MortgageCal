@@ -1,523 +1,726 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Logic - Free Multipurpose Business Template</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-
-        <link rel="stylesheet" href="assets/css/iconfont.css">
-        <link rel="stylesheet" href="assets/fonts/stylesheet.css">
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/jquery.fancybox.css">
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
-
-
-        <!--For Plugins external css-->
-        <link rel="stylesheet" href="assets/css/plugins.css" />
-
-        <!--Theme custom css -->
-        <link rel="stylesheet" href="assets/css/style.css">
-
-        <!--Theme Responsive css-->
-        <link rel="stylesheet" href="assets/css/responsive.css" />
-
-        <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-		<script Language="JavaScript">
-		function setDisabled(){
-			$('#repayment_amount').attr("disabled","true");
-			$('#decrease_whole').attr("disabled","true");
-			$('#decrease_per_month').attr("disabled","true");
-		}
-		function setEnabled(){
-			$('#repayment_amount').removeAttr("disabled");
-			$('#decrease_whole').removeAttr("disabled");
-			$('#decrease_per_month').removeAttr("disabled");
-		}
-		function cal(){
-		
-			var amount = parseFloat($('#amount').val()) * 10000;
-			var interest = parseFloat($('#interest').val())/100;
-			var period = parseInt($('#period').val());
-			var start_year = parseInt($('#start_year').val());
-			var start_month = parseInt($('#start_month').val());
-			var target_year = parseInt($('#target_year').val());
-			var target_month = parseInt($('#target_month').val());
-			var repayment_amount = parseInt($('#repayment_amount').val());
-		//	alert(amount+" "+interest+" "+period+" "+start_year+" "+start_month+" "+repayment_amount);
-			var monthly_repayment = (amount*(interest/12)*Math.pow((1+interest/12),period))/(Math.pow((1+interest/12),period)-1);
-			if(start_month-1==0){
-				start_year -= 1;
-				start_month = 13;
-			}
-			var last_repayment_date = (start_year + period/12) + "/" + (start_month-1);
-			var repayed_amount = 0;
-			start_year = parseInt($('#start_year').val());
-			start_month = parseInt($('#start_month').val());
-			if(target_month<start_month){
-				repayed_amount = monthly_repayment*((target_year-start_year-1)*12+(12-start_month)+target_month);
-			}
-			else{
-				repayed_amount = monthly_repayment*((target_year-start_year)*12+(target_month-start_month));
-			}
-			$('#monthly_repayment').html(Math.round(monthly_repayment));
-			$('#last_repayment_date').html(last_repayment_date);
-			$('#repayed_amount').html(Math.round(repayed_amount));
-		}
-		</script>		
-    </head>
-    <body data-spy="scroll" data-target=".navbar-collapse">
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <div class='preloader'><div class='loaded'>&nbsp;</div></div>
-        <div class="culmn">
-            <header id="main_menu" class="header navbar-fixed-top menu-scroll">            
-                <div class="main_menu_bg">
-                    <div class="container">
-                        <div class="row">
-                            <div class="nave_menu">
-                                <nav class="navbar navbar-default">
-                                    <div class="container-fluid">
-                                        <!-- Brand and toggle get grouped for better mobile display -->
-                                        <div class="navbar-header">
-                                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                                <span class="sr-only">Toggle navigation</span>
-                                                <span class="icon-bar"></span>
-                                                <span class="icon-bar"></span>
-                                                <span class="icon-bar"></span>
-                                            </button>
-                                            <a class="navbar-brand" href="#home">
-                                                <img src="assets/images/logo.png"/>
-                                            </a>
-                                        </div>
-
-                                        <!-- Collect the nav links, forms, and other content for toggling -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!-->  <!--<![endif]-->
+<head>
+    <meta http-equiv="content-language" content="en-GB" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name='description' content='Calculate the monthly repayment about your Mortgage. Other related expenses will also be shown which include Stamp Duty, Cost for the contract, Agency Commission etc. ' />
+    <meta name='keywords' content='mortgage, mortgage calculator, loan, mortgage loan,bank' />
+    <meta name="robots" content="index, follow" />
 
 
 
-                                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-                                            <ul class="nav navbar-nav navbar-right">
-                                                <li><a href="index.html#home">HOME</a></li>
-                                                <li><a href="index.html#about">About</a></li>
-                                                <li><a href="index.html#service">Functions</a></li>
-                                                <li><a href="index.html#information">Information</a></li>
-                                                <li><a href="index.html#contact">CONTACT</a></li>
-                                                
-                                                
+
+
+
+
+
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Logic - Free Multipurpose Business Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+
+    <link rel="stylesheet" href="assets/css/iconfont.css">
+    <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+
+
+    <!--For Plugins external css-->
+    <link rel="stylesheet" href="assets/css/plugins.css" />
+
+    <!--Theme custom css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="//b.scorecardresearch.com" /><link rel="dns-prefetch" href="//scorecardresearch.com" />
+    <link rel="dns-prefetch" href="//google-analytics.com" /><link rel="dns-prefetch" href="//ad.yieldmanager.com" />
+
+    <link rel="dns-prefetch" href="//www.google-analytics.com" /><link rel="dns-prefetch" href="//chart.googleapis.com" />
+    <link rel="dns-prefetch" href="//bs.serving-sys.com" /><link rel="dns-prefetch" href="//ds.serving-sys.com" />
+
+
+
+
+
+
+
+    <script language="javascript">AC_FL_RunContent = 0;</script>
+
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#news").newsticker();
+        $("#newsdisplay").show();
+        /*
+        $.get(
+             "hsenews.html", {}, function(data)
+             {
+                 $("#news").append(data).find("ul").newsTicker();
+             }
+         )
+         */
+    });
+
+    function runcalc(){
+        use_mycal(2);
+    }
+</script>
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse" onload="runcalc()">
+
+
+
+
+<div class="culmn">
+    <header id="main_menu" class="header navbar-fixed-top menu-scroll">
+        <div class="main_menu_bg">
+            <div class="container">
+                <div class="row">
+                    <div class="nave_menu">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#home">
+                                        <img src="assets/images/logo.png"/>
+                                    </a>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="index.html#home">HOME</a></li>
+                                        <li><a href="index.html#about">About</a></li>
+                                        <li><a href="index.html#service">Functions</a></li>
+                                        <li><a href="index.html#information">Information</a></li>
+                                        <li><a href="index.html#contact">CONTACT</a></li>
+
+
+                                        <li>
+                                            <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                               aria-expanded="false">
+                                                <span class="glyphicon glyphicon-search"></span></a>
+                                            <ul class="dropdown-menu">
                                                 <li>
-                                                    <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="glyphicon glyphicon-search"></span></a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <form class="navbar-form" role="search">
-                                                                <div class="form-group">
-                                                                    <input type="text" class="form-control" placeholder="Search">
-                                                                </div>
-                                                            </form>
-                                                        </li>
-                                                    </ul>
+                                                    <form class="navbar-form" role="search">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control"
+                                                                   placeholder="Search">
+                                                        </div>
+                                                    </form>
                                                 </li>
                                             </ul>
+                                        </li>
+                                    </ul>
 
 
-                                        </div>
-
-                                    </div>
-                                </nav>
-                            </div>	
-                        </div>
-
-                    </div>
-
-                </div>
-            </header> <!--End of header -->
-
-
-
-			<section id="repayment" class="container">
-
-				<div class="progress">
-				  <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
-				</div>
-
-				<div class="calHead">Mortgage Repayment Calculator
-				<div class="separator"></div>
-				</div>
-
-				<table class="table">
-
-					<tr>
-					  <th scope="row">Original mortgage amount: (10K)</th>
-					  <td colspan="2"><input type="text" class="form-control" id="amount" placeholder="(10K)"></td>
-					</tr>
-
-
-					<tr>
-					  <th scope="row">Mortgage interest rate(%):</th>
-					  <td colspan="2"><input type="text" class="form-control" id="interest" placeholder="%"></td>
-					</tr>
-					
-					<tr>
-					  <th scope="row">Original mortgage period:</th>
-					  <td colspan="2">
-						  <select class="custom-select mr-sm-2" id="period">
-							<option value="24">2years(24)</option>
-							<option value="36">3years(36)</option>
-							<option value="48">4years(48)</option>
-							<option value="60">5years(60)</option>
-							<option value="72">6years(72)</option>
-							<option value="84">7years(84)</option>
-							<option value="96">8years(96)</option>
-							<option value="108">9years(108)</option>
-							<option value="120" selected>10years(120)</option>
-						  </select>
-					  </td>
-					</tr>
-					
-					<tr>
-					  <th scope="row">Original mortage start date</th>
-					  <td>
-						  <select class="custom-select mr-sm-2" id="start_year">
-							<option value="1997">1997</option>
-							<option value="1998">1998</option>
-							<option value="1999">1999</option>
-							<option value="2000">2000</option>
-							<option value="2001">2001</option>
-							<option value="2002">2002</option>
-							<option value="2003">2003</option>
-							<option value="2004">2004</option>
-							<option value="2005">2005</option>
-							<option value="2006">2006</option>
-							<option value="2007">2007</option>
-							<option value="2008">2008</option>
-							<option value="2009">2009</option>
-							<option value="2010">2010</option>
-							<option value="2011">2011</option>
-							<option value="2012">2012</option>
-							<option value="2013">2013</option>
-							<option value="2014">2014</option>
-							<option value="2015">2015</option>
-						  </select>
-						  Year
-					  </td>
-				
-					  
-					  <td>
-						  <select class="custom-select mr-sm-2" id="start_month">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-						  </select>
-						  Month
-					  </td>
-					
-					  
-					</tr>
-					
-					<tr>
-					  <th scope="row">Target Repayment at:</th>
-					  <td>
-						  <select class="custom-select mr-sm-2" id="target_year">
-							<option value="1999">1999</option>
-							<option value="2000">2000</option>
-							<option value="2001">2001</option>
-							<option value="2002">2002</option>
-							<option value="2003">2003</option>
-							<option value="2004">2004</option>
-							<option value="2005">2005</option>
-							<option value="2006">2006</option>
-							<option value="2007">2007</option>
-							<option value="2008">2008</option>
-							<option value="2009">2009</option>
-							<option value="2010">2010</option>
-							<option value="2011">2011</option>
-							<option value="2012">2012</option>
-							<option value="2013">2013</option>
-							<option value="2014">2014</option>
-							<option value="2015">2015</option>
-						  </select>
-						  Year
-					  </td>
-	
-					  
-					  <td>
-						  <select class="custom-select mr-sm-2" id="target_month">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-						  </select>
-						  Month
-					  </td>
-				
-					  
-					</tr>
-					
-
-					<tr>
-						<th rowspan="2">Repayment method:</th>
-						<td colspan="2">
-							<div class="custom-control custom-radio custom-control-inline" style="display:inline;">
-							  <input type="radio" id="repay_all" name="repayment_method" onclick="setDisabled()" class="custom-control-input">
-							  <label class="custom-control-label" for="repay_all" style="font-weight:normal;">Repay all owing value</label>
-							</div>
-							<div class="custom-control custom-radio custom-control-inline" style="display:inline;">
-							  <input type="radio" id="repay_partial" name="repayment_method" onclick="setEnabled()" class="custom-control-input">
-							  <label class="custom-control-label" for="repay_partial" style="font-weight:normal;">Partially repayment</label>
-							</div>	
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2"><input type="text" class="form-control" id="repayment_amount" placeholder="(10K) (Exclude the original repayment in the month)"></td>
-					</tr>
-					
-					<tr>
-						<th rowspan="2">Repayment mode option:</th>
-						<td colspan="2">
-							<div class="custom-control custom-radio custom-control-inline">
-							  <input type="radio" id="decrease_whole" name="repayment_mode" class="custom-control-input">
-							  <label class="custom-control-label" for="decrease_whole" style="display:inline;font-weight:normal;">Decrease the whole repayment period. No change on the montly repayment amount.</label>
-							</div>	
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<div class="custom-control custom-radio custom-control-inline">
-							  <input type="radio" id="decrease_per_month" name="repayment_mode" class="custom-control-input" style="display:inline;">
-							  <label class="custom-control-label" for="decrease_per_month" style="display:inline;font-weight:normal;">Decrease the repayment amount per month. No change on the no. of times of repayment.</label>
-							</div>	
-						</td>
-					</tr>
-				  
-				</table>
-
-
-				<button type="button" id="calculate" onclick="cal()" class="btn btn-success mb-5">Calculate</button>
-				
-				<h1 id="result">Result</h1>
-				<table class="table table-hover">
-					<tr>
-						<th>Original Monthly Repayment(HKD):</th>
-						<td><label id="monthly_repayment"></label></td>
-					</tr>
-					<tr>
-						<th>Original last repayment date:</th>
-						<td><label id="last_repayment_date"></label></td>
-					</tr>
-					<tr>
-						<th>Repayed amount:</th>
-						<td><label id="repayed_amount"></label></td>
-					</tr>
-					<tr>
-						<th>Payed interest amount:</th>
-						<td><label></label></td>
-					</tr>
-					<tr>
-						<th>The repayment amount included:</th>
-						<td><label></label></td>
-					</tr>
-					<tr>
-						<th>Payment on next month:</th>
-						<td><label></label></td>
-					</tr>
-					<tr>
-						<th>Saved interest amount:</th>
-						<td><label></label></td>
-					</tr>
-					<tr>
-						<th>New last payment date:</th>
-						<td><label></label></td>
-					</tr>
-				</table>
-			
-			</section>
-
-           
-
-
-            <section id="footer" class="footer_widget">
-                <div class="video_overlay">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="main_widget">
-                                        <div class="col-sm-3 col-xs-12">
-                                            <div class="single_widget wow fadeIn" data-wow-duration="800ms">
-                                                <div class="footer_logo">
-                                                    <img src="assets/images/logo.png" alt="" />
-                                                </div>
-                                                <p></p>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-3  col-xs-12">
-                                            <div class="single_widget wow fadeIn" data-wow-duration="800ms">
-
-                                                <div class="footer_title">
-                                                    <h4>SITEMAP</h4>
-                                                    <div class="separator"></div>
-                                                </div>
-                                                <ul>
-                                                    <li><a href="">Services</a></li>
-                                                    <li><a href="">About Us</a></li>
-                                                    <li><a href="">Our Team</a></li>
-                                                    <li><a href="">Portfolio</a></li>
-                                                </ul> 
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-3  col-xs-12">
-                                            <div class="single_widget wow fadeIn" data-wow-duration="800ms">
-
-                                                <div class="footer_title">
-                                                    <h4>ACHIVES</h4>
-                                                    <div class="separator"></div>
-                                                </div>
-                                                <ul>
-                                                    <li><a href="">January 2015</a></li>
-                                                    <li><a href="">February 2015</a></li>
-                                                    <li><a href="">March 2015</a></li>
-                                                    <li><a href="">April 2015</a></li>
-                                                </ul> 
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-3 col-xs-12">
-                                            <div class="single_widget wow fadeIn" data-wow-duration="800ms">
-
-                                                <div class="footer_title">
-                                                    <h4>NEWSLETTER</h4>
-                                                    <div class="separator"></div>
-                                                </div>
-
-                                                <div class="footer_subcribs_area">
-                                                    <p>Sign up for our mailing list to get latest updates and offers.</p>
-                                                    <form class="navbar-form navbar-left" role="search">
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="Search">
-                                                            <button type="submit" class="submit_btn"></button>
-                                                        </div>
-
-                                                    </form>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
 
                             </div>
-                        </div>
+                        </nav>
                     </div>
                 </div>
-            </section>
+
+            </div>
+        </div>
 
 
-            <section class="footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="main_footer">
-                                <div class="row">
-
-                                    <div class="col-sm-6 col-xs-12">
-                                        <div class="copyright_text">
-                                            <p class=" wow fadeInRight" data-wow-duration="1s">Made with Veda Cheng<i class="fa fa-heart"></i> by <a href="http://bootstrapthemes.co">Bootstrap Themes</a>2018. All Rights Reserved</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6 col-xs-12">
-                                        <div class="flowus">
-                                            <a href=""><i class="fa fa-facebook"></i></a>
-                                            <a href=""><i class="fa fa-twitter"></i></a>
-                                            <a href=""><i class="fa fa-google-plus"></i></a>
-                                            <a href=""><i class="fa fa-instagram"></i></a>
-                                            <a href=""><i class="fa fa-youtube"></i></a>
-                                            <a href=""><i class="fa fa-dribbble"></i></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    </header> <!--End of header -->
 
 
 
 
 
+    <script type="text/javascript">
+        function Gauge(sum)
+        {
+            return Math.round(sum*1)/1;
+        }
+        function is_NUM()
+        {
+            src=window.event.srcElement;
+            if(isNaN(src.value)){alert('Please Inout a valid value!');src.value='';}
+        }
+        function JSF_startcal()
+        {
+
+            if (document.cal.loan_sum.value=='') {alert('Please Enter Original Mortgage Amount!');return false;}
+            else S=parseFloat(document.cal.loan_sum.value)*10000;
+            if(document.cal.paymethod[1].checked)
+                if(document.cal.paycash.value==''){alert('Please Enter the amount of Partially Repayment!');return false;}
+            n=parseInt(document.cal.loan_timeout.value);
+            if(document.cal.loan_rate.value==''){alert('Please Enter Mortgage Interest Rate!');return false;}
+            v_Rate = document.cal.loan_rate.value / 12 / 100;
+
+            d2=(parseInt(document.cal.ah_year.value)-parseInt(document.cal.st_year.value))*12 + (parseInt(document.cal.ah_month.value)-parseInt(document.cal.st_month.value));
+            if(d2<0 || d2>n){alert('The Target Repayment Date must on the date after Original Mortgage Start Date! And The Original Mortgage Period has not ended!');return false;}
+
+            YH=S*(v_Rate*Math.pow((1+v_Rate),n))/(Math.pow((1+v_Rate),n)-1);
+
+            LD=((n+parseInt(document.cal.st_month.value)-2) % 12+1)+' / '+(parseInt(document.cal.st_year.value)+Math.floor((n+parseInt(document.cal.st_month.value)-2)/12));
+
+            ZH=YH*d2;
+            HL=0;HB=0;
+            for(i=1;i<=d2;i++)
+            {
+                HL=HL+(S-HB)*v_Rate;
+                HB=HB+YH-(S-HB)*v_Rate;
+            }
+            v_remark='';
+            if(document.cal.paymethod[1].checked)
+            {
+                BT=document.cal.paycash.value*10000;
+                if(BT+YH>=YH*(1/v_Rate-1/(v_Rate*Math.pow((1+v_Rate),(n-d2)))))
+                {
+                    v_remark='Your Prepayment Amount is already more than the Outstanding Repayments! ';
+                }else{
+                    if(document.cal.dealwith[0].checked)
+                    {
+                        n1=0;
+                        for(WB=S-HB-YH-BT;WB>=0;WB=WB-XZ)
+                        {
+                            XZ=YH/Math.pow((1+v_Rate),n1);
+                            n1++;
+                        }
+                        ZYH=(S-HB-YH-BT)*(v_Rate*Math.pow((1+v_Rate),n1))/(Math.pow((1+v_Rate),n1)-1);
+                        YCH=YH+BT;
+                        LS=YH*n-ZH-YCH-ZYH*n1;
+                        v_lasttime=((n1+d2+parseInt(document.cal.st_month.value)-2) % 12+1)+' / '+(parseInt(document.cal.st_year.value)+Math.floor((n1+d2+parseInt(document.cal.st_month.value)-2)/12));
+                    }
+                    else
+                    {
+                        ZYH=(S-HB-YH-BT)*(v_Rate*Math.pow((1+v_Rate),(n-d2)))/(Math.pow((1+v_Rate),(n-d2))-1);
+                        YCH=YH+BT;
+                        LS=YH*n-ZH-YCH-ZYH*(n-d2);
+                        v_lasttime=LD;
+                    }
+                }
+            }
+            if(document.cal.paymethod[0].checked || v_remark!='')
+            {
+                YCH=(S-HB)*(1+v_Rate);
+                ZYH=0;
+                LS=YH*n-ZH-YCH;
+
+                v_lasttime=document.cal.ah_month.value+' / '+document.cal.ah_year.value;
+            }
+//************************************
+            document.cal.old_paymonth.value=Gauge(YH);
+            document.cal.old_lasttime.value=LD;
+            document.cal.paidsum.value=Gauge(ZH);
+            document.cal.paidlxsum.value=Gauge(HL);
+//*********************************
+            document.cal.paythismonth.value=Gauge(YCH);
+            document.cal.paynextmonth.value=Gauge(ZYH);
+            document.cal.savelx.value=Gauge(LS);
+            document.cal.lasttime.value=v_lasttime;
+            //cal.remark.value=v_remark;
+        }
+        function paymethod_click()
+        {
+            cal.dealwith[0].disabled=cal.paymethod[0].checked;
+            cal.dealwith[1].disabled=cal.paymethod[0].checked;
+            cal.paycash.value=''; cal.paycash.disabled=cal.paymethod[0].checked;
+        }
+        function clearresult()
+        {
+            document.all.old_paymonth.value="Wait";
+            document.all.old_lasttime.value="Wait";
+            document.all.paidsum.value="Wait";
+            document.all.paidlxsum.value="Wait";
+            document.all.paythismonth.value="Wait";
+            document.all.paynextmonth.value="Wait";
+            document.all.savelx.value="Wait";
+            document.all.lasttime.value="Wait";
+
+        }
 
 
 
+
+
+    </script>
+
+
+
+
+
+
+
+
+    <section id="repayment" class="container">
+
+
+
+        <div class="calHead">Mortgage Repayment Calculator
+            <div class="separator"></div>
+        </div>
+    <div id="frame_2">
+        <div>
+            <table  class="table" id="headername">
+                <tr>
+                    <th >Original Mortgage Amount:</th>
+                    <td >
+                        <form name="cal" method="post" >
+                            <input type="hidden" checked name=loan_type onclick=clearresult()>
+                            <input type="hidden" name=loan_type onclick=clearresult()>
+                            <input onblur=is_NUM() size=70 name="loan_sum" placeholder="   (10K)">
+                    </td>
+                </tr>
+                <tr>
+                    <th >Mortgage Interest Rate(%):</th>
+                    <td><input onblur=is_NUM()  size=70 name="loan_rate" placeholder="   %" ></td>
+                </tr>
+                <tr>
+                    <th >Original Mortgage Period:</th>
+                    <td >
+                        <select name=loan_timeout>
+                            <option value=24>2years(24)</option>
+                            <option value=36>3years(36)</option>
+                            <option value=48>4years(48)</option>
+
+                            <option value=60>5years(60)</option>
+                            <option value=72>6years(72)</option>
+                            <option value=84>7years(84)</option>
+                            <option value=96>8years(96)</option>
+                            <option value=108>9years(108)</option>
+                            <option value=120 selected>10years(120)</option>
+
+                            <option value=132>11yeras(132)</option>
+                            <option value=144>12yeras(144)</option>
+                            <option value=156>13yeras(156)</option>
+                            <option value=168>14yeras(168)</option>
+                            <option value=180>15yeras(180)</option>
+                            <option value=240>20yeras(240)</option>
+
+                            <option value=300>25yeras(300)</option>
+                            <option value=360>30yeras(360)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th >Original Mortgage Start Date:</th>
+                    <td id=tddrawsum style="padding-top: 20px">
+                        <select name=st_year>
+                            <option value=1997 selected>1997</option>
+                            <option value=1998>1998</option>
+                            <option value=1999>1999</option>
+                            <option value=2000>2000</option>
+                            <option value=2001>2001</option>
+
+                            <option value=2002>2002</option>
+                            <option value=2003>2003</option>
+                            <option value=2004>2004</option>
+                            <option value=2005>2005</option>
+                            <option value=2006>2006</option>
+                            <option value=2007>2007</option>
+                            <option value=2008>2008</option>
+                            <option value=2009>2009</option>
+                            <option value=2010>2010</option>
+                            <option value=2011>2011</option>
+                            <option value=2012>2012</option>
+                            <option value=2013>2013</option>
+                            <option value=2014>2014</option>
+                            <option value=2015>2015</option>
+
+                        </select>
+                        <id style="margin-left: 5px; margin-right: 25px;">Year</id>
+                        <select name=st_month>
+
+                            <option value=1 selected>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                            <option value=6>6</option>
+
+                            <option value=7>7</option>
+                            <option value=8>8</option>
+                            <option value=9>9</option>
+                            <option value=10>10</option>
+                            <option value=11>11</option>
+                            <option value=12>12</option>
+
+                        </select>
+                        <id style="margin-left: 5px; margin-right: 5px;">Month</id>
+                    </td>
+                </tr>
+                <tr id=sp_yjbl>
+                    <th>Target Repayment at:</th>
+                    <td id=tddrawsum>
+                        <select name=ah_year>
+                            <option value=1999 selected>1999</option>
+
+                            <option value=2000>2000</option>
+                            <option value=2001>2001</option>
+                            <option value=2002>2002</option>
+                            <option value=2003>2003</option>
+                            <option value=2004>2004</option>
+                            <option value=2005>2005</option>
+
+                            <option value=2006>2006</option>
+                            <option value=2007>2007</option>
+                            <option value=2008>2008</option>
+                            <option value=2009>2009</option>
+                            <option value=2010>2010</option>
+                            <option value=2011>2011</option>
+
+                            <option value=2012>2012</option>
+                            <option value=2013>2013</option>
+                            <option value=2014>2014</option>
+                            <option value=2015>2015</option>
+                            <option value=2016>2016</option>
+                            <option value=2017>2017</option>
+
+                            <option value=2018>2018</option>
+                            <option value=2019>2019</option>
+                            <option value=2020>2020</option>
+                            <option value=2021>2021</option>
+                            <option value=2022>2022</option>
+                            <option value=2023>2023</option>
+
+                            <option value=2024>2024</option>
+                            <option value=2025>2025</option>
+                            <option value=2026>2026</option>
+                            <option value=2027>2027</option>
+                            <option value=2028>2028</option>
+                            <option value=2029>2029</option>
+
+                            <option value=2030>2030</option>
+                            <option value=2031>2031</option>
+                            <option value=2032>2032</option>
+                            <option value=2033>2033</option>
+                            <option value=2034>2034</option>
+                            <option value=2035>2035</option>
+
+                            <option value=2036>2036</option>
+                            <option value=2037>2037</option>
+                            <option value=2038>2038</option>
+                            <option value=2039>2039</option>
+                            <option value=2040>2040</option>
+                            <option value=2041>2041</option>
+
+                        </select>
+                        <id style="margin-left: 5px; margin-right: 25px;">Year</id>
+                        <select name=ah_month>
+                            <option value=1 selected>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+
+                            <option value=5>5</option>
+                            <option value=6>6</option>
+                            <option value=7>7</option>
+                            <option value=8>8</option>
+                            <option value=9>9</option>
+                            <option value=10>10</option>
+
+                            <option value=11>11</option>
+                            <option value=12>12</option>
+                        </select>
+                        <id style="margin-left: 5px; margin-right: 5px;">Month</id>
+                    </td>
+                </tr>
+                <tr>
+                    <th >Repayment Method:</th>
+                    <td id=tddrawsum >
+                        <input style="border-color:#FFFFFF" onclick=paymethod_click() type=radio name=paymethod><id style="margin-right: 30px;">Repay All Owing Value</id>
+                        <input style="border-color:#FFFFFF" onclick=paymethod_click() type=radio checked name=paymethod>Partially Repayment<br/>
+                        <input onblur=is_NUM()  size=60 name="paycash"  placeholder=" (10K) （Exclude the original repayment in the month）" >
+                    </td>
+                </tr>
+                <tr>
+                    <th >Repayment Mode Option:</th>
+                    <td id=tddrawsum >
+                        <input type=radio checked name=dealwith>Decrease the whole repayment period. No change on the montly repayment amount<br>
+                        <input type=radio name=dealwith>Decrease the repayment amount per month. No change on the no. of times of repayment
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="margin-left: 920px;">
+
+            <input type="button" class="btncase" name="b1" value="Calculate" onclick="javascript:JSF_startcal('');">
 
         </div>
 
-        <!-- START SCROLL TO TOP  -->
 
-        <div class="scrollup">
-            <a href="#"><i class="fa fa-chevron-up"></i></a>
+        <h1 id="result">Result</h1>
+        <table class="table">
+                <tr>
+                    <td>
+
+                        <table  class="table">
+                            <tr>
+                                <th>Original Monthly Repayment(HKD):</th>
+                                <td id=tddrawsum><input value=Wait id=old_paymonth></td>
+                            </tr>
+                            <tr>
+                                <th>Original Last Repayment Date:</th>
+                                <td id=tddrawsum><input onfocus="blur();" value=Wait id=old_lasttime></td>
+                            </tr>
+                            <tr>
+                                <th>Repaid Amount:</th>
+
+                                <td><input  onfocus="blur();" value=Wait name=paidsum></td>
+                            </tr>
+                            <tr>
+                                <th>Paid Interest Amount:</th>
+                                <td><input  onfocus="blur();" value=Wait name=paidlxsum></td>
+                            </tr>
+                            <tr>
+                                <th>Repayment Amount (This Month):</th>
+
+                                <td><input onfocus="blur();" value=Wait name=paythismonth></td>
+                            </tr>
+                            <tr>
+                                <th>Repayment On Next Month:</th>
+                                <td><input onfocus="blur();" value=Wait name=paynextmonth></td>
+                            </tr>
+                            <tr>
+                                <th>Interest Amount Saved:</th>
+
+                                <td><input onfocus="blur();" value=Wait name=savelx></td>
+                            </tr>
+                            <tr>
+                                <th>New Last Payment Date:</th>
+                                <td><input onfocus="blur();"  value=Wait name=lasttime></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+        </form>    </div>
+
+    <div id="frame_3" style="display:none;">
+        <div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
 
-        <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
-        <script src="assets/js/vendor/bootstrap.min.js"></script>
+        <table cellspacing="3px" cellpadding="3px" class="mortgage_cal_new longerwidth noborder" width="95%"
+               align="left">
+            <tr bgcolor="#808000">
+                <th colspan="2" align="left">
+                    Original Mortgage Plan
+                </th>
+            </tr>
 
-        <script src="assets/js/jquery.magnific-popup.js"></script>
-        <script src="assets/js/jquery.mixitup.min.js"></script>
-        <script src="assets/js/jquery.easing.1.3.js"></script>
-        <script src="assets/js/jquery.masonry.min.js"></script>
-        <script src="assets/js/jquery.fancybox.pack.js"></script>
+            <tr>
+                <td class="quest">Original mortgage plan Start date:</td>
+                <td>
+                    <form name="cal_change">
+                        <select name=st_year>
+                            <option value=1989>1989</option>
+                            <option value=1990>1990</option>
+                            <option value=1991>1991</option>
+                            <option value=1992>1992</option>
+                            <option value=1993>1993</option>
+                            <option value=1994>1994</option>
+                            <option value=1995>1995</option>
+                            <option value=1996>1996</option>
+                            <option value=1997 selected>1997</option>
+                            <option value=1998>1998</option>
+                            <option value=1999>1999</option>
+                            <option value=2000>2000</option>
+                            <option value=2001>2001</option>
+                            <option value=2002>2002</option>
+                            <option value=2003>2003</option>
+                            <option value=2004>2004</option>
+                            <option value=2005>2005</option>
+                            <option value=2006>2006</option>
+                            <option value=2007>2007</option>
+                            <option value=2008>2008</option>
+                            <option value=2009>2009</option>
+                            <option value=2010>2010</option>
+                            <option value=2011>2011</option>
+                            <option value=2012>2012</option>
+                            <option value=2013>2013</option>
+                            <option value=2014>2014</option>
+                            <option value=2015>2015</option>
+                        </select>
+                        Year
+                        <select name=st_month>
 
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-        <script src="http://maps.google.com/maps/api/js"></script>
-        <script src="assets/js/gmaps.min.js"></script>
+                            <option value=1 selected>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                            <option value=6>6</option>
+
+                            <option value=7>7</option>
+                            <option value=8>8</option>
+                            <option value=9>9</option>
+                            <option value=10>10</option>
+                            <option value=11>11</option>
+                            <option value=12>12</option>
+
+                        </select>
+                        Month
+                </td>
+
+            </tr>
+            <tr>
+                <td class="quest">Original mortgage loan amount:</td>
+                <td><input maxLength=4 size=15 name=loan>10K</td>
+
+            </tr>
+            <tr>
+                <td class="quest">Repayment period:</td>
+                <td><input maxLength=4 size=15 name=year>Year<input maxLength=4 size=15 name=yearmonth>Month</td>
+
+            </tr>
+            <tr>
+                <td class="quest">Mortgage interest rate(%):</td>
+                <td><input maxLength=4 size=15 name=interest>%</td>
+
+            </tr>
+
+            <tr bgcolor="#808000">
+                <th colspan="2" align="left">
+                    New Mortgage Plan
+                </th>
+
+            </tr>
+
+            <tr>
+                <td class="quest">New Mortgage Plan owing amount</td>
+                <td><input maxLength=4 size=15 name=loan1>10K</td>
+
+            </tr>
+            <tr>
+                <td class="quest">New mortgage period:</td>
+                <td><input maxLength=4 size=15 name=year1>Year<input maxLength=4 size=15 name=yearmonth1>Month</td>
+
+            </tr>
+            <tr>
+                <td class="quest">New mortgage interest rate(%):</td>
+                <td><input maxLength=4 size=15 name=interest1>%</td>
+
+            </tr>
+
+        </table>
+
+        <table cellpadding="5" cellspacing="3" style="margin-left: 20px;">
+            <tr>
+                <td align="left">
+                    <input class="button" type="button" value="     ENTER    " onClick="return checkAll()">&nbsp;&nbsp;&nbsp;<input
+                        class="button" type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
 
 
-        <script>
+        <table class="m_the_result" style="margin-top:5px;margin-left:10px;background-color: #F0F0F0;padding:5px;"
+               width="95%" cellspacing="5px;">
+            <tr>
+                <td>
+                    <b>Mortgage calculated result</b>
+                </td>
+            </tr>
 
-                                            function showmap() {
-                                                var mapOptions = {
-                                                    zoom: 8,
-                                                    scrollwheel: false,
-                                                    center: new google.maps.LatLng(-34.397, 150.644),
-                                                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                                                };
-                                                var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-                                            }
-        </script>
+            <tr>
+                <td>
+                    <table bgcolor="#FFFFFF" cellpadding="5px" width="95%" style="margin: 10px;">
+                        <tr>
+                            <td>
+                                Original monthly payment($)
+                            </td>
+                            <td>
+                                <input name="result" size="15" readonly="readonly" value="Wait" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Original mortgage paid period
+                            </td>
+                            <td>
+                                <input name="paidmonth" size="15" readonly="readonly" value="Wait" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Original mortgage paid amount($)
+                            </td>
+                            <td>
+                                <input name="paidtotal" size="15" readonly="readonly" value="Wait" type="text">10K
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                New mortgage monthly payment($)
+                            </td>
+                            <td>
+                                <input name="result1" size="15" readonly="readonly" value="Wait" class="10pt_normal"
+                                       type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Save amount for the new mortgage plan $:
+                            </td>
+                            <td>
+                                <input name="different" size="15" readonly="readonly" value="Wait" type="text">
+                            </td>
+                        </tr>
+                    </table>
+                    </form>
 
-        <script src="assets/js/plugins.js"></script>
-        <script src="assets/js/main.js"></script>
 
-    </body>
-</html>
+                </td>
+            </tr>
+
+            </td>
+            </tr>
+
+
+        </table>
+
+
+    </div>
+
+
+    <!-- extra -->
+    </td>
+    </tr>
+    </table>
+    </section>
+
+
+
+
+    <div id="popup_div" class="popup_div_300" style="display:none;">
+</div>
+</body></htm><!-- End Footer -->
