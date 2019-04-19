@@ -20,6 +20,13 @@ body {
     width:100%;
     font-family: 'ralewayregular';
 }
+
+#myChart {
+    height: 600px;
+    width: 600px;
+    margin: 0 auto;
+}
+
 .preloader {
     position: fixed;
     top: 0;
@@ -354,6 +361,47 @@ Separator
 /*
 Button
 */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
 .btn-primary.active.focus,
 .btn-primary.active:focus,
 .btn-primary.active:hover,
@@ -375,9 +423,125 @@ Button
 
 
 .btn {
+     display: inline-block;
+     min-width: 150px;
+     line-height: 30px;
+     height: 50px;
+     text-align: center;
+     color: #fff;
+     letter-spacing: 1px;
+     margin: 0;
+     font-size:0.8125rem;
+
+     margin-top: 20px;
+     background-color: #ff7200;
+     transition: .5s;
+     border: 1px solid #ff7200;
+     font-family: 'montserratregular';
+ }
+
+.btn:hover {
+    background-color:#f4720a;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #f4720a;
+}
+
+
+
+.btninfowindow {
+    display: inline-block;
+    min-width: 180px;
+    height: 27px;
+    text-align: center;
+    color: #fff;
+    border-radius: 15px;
+    background-color: #ffaf62;
+    transition: .5s;
+    border: 1px solid #ffaf62;
+    font-family: 'montserratregular';
+
+}
+
+.btninfowindow:hover {
+    background-color:#f4720a;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #f4720a;
+}
+
+
+
+
+.btn-primary {
+     background-color: #ff7200;
+     transition: .5s;
+     padding: 9px 30px;
+ }
+
+.btn-primary-getstart {
+    background-color: #ff5436;
+    transition: .5s;
+
+}
+
+
+.btncalc {
     display: inline-block;
     min-width: 150px;
     line-height: 30px;
+    height: 50px;
+    text-align: center;
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin: 0;
+    font-size:0.8125rem;
+    border-radius: 0px;
+    margin-top: 20px;
+    background-color: #ff6b8c;
+    transition: .5s;
+    border: 1px solid #ff6b8c;
+    font-family: 'montserratregular';
+}
+
+.btncalc:hover {
+    background-color: #ff236f;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #ff236f;
+}
+
+
+
+.btncase {
+    display: inline-block;
+    min-width: 150px;
+    line-height: 30px;
+    height: 50px;
+    text-align: center;
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin: 0;
+    font-size:0.8125rem;
+    border-radius: 0px;
+    margin-top: 20px;
+    background-color: #33aaff;
+    transition: .5s;
+    border: 1px solid #25a7ff;
+    font-family: 'montserratregular';
+}
+
+.btncase:hover {
+    background-color: #2986c8;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #2986c8;
+}
+
+.btnnextstep {
+    display: inline-block;
+    min-width: 150px;
+    line-height: 50px;
     height: 50px;
     text-align: center;
     color: #fff;
@@ -386,23 +550,238 @@ Button
     font-size:0.8125rem;
     border-radius: 0px;
     margin-top: 20px;
-    background-color: #ff7200;
+    background-color: #ffa453;
     transition: .5s;
-    border: 1px solid #ff7200;
+    border: 1px solid #ff8b3f;
     font-family: 'montserratregular';
-
 }
-.btn:hover {
-    background-color:#f4720a;
+
+.btnnextstep:hover {
+    background-color: #ff7200;
     color: #fff;
     text-decoration: none;
-    border: 1px solid #f4720a;
+    border: 1px solid #ff7200;
 }
 
-.btn-primary {
-    background-color: #ff7200;
+
+.btninfohvnt {
+    display: inline-block;
+    min-width: 290px;
+    line-height: 50px;
+    height: 70px;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 1px;
+    margin: 0;
+    font-size:0.8125rem;
+    border-radius: 0px;
+    margin-top: 20px;
+    background-color: #1d95c7;
     transition: .5s;
-    padding: 9px 30px;
+    border: 1px solid #177199;
+    font-size: 15px;
+    font-family: 'montserratregular';
+}
+
+.btninfohvnt:hover {
+    background-color: #235e99;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #214f82;
+}
+
+
+.btninfohv {
+    display: inline-block;
+    min-width: 290px;
+    line-height: 50px;
+    height: 70px;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 1px;
+    margin: 0;
+    font-size:0.8125rem;
+    border-radius: 0px;
+    margin-top: 20px;
+    background-color: #ffa453;
+    transition: .5s;
+    border: 1px solid #c5803d;
+    font-size: 15px;
+    font-family: 'montserratregular';
+}
+
+.btninfohv:hover {
+    background-color: #ff7c44;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #d06839;
+}
+
+.btnrent {
+    display: inline-block;
+    min-width: 150px;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 1px;
+    margin: 0;
+    font-size:0.8125rem;
+    border-radius: 0px;
+    margin-top: 20px;
+    background-color: #ea8195;
+    transition: .5s;
+    border: 1px solid #c76a79;
+    font-family: 'montserratregular';
+}
+
+.btnrent:hover {
+    background-color: #ff3f79;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #c72d57;
+}
+
+
+
+.btnmortcalc {
+    display: inline-block;
+    min-width: 150px;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 1px;
+    margin: 0;
+    font-size:0.8125rem;
+    border-radius: 0px;
+    margin-top: 20px;
+    background-color: #20a3d8;
+    transition: .5s;
+    border: 1px solid #1c81ac;
+    font-family: 'montserratregular';
+}
+
+.btnmortcalc:hover {
+    background-color: #2c60ac;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #21528e;
+}
+
+
+.btncalcenter {
+    display: inline-block;
+    min-width: 150px;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 1px;
+    margin: 0;
+    font-size:0.8125rem;
+    border-radius: 0px;
+    margin-top: 20px;
+    background-color: #61a89a;
+    transition: .5s;
+    border: 1px solid #528d81;
+    font-family: 'montserratregular';
+}
+
+.btncalcenter:hover {
+    background-color: #188d67;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #127152;
+}
+
+
+
+
+
+.btnlock {
+    display: inline-block;
+    min-width: 150px;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 1px;
+    margin: 0;
+    font-size:0.8125rem;
+    border-radius: 0px;
+    margin-top: 20px;
+    background-color: #8f8f8f;
+    transition: .5s;
+    border: 1px solid #6f6f6f;
+    font-family: 'montserratregular';
+}
+
+
+.btnlock:hover {
+    background-color: #8f8f8f;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #6f6f6f;
+}
+
+
+
+.btnback {
+    display: inline-block;
+    min-width: 150px;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 1px;
+    margin: 0;
+    font-size:0.8125rem;
+    border-radius: 0px;
+    margin-top: 20px;
+    background-color: #71cc3c;
+    transition: .5s;
+    border: 1px solid #3aca21;
+    font-family: 'montserratregular';
+}
+
+.btnback:hover {
+    background-color: #08e318;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #08d418;
+}
+
+
+
+.btn-primary-caseselect1 {
+    background-color: #768599;
+    transition: .5s;
+}
+
+.btn-primary-caseselect2 {
+    background-color: #ffa453;
+    transition: .5s;
+}
+
+.btn-circle {
+    width: 250px;
+    height: 70px;
+    text-align: center;
+    padding: 23px 30px 30px ;
+    font-size: 16px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+
+.btn-circlegen {
+    width: 250px;
+    height: 70px;
+    text-align: center;
+
+    font-size: 16px;
+    line-height: 1.428571429;
+    border-radius: 15px;
 }
 
 .btn_news_color{
@@ -1606,7 +1985,7 @@ button.btn-md:hover {
 	font-size:2rem;
 	font-weight:bold;
 }
-#housingCal{
+#housingCal, #expenseCal{
 	margin-top: 100px;
 	color:#000000; 
 	font-size: 1.5rem;
@@ -1653,7 +2032,10 @@ input[type=text] {
   cursor: pointer;
 }
 
-
+input[type=radio]{
+	width:1.3rem;
+	height: 1.3rem;
+}
 
 
 #repayment{
