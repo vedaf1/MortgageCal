@@ -414,6 +414,11 @@
             }
         }
 
+        $(document).ready(function(){
+            var ctx = document.getElementById("canvas").getContext("2d");
+            drawLineCanvas(ctx, HKIsland_lineChartData);
+        });
+
         window.onload = function () {
             var canvas = document.getElementById("canvas");
             var ctx = document.getElementById("canvas").getContext("2d");
